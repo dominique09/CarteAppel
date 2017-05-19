@@ -1,0 +1,47 @@
+{% extends "layout.html" %}
+
+{% block title %}Ajouter un utilisateur{% endblock %}
+
+{% block body %}
+<h1>
+    Ajouter un utilisateur
+</h1>
+
+<form action="/admin/users/create" method="post" autocomplete="off">
+    <div class="form-goup {{ errors.firstname ? 'has-danger' : '' }}">
+        <label for="firstname">Prénom: </label>
+        <input class="form-control {{ errors.firstname ? 'form-control-danger' : '' }}" type="text" name="firstname" id="firstname" value="{{ old_data.firstname }}"/>
+        <div class="form-control-feedback">{{ errors.firstname | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.lastname ? 'has-danger' : '' }}">
+        <label for="lastname">Nom: </label>
+        <input class="form-control {{ errors.lastname ? 'form-control-danger' : '' }}" type="text" name="lastname" id="lastname" value="{{ old_data.lastname }}"/>
+    <div class="form-control-feedback">{{ errors.lastname | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.email ? 'has-danger' : '' }}">
+        <label for="email">Email: </label>
+        <input class="form-control {{ errors.email ? 'form-control-danger' : '' }}" type="email" name="email" id="email" value="{{ old_data.email }}"/>
+    <div class="form-control-feedback">{{ errors.email | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.username ? 'has-danger' : '' }}">
+        <label for="username">Username: </label>
+        <input class="form-control {{ errors.username ? 'form-control-danger' : '' }}" type="text" name="username" id="username" value="{{ old_data.username }}"/>
+    <div class="form-control-feedback">{{ errors.username | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.password ? 'has-danger' : '' }}">
+        <label for="password">Mot de passe: </label>
+        <input class="form-control {{ errors.password ? 'form-control-danger' : '' }}" type="password" name="password" id="password"/>
+        <div class="form-control-feedback">{{ errors.password | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.password_confirm ? 'has-danger' : '' }}">
+        <label for="password_confirm">Mot de passe - Confirmation: </label>
+        <input class="form-control {{ errors.password_confirm ? 'form-control-danger' : '' }}" type="password" name="password_confirm" id="password_confirm"/>
+        <div class="form-control-feedback">{{ errors.password_confirm | first }}</div>
+    </div>
+
+    <input type="hidden" name="token" value="{{ token | raw }}">
+
+    <button type="submit" class="btn btn-success"> Ajouter</button>
+
+</form>
+{% endblock %}

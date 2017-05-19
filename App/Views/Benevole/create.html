@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}Ajouter un bénévole{% endblock %}
+
+{% block body %}
+<h1>Ajouter un bénévole</h1>
+
+<form action="/benevole/create" method="post" autocomplete="off">
+    <div class="form-goup {{ errors.prenom ? 'has-danger' : '' }}">
+        <label for="prenom">Prénom: </label>
+        <input class="form-control {{ errors.prenom ? 'form-control-danger' : '' }}" type="text" name="prenom" id="prenom" value="{{ old_data.prenom }}"/>
+        <div class="form-control-feedback">{{ errors.prenom | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.nom ? 'has-danger' : '' }}">
+        <label for="nom">Nom: </label>
+        <input class="form-control {{ errors.nom ? 'form-control-danger' : '' }}" type="text" name="nom" id="nom" value="{{ old_data.nom }}"/>
+        <div class="form-control-feedback">{{ errors.nom | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.formation ? 'has-danger' : '' }}">
+        <label for="formation">Formation: </label>
+        <select class="form-control custom-select {{ errors.formation ? 'form-control-danger' : '' }}" id="formation" name="formation">
+                <option value="0" {{ (old_data.formation) ? '' : 'selected' }}>Choisir</option>
+            {% for form in formations %}
+                <option value="{{ form.id }}" {{ (old_data.formation == form.id) ? 'selected' : '' }} >
+                    {{ form.nom }} - <b>{{ form.accronyme }}</b>
+                </option>
+            {% endfor %}
+        </select>
+        <div class="form-control-feedback">{{ errors.formation | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.division ? 'has-danger' : '' }}">
+        <label for="division">Division: </label>
+        <select class="form-control custom-select {{ errors.division ? 'form-control-danger' : '' }}" id="division" name="division">
+                <option value="0" {{ (old_data.division) ? '' : 'selected' }}>Choisir</option>
+            {% for div in divisions %}
+                <option value="{{ div.id }}" {{ (old_data.division == div.id) ? 'selected' : '' }} >
+                    {{ div.nom }} - <b>{{ div.numero }}</b>
+                </option>
+            {% endfor %}
+        </select>
+        <div class="form-control-feedback">{{ errors.division | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.phoneOne ? 'has-danger' : '' }}">
+        <label for="phoneOne">Téléphone 1: </label>
+        <input class="form-control {{ errors.phoneOne ? 'form-control-danger' : '' }}" type="text" name="phoneOne" id="phoneOne" value="{{ old_data.phoneOne }}"/>
+        <div class="form-control-feedback">{{ errors.phoneOne | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.phoneTwo ? 'has-danger' : '' }}">
+        <label for="phoneTwo">Téléphone 2: </label>
+        <input class="form-control {{ errors.phoneTwo ? 'form-control-danger' : '' }}" type="text" name="phoneTwo" id="phoneTwo" value="{{ old_data.phoneTwo }}"/>
+        <div class="form-control-feedback">{{ errors.phoneTwo | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.email ? 'has-danger' : '' }}">
+        <label for="email">Adresse Courriel: </label>
+        <input class="form-control {{ errors.email ? 'form-control-danger' : '' }}" type="email" name="email" id="email" value="{{ old_data.email }}"/>
+        <div class="form-control-feedback">{{ errors.email | first }}</div>
+    </div>
+
+    <input type="hidden" name="token" value="{{ token | raw }}">
+
+    <button type="submit" class="btn btn-success"> Ajouter</button>
+
+</form>
+{% endblock %}

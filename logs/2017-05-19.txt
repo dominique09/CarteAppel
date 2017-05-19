@@ -1,0 +1,84 @@
+[19-May-2017 04:03:21 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Service not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('service/index')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:23 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Service not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('service/index')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:25 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Equipe not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('equipe/index')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:26 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Carte not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('carte/index')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:27 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Statistique not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('statistique/ind...')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:28 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Service not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('service/index')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:37 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Service not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('service/index')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:45 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Carte not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('carte/index')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:47 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Service not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('service/index')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:48 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Equipe not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('equipe/index')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:49 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Carte not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('carte/index')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:50 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Statistique not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('statistique/ind...')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:52 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Carte not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('carte/index')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72
+[19-May-2017 04:03:52 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Controller class App\Controllers\Service not found'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\router.php(13): Core\Router->dispatch('service/index')
+#1 C:\xampp2\htdocs\CarteAppel\public\index.php(41): require_once('C:\\xampp2\\htdoc...')
+#2 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 72

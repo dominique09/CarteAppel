@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>{% block title %}{% endblock %}</title>
+
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/datatables/dataTables.bootstrap4.min.css">
+</head>
+<body>
+    {% include 'partials/navigation.html' %}
+    <br/><br/><br/>
+    <div class="container-fluid">
+    {% include 'partials/flash.html' %}
+
+
+    {% block body %}
+    {% endblock %}
+
+    </div>
+    <!-- jQuery first, then Tether, then Bootstrap JS. -->
+    <script src="/assets/jquery/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
+    <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
+    <script src="/assets/dataTables/jquery.dataTables.min.js"></script>
+    <script src="/assets/dataTables/dataTables.bootstrap4.min.js"></script>
+    {% block javascript %}
+    {% endblock %}
+</body>
+</html>

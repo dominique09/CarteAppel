@@ -1,0 +1,12 @@
+[16-May-2017 00:53:48 Europe/Berlin] Uncaught exception: 'ErrorException'
+ Message 'call_user_func_array() expects exactly 2 parameters, 1 given'
+ Stack trace:<pre>#0 [internal function]: Core\Error::errorHandler(2, 'call_user_func_...', 'C:\\xampp2\\htdoc...', 53, Array)
+#1 C:\xampp2\htdocs\CarteAppel\App\Helpers\Validator.php(53): call_user_func_array(Array)
+#2 C:\xampp2\htdocs\CarteAppel\App\Helpers\Validator.php(39): App\Helpers\Validator->validate(Array)
+#3 C:\xampp2\htdocs\CarteAppel\App\Controllers\Admin\Users.php(49): App\Helpers\Validator->check(Array, Array)
+#4 [internal function]: App\Controllers\Admin\Users->addAction()
+#5 C:\xampp2\htdocs\CarteAppel\Core\Controller.php(32): call_user_func_array(Array, Array)
+#6 C:\xampp2\htdocs\CarteAppel\Core\Router.php(67): Core\Controller->__call('add', Array)
+#7 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('admin/users/add')
+#8 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\App\Helpers\Validator.php' on line 53

@@ -1,0 +1,11 @@
+<p>Bonjour {{ user.firstname }},</p>
+
+<p>Votre compte a été créé pour accéder au site {{ baseUrl }}.</p>
+
+<p>Nom d'utilisateur : {{ user.username }}</p>
+
+<p>Vous pouvez suivre le lien suivant pour activer votre compte.</p>
+
+<p><a href="{{ baseUrl }}/auth/activate/{{ user.email }}/{{ identifier }}">{{ baseUrl }}/auth/activate/{{ user.email }}/{{ identifier }}</a></p>
+
+<p>Au plaisir !</p>

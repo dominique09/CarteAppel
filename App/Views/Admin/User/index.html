@@ -1,0 +1,16 @@
+{% extends "layout.html" %}
+
+{% block title %}Utilisateurs{% endblock %}
+
+{% block body %}
+<h1>
+    Hey you're home
+</h1>
+<p>Utilisateurs</p>
+<a class="btn btn-success" href="/admin/users/create">Ajouter</a>
+<ul>
+    {% for user in users %}
+    <li>{{user.firstname}}</li>
+    {% endfor %}
+</ul>
+{% endblock %}

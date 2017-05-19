@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+
+{% block title %}Détails d'un bénévole{% endblock %}
+
+{% block body %}
+<h1>
+    Détails d'un bénévole
+    <small>- {{ old_data.prenom }} {{ old_data.nom }}</small>
+    {% if old_data.actif %}
+        <span class="badge badge-success">Actif</span>
+    {% else %}
+        <span class="badge badge-danger">Inactif</span>
+    {% endif %}
+</h1>
+
+<ul>
+    <li>Prénom:            <b>{{ old_data.prenom }}</b></li>
+    <li>Nom:            <b>{{ old_data.nom }}</b></li>
+    <li>Formation:            <b>{{ old_data.formation.accronyme }} - {{ old_data.formation.nom }}</b></li>
+    <li>Division:            <b>{{ old_data.division.numero }} - {{ old_data.division.nom }}</b></li>
+    <li>Téléphone 1:            <b>{{ old_data.telephone_1 }}</b></li>
+    <li>Téléphone 2:            <b>{{ old_data.telephone_2 }}</b></li>
+    <li>Adresse Courriel:            <b>{{ old_data.email }}</b></li>
+</ul>
+
+<a href="/benevole/index" class="btn btn-info">Retour à la liste</a>
+{% if (benevole.actif) or (auth.hasPermission('reactiver_benevole') and not(benevole.actif)) %}
+<a href="/benevole/edit/{{ old_data.id }}" class="btn btn-warning">Modifier</a>
+{% endif %}
+
+{% endblock %}

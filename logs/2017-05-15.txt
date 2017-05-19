@@ -1,0 +1,663 @@
+[15-May-2017 01:08:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:42 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:42 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:42 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:43 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:43 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:43 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:45 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:45 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:45 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:45 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:46 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:46 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:46 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:46 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:46 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:46 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:48 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:48 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:48 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:48 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:50 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:50 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:50 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:50 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:50 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:50 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:50 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:50 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:50 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:50 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:51 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:51 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:51 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:51 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:51 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:51 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:51 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:51 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:51 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:51 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:51 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:54 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:56 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:56 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:56 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:56 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:56 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:56 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:57 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:57 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:08:57 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:11 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: admin/vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('admin/vendor/tw...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:11 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: admin/vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('admin/vendor/co...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:11 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: admin/vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('admin/vendor/tw...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:11 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: admin/vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('admin/vendor/co...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:11 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: admin/vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('admin/vendor/tw...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:11 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: admin/vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('admin/vendor/tw...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:12 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:12 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:12 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:13 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:13 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:13 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:15 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:15 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:15 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:15 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:15 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:15 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:15 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:15 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:15 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:17 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:18 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:18 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:18 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:19 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:19 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:19 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:34 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:35 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:35 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:35 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:35 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:35 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:35 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:35 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:35 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:35 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:39 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:39 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:40 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:40 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:40 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:40 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:40 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:40 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:40 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:40 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:40 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:40 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:40 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:09:41 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:10:00 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:10:00 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:10:00 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:10:00 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:10:15 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/css/bootstrap.min.css'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:10:15 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/components/jquery/jquery.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/componen...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:10:15 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: vendor/twbs/bootstrap/dist/js/bootstrap.min.js'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('vendor/twbs/boo...')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75
+[15-May-2017 01:45:11 Europe/Berlin] Uncaught exception: 'Error'
+ Message 'Call to a member function validate() on null'
+ Stack trace:<pre>#0 [internal function]: App\Controllers\Admin\Users->addAction()
+#1 C:\xampp2\htdocs\CarteAppel\Core\Controller.php(36): call_user_func_array(Array, Array)
+#2 C:\xampp2\htdocs\CarteAppel\Core\Router.php(67): Core\Controller->__call('add', Array)
+#3 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('admin/users/add')
+#4 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\App\Controllers\Admin\Users.php' on line 43
+[15-May-2017 01:53:08 Europe/Berlin] Uncaught exception: 'Exception'
+ Message 'Matches not found URL: admin/users/'
+ Stack trace:<pre>#0 C:\xampp2\htdocs\CarteAppel\public\index.php(18): Core\Router->dispatch('admin/users/')
+#1 {main}
+ Throw in: 'C:\xampp2\htdocs\CarteAppel\Core\Router.php' on line 75

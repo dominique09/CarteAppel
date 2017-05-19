@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}Modification du profil{% endblock %}
+
+{% block body %}
+<h1>
+    Modification de votre profil
+</h1>
+
+<form action="/profile/edit" method="post" autocomplete="off">
+    <div class="form-goup {{ errors.firstname ? 'has-danger' : '' }}">
+        <label for="firstname">Prénom: </label>
+        <input disabled class="form-control disabled {{ errors.firstname ? 'form-control-danger' : '' }}" type="text" name="firstname" id="firstname" value="{{ old_data.firstname }}"/>
+        <div class="form-control-feedback">{{ errors.firstname | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.lastname ? 'has-danger' : '' }}">
+        <label for="lastname">Nom: </label>
+        <input disabled class="form-control disabled {{ errors.lastname ? 'form-control-danger' : '' }}" type="text" name="lastname" id="lastname" value="{{ old_data.lastname }}"/>
+        <div class="form-control-feedback">{{ errors.lastname | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.email ? 'has-danger' : '' }}">
+        <label for="email">Email: </label>
+        <input class="form-control {{ errors.email ? 'form-control-danger' : '' }}" type="email" name="email" id="email" value="{{ old_data.email }}"/>
+        <div class="form-control-feedback">{{ errors.email | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.username ? 'has-danger' : '' }}">
+        <label for="username">Username: </label>
+        <input disabled class="form-control disabled {{ errors.username ? 'form-control-danger' : '' }}" type="text" name="username" id="username" value="{{ old_data.username }}"/>
+        <div class="form-control-feedback">{{ errors.username | first }}</div>
+    </div>
+
+    <input type="hidden" name="token" value="{{ token | raw }}">
+
+    <button type="submit" class="btn btn-success"> Modifier</button>
+
+</form>
+{% endblock %}
