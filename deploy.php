@@ -19,6 +19,7 @@ $commands = array(
     'composer update',
     'composer dump-autoload',
     'cp -rf /home/carteappel-staging/Config.php App/Config.php',
+    '.\vendor\bin\phinx migrate -c config-phinx.php',
 );
 
 // Run the commands for output
