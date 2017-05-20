@@ -16,6 +16,7 @@ $commands = array(
     'git submodule sync',
     'git submodule update',
     'git submodule status',
+    'composer update',
 );
 
 // Run the commands for output
