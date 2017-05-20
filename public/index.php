@@ -19,6 +19,7 @@ $capsule = new Capsule();
 $capsule->addConnection([
     'driver' => \App\Config::DB_DRIVER,
     'host' => \App\Config::DB_HOST,
+    'port' => \App\Config::DB_PORT,
     'database' => \App\Config::DB_NAME,
     'username' => \App\Config::DB_USER,
     'password' => \App\Config::DB_PASS,
