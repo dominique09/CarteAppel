@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: domin
+ * Users: domin
  * Date: 2017-05-17
  * Time: 20:10
  */
@@ -26,4 +26,8 @@ class UserPermission extends \Illuminate\Database\Eloquent\Model
         'gerer_benevole' => false,
         'reactiver_benevole' => false,
     ];
+
+    public static function getPermissions(){
+        return array_keys(self::$defaults);
+    }
 }

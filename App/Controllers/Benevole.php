@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: domin
+ * Users: domin
  * Date: 2017-05-12
  * Time: 22:21
  */

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Mail\Mailer;
+use App\Models\UserPermission;
 use Core\Controller;
 use Core\View;
 
@@ -21,5 +22,11 @@ class Home extends Controller
             $message->to('dominique.septembre@gmail.com');
             $message->subject('Test DS');
         });
+    }
+
+    public function getUserPermissionsAction(){
+        $up = new UserPermission();
+        echo "<pre>";
+        var_dump(UserPermission::getPermissions());
     }
 }

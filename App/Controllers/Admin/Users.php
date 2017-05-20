@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: domin
+ * Users: domin
  * Date: 2017-05-12
  * Time: 20:36
  */
@@ -30,7 +30,7 @@ class Users extends Controller
     public function indexAction(){
         $users = User::all();
 
-        View::renderTemplate('Admin/User/index.html', ['users' => $users]);
+        View::renderTemplate('Admin/Users/index.html', ['users' => $users]);
     }
 
     public function createAction($args = []){
@@ -38,7 +38,7 @@ class Users extends Controller
             $args = $this->createUser($_POST);
 
         $args['token'] = Token::generate();
-        View::renderTemplate('Admin/User/Create.html', $args);
+        View::renderTemplate('Admin/Users/Create.html', $args);
     }
 
     private function createUser($request){

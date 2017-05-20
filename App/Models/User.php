@@ -24,6 +24,16 @@ class User extends \Illuminate\Database\Eloquent\Model
         return $this->hasOne('App\Models\UserPermission', 'user_id');
     }
 
+    public function listPermissions(){
+        $perms = [];
+
+        foreach (UserPermission::getPermissions() as $permission){
+            if($this->hasPermission($permission))
+                $perms[] = $permission;
+        }
+        return $perms;
+    }
+
     public function hasPermission($permission){
         return (bool) $this->permissions->{$permission};
     }

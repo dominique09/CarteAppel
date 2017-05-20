@@ -1,7 +1,7 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: domin
+ * Users: domin
  * Date: 2017-05-12
  * Time: 22:32
  */
@@ -26,7 +26,7 @@ class Config
     const DB_PREFIX = '';
 
     /// Errors
-    const SHOW_ERRORS = false;
+    const SHOW_ERRORS = true;
 
     ///Hashing
     const HASH_ALGO = PASSWORD_BCRYPT;
