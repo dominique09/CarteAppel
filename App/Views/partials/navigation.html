@@ -20,7 +20,7 @@
         <ul class="navbar-nav">
             {% if auth %}
                 {% if auth.isAdmin() %}
-                <li class="nav-item dropdown {{ route_params.namespace == 'admin' ? 'active' : '' }}">
+                <li class="nav-item dropdown {{ route_params.namespace == 'Admin' ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#" id="adminDropDownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Administration
                     </a>
