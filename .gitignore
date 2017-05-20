@@ -1,3 +1,3 @@
 logs/*
 vendor/*
-Config.php
+App/Config.php
