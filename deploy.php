@@ -17,6 +17,7 @@ $commands = array(
     'git submodule update',
     'git submodule status',
     'composer update',
+    'cp -rf /home/carteappel-staging/Config.php App/Config.php',
 );
 
 // Run the commands for output
