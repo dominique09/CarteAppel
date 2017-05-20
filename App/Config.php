@@ -18,12 +18,16 @@ class Config
     /// Database
     const DB_DRIVER = 'mysql';
     const DB_HOST = '127.0.0.1';
-    const DB_NAME = 'carteappel';
+    const DB_PORT = 3306;
+    const DB_NAME = 'carteappel-dev';
     const DB_USER = 'root';
     const DB_PASS = '';
     const DB_CHARSET = 'utf8';
     const DB_COLL = 'utf8_unicode_ci';
     const DB_PREFIX = '';
+
+    const DB_MIGRATION_USER = 'root';
+    const DB_MIGRATION_PASS = '';
 
     /// Errors
     const SHOW_ERRORS = true;
