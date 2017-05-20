@@ -232,7 +232,7 @@ class Auth extends Controller
                 }
 
                 self::addFlashMessage('success', 'Connexion réussi', "Vous êtes bien connecté.");
-                self::redirect('/admin/users/index');
+                self::redirect('/');
             } else {
                 self::addFlashMessage('error', 'Erreur de connexion', 'Impossible de vous authentifier');
                 self::redirect('/auth/login');
