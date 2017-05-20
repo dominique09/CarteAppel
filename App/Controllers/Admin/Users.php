@@ -38,7 +38,7 @@ class Users extends Controller
             $args = $this->createUser($_POST);
 
         $args['token'] = Token::generate();
-        View::renderTemplate('Admin/Users/Create.html', $args);
+        View::renderTemplate('Admin/Users/create.html', $args);
     }
 
     private function createUser($request){
