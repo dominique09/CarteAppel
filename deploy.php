@@ -17,6 +17,7 @@ $commands = array(
     'git submodule update',
     'git submodule status',
     'composer update',
+    'composer dump-autoload',
     'cp -rf /home/carteappel-staging/Config.php App/Config.php',
 );
 
