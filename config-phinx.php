@@ -1,5 +1,5 @@
 <?php
-require "App\Config.php";
+require "App/Config.php";
 
 use APP\Config;
 
