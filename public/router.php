@@ -3,7 +3,7 @@ $router = new Core\Router();
 
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('home', ['controller' => 'Home', 'action' => 'index']);
-$router->add('admin/{controller}/{action}', ['namespace' => 'admin']);
+$router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
 $router->add('{controller}/{action}');
 $router->add('{controller}/{action}/{id:\d+}');
 
