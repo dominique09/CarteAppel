@@ -96,7 +96,7 @@ class Users extends Controller
             $u->permissions()->create(UserPermission::$defaults);
 
             $mailer = new Mailer();
-            $mailer->send('auth/newUser.html', ['user' => $user, 'identifier' => $ident], function($message) use ($user){
+            $mailer->send('Auth/newUser.html', ['user' => $user, 'identifier' => $ident], function($message) use ($user){
                 $message->to($user['email']);
                 $message->subject('Nouveau compte pour Gestion de Carte d\'appel ASJ');
             });
