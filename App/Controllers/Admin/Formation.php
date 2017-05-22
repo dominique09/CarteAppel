@@ -87,17 +87,20 @@ class Formation extends Controller
 
     private function editFormation($request, $form){
         $v = new Validator($this->errHandler);
-        $v->check($request, [
-            'nom' => [
-                'required' => true,
-                'maxlength' => true,
-            ],
-            'accronyme' => [
+        $check['nom'] = [
+            'required' => true,
+            'maxlength' => true,
+        ];
+
+        if($request['accronyme'] !== $form->accronyme){
+            $check['accronyme'] = [
                 'required' => true,
                 'maxlength' => 3,
                 'unique' => 'formations'
-            ],
-        ]);
+            ];
+        }
+
+        $v->check($request, $check);
 
         $form->nom = $request['nom'];
         $form->accronyme = $request['accronyme'];
