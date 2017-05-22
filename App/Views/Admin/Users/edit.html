@@ -1,0 +1,66 @@
+{% extends "layout.html" %}
+
+{% block title %}Modifier un utilisateur{% endblock %}
+
+{% block body %}
+<h1>
+    Modifier un utilisateur - <small>{{ old_data.firstname }} {{ old_data.lastname }}</small>
+</h1>
+
+<form action="/admin/users/edit/{{ old_data.id }}" method="post" autocomplete="off">
+    <div class="container">
+        <div class="row">
+            <div class="card col-6">
+                <div class="card-block">
+                    <h3 class="card-title">Informations</h3>
+
+                    <div class="form-goup {{ errors.firstname ? 'has-danger' : '' }}">
+                        <label for="firstname">Prénom: </label>
+                        <input class="form-control {{ errors.firstname ? 'form-control-danger' : '' }}" type="text" name="firstname" id="firstname" value="{{ old_data.firstname }}"/>
+                        <div class="form-control-feedback">{{ errors.firstname | first }}</div>
+                    </div>
+                    <div class="form-goup {{ errors.lastname ? 'has-danger' : '' }}">
+                        <label for="lastname">Nom: </label>
+                        <input class="form-control {{ errors.lastname ? 'form-control-danger' : '' }}" type="text" name="lastname" id="lastname" value="{{ old_data.lastname }}"/>
+                        <div class="form-control-feedback">{{ errors.lastname | first }}</div>
+                    </div>
+                    <div class="form-goup {{ errors.email ? 'has-danger' : '' }}">
+                        <label for="email">Email: </label>
+                        <input class="form-control {{ errors.email ? 'form-control-danger' : '' }}" type="email" name="email" id="email" value="{{ old_data.email }}"/>
+                        <div class="form-control-feedback">{{ errors.email | first }}</div>
+                    </div>
+                    <div class="form-goup {{ errors.username ? 'has-danger' : '' }}">
+                        <label for="username">Username: </label>
+                        <input class="form-control {{ errors.username ? 'form-control-danger' : '' }}" type="text" name="username" id="username" value="{{ old_data.username }}"/>
+                        <div class="form-control-feedback">{{ errors.username | first }}</div>
+                    </div>
+                    Statut:
+                    <div class="form-check">
+                        <label class="form-check-label custom-checkbox" for="active">
+                            <input class=" form-check-input" type="checkbox" name="active" id="active" value="on" {{ (old_data.active or old_data.active_hash !=null) ? 'checked' : '' }}>
+                            <span class="custom-control-description">Actif</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+            <div class="card col-5 offset-1">
+                <div class="card-block">
+                    <h3 class="card-title">Permissions</h3>
+                    {% for perm in permission_type %}
+                    <div class="form-check">
+                        <label class="form-check-label custom-checkbox" for="perm_{{ perm }}">
+                            <input class="form-check-input" type="checkbox" name="usr_permissions[]" id="perm_{{ perm }}" value="{{perm}}" {{ (old_data.hasPermission(perm)) ? 'checked' : '' }}>
+                            <span class="custom-control-description">{{ perm }}</span>
+                        </label>
+                    </div>
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+        <input type="hidden" name="token" value="{{ token | raw }}">
+        <br/>
+        <a class="btn btn-warning" href="/admin/users/index">Revenir à la liste</a>
+        <button type="submit" class="btn btn-success"> Modifier</button>
+    </div>
+</form>
+{% endblock %}

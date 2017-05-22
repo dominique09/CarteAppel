@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+
+{% block title %}Détails d'un utilisateur{% endblock %}
+
+{% block body %}
+<h1>
+    Détails d'un utilisateur - <small>{{ old_data.firstname }} {{ old_data.lastname }}</small>
+    {% if old_data.actif %}
+        <span class="badge badge-success">Actif</span>
+    {% else %}
+        {% if old_data.active_hash != null %}
+            <span class="badge badge-warning">Attente d'activation</span>
+        {% else %}
+            <span class="badge badge-danger">Inactif</span>
+        {% endif %}
+    {% endif %}
+</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-6">
+            <ul>
+                <li>Prénom : <b>{{ old_data.firstname }}</b></li>
+                <li>Nom : <b>{{ old_data.lastname }}</b></li>
+                <li>Nom d'utilisateur : <b>{{ old_data.username }}</b></li>
+                <li>Adresse Courritel : <b>{{ old_data.email }}</b></li>
+            </ul>
+        </div>
+        <div class="col-5 offset-1">
+
+        </div>
+    </div>
+    <div class="row">
+        <a href="/admin/users" class="btn btn-info">Retour à la liste</a>
+        <a href="/admin/users/edit/{{ old_data.id }}" class="btn btn-warning">Modifier</a>
+    </div>
+</div>
+{% endblock %}

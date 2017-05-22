@@ -29,4 +29,5 @@ class Home extends Controller
         echo "<pre>";
         var_dump(UserPermission::getPermissions());
     }
+
 }

@@ -43,7 +43,7 @@ class Config
 
     ///Mail
     const MAIL_FROM = 'no-reply@carteappelasj';
-    const MAIL_DOMAIN = 'sandbox90013959593043e1b31d7986dc95dcb7.mailgun.org';
+    const MAIL_DOMAIN = 'mail.dseptembre.com';
     const MAIL_SECRET = 'key-b265620fa3edb4c83dc27e13c4dd5365';
 
     ///Gravatar

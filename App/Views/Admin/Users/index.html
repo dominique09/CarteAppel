@@ -12,7 +12,6 @@
         <th>Prénom</th>
         <th>Nom</th>
         <th>Username</th>
-        <th>Adresse Courriel</th>
         <th>Permissions</th>
         <th></th>
     </tr>
@@ -23,7 +22,6 @@
         <th>Prénom</th>
         <th>Nom</th>
         <th>Username</th>
-        <th>Adresse Courriel</th>
         <th>Permissions</th>
         <th></th>
     </tr>
@@ -31,11 +29,10 @@
     <tbody>
     {% for user in users %}
     <tr>
-        <td><span class="badge {{ (user.active) ? 'badge-success' : 'badge-danger' }}">{{ user.id }}</span></td>
+        <td><span class="badge {{ (user.active) ? 'badge-success' : (user.active_hash != null) ? 'badge-warning' : 'badge-danger' }}">{{ user.id }}</span></td>
         <td>{{ user.firstname }}</td>
         <td>{{ user.lastname }}</td>
         <td>{{ user.username }}</td>
-        <td>{{ user.email }}</td>
         <td>{{ user.listPermissions() | join(' | ') }}
         </td>
 

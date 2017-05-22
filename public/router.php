@@ -3,8 +3,13 @@ $router = new Core\Router();
 
 $router->add('', ['controller' => 'Home', 'action' => 'index']);
 $router->add('home', ['controller' => 'Home', 'action' => 'index']);
+
+$router->add('admin/{controller}', ['namespace' => 'Admin', 'action' => 'index']);
 $router->add('admin/{controller}/{action}', ['namespace' => 'Admin']);
+$router->add('admin/{controller}/{action}/{id:\d+}', ['namespace' => 'Admin']);
+
 $router->add('{controller}/{action}');
+$router->add('{controller}', ['action' => 'index']);
 $router->add('{controller}/{action}/{id:\d+}');
 
 $router->add('auth/activate/{email:\S+}/{ident:\S+}', ['controller' => 'auth', 'action' => 'activate']);

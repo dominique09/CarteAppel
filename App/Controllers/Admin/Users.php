@@ -41,9 +41,91 @@ class Users extends Controller
         View::renderTemplate('Admin/Users/create.html', $args);
     }
 
-    private function createUser($request){
-        $request = $_POST;
+    public function editAction(){
+        $u = User::find($this->route_params['id']);
+        if(!$u){
+            self::addFlashMessage('warning', 'Ooopppsss', 'Une erreur est survenue.');
+            self::redirect('admin/users/index');
+        }
 
+        $args['old_data'] = $u;
+
+        if($_POST && Token::check($_POST['token']))
+            $args = $this->editUser($_POST, $u);
+
+        $args['permission_type'] = UserPermission::getPermissions();
+        $args['token'] = Token::generate();
+        View::renderTemplate('Admin/Users/edit.html', $args);
+    }
+
+    public function detailsAction(){
+        $u = User::find($this->route_params['id']);
+        if(!$u){
+            self::addFlashMessage('warning', 'Ooopppsss', 'Une erreur est survenue.');
+            self::redirect('admin/users/index');
+        }
+
+        $args['old_data'] = $u;
+
+        $args['permission_type'] = UserPermission::getPermissions();
+        View::renderTemplate('Admin/Users/details.html', $args);
+    }
+
+    private function editUser($request, $u){
+        $v = new Validator($this->errHandler);
+        $check['firstname'] = ['required' => true,'alnum' => true];
+        $check['lastname'] = ['required' => true,'alnum' => true];
+
+        if($u->email !== $request['email'])
+            $check['email'] = ['required' => true, 'email' => true, 'maxlength' => 255, 'unique' => 'users'];
+
+        if($u->username !== $request['username'])
+            $check['username'] = ['required' => true, 'maxlength' => 255, 'unique' => 'users'];
+
+        $val = $v->check($request, $check);
+
+        if($val->passes()){
+            $u->firstname = $request['firstname'];
+            $u->lastname = $request['lastname'];
+            $u->username = $request['username'];
+            $u->email = $request['email'];
+
+            foreach (UserPermission::getPermissions() as $perm){
+                if(isset($request['usr_permissions']) && in_array($perm, $request['usr_permissions']))
+                    $u->permissions->{$perm} = true;
+                else
+                    $u->permissions->{$perm} = false;
+            }
+
+            if(isset($request['active']) && $u->active === 0){
+                $ident = bin2hex(random_bytes(64));
+
+                $u->active_hash = Hash::hash($ident);
+
+                $mailer = new Mailer();
+                $mailer->send('Auth/activate.html', ['user' => $u, 'identifier' => $ident], function($message) use ($u){
+                    $message->to($u['email']);
+                    $message->subject('Activation de votre compte pour Gestion de Carte d\'appel ASJ');
+                });
+            } else if(!isset($request['active']) && ($u->active === 1 || $u->active_hash != null)) {
+                $u->active = 0;
+                $u->active_hash = NULL;
+            }
+
+            $u->permissions->save();
+            $u->save();
+
+            self::addFlashMessage('success', 'Utilisateur modifié', "L'utilisateur ". $u['username'] ." a bien été modifié.");
+            self::redirect('/admin/users/index');
+        }
+
+        return [
+            'errors' => $val->errors()->all(),
+            'old_data' => $u
+        ];
+    }
+
+    private function createUser($request){
         $user['firstname'] = $request['firstname'];
         $user['lastname'] = $request['lastname'];
         $user['email'] = $request['email'];
@@ -91,7 +173,6 @@ class Users extends Controller
             $u->email = $user['email'];
             $u->password = Hash::password($user['password']);
             $u->active_hash = Hash::hash($ident);
-            $u->save();
 
             $u->permissions()->create(UserPermission::$defaults);
 
@@ -100,6 +181,8 @@ class Users extends Controller
                 $message->to($user['email']);
                 $message->subject('Nouveau compte pour Gestion de Carte d\'appel ASJ');
             });
+
+            $u->save();
 
             self::addFlashMessage('success', 'Utilisateur ajouté', "L'utilisateur ". $user['username'] ." a bien été ajouté.");
             self::redirect('/admin/users/index');
