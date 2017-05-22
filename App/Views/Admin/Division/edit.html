@@ -1,0 +1,42 @@
+{% extends "layout.html" %}
+
+{% block title %}Modifier une divisions{% endblock %}
+
+{% block body %}
+<h1>Modifier une division - <small><b>{{ old_data.numero }}</b> | {{ old_data.nom }}</small>
+{% if old_data.actif %}
+    <span class="badge badge-success" >Actif</span>
+{% else %}
+    <span class="badge badge-danger" >Inactif</span>
+{% endif %}
+</h1>
+
+<form action="/admin/division/edit/{{ old_data.id }}" method="post" autocomplete="off">
+    <div class="form-goup {{ errors.nom ? 'has-danger' : '' }}">
+        <label for="nom">Nom : </label>
+        <input class="form-control {{ errors.nom ? 'form-control-danger' : '' }}" type="text" name="nom" id="nom" value="{{ old_data.nom }}"/>
+        <div class="form-control-feedback">{{ errors.nom | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.numero ? 'has-danger' : '' }}">
+        <label for="numero">Numéro : </label>
+        <input class="form-control {{ errors.numero ? 'form-control-danger' : '' }}" type="text" name="numero" id="numero" value="{{ old_data.numero }}"/>
+        <div class="form-control-feedback">{{ errors.numero | first }}</div>
+    </div>
+    Statut:
+    <div class="form-check">
+        <label class="form-check-label custom-checkbox" for="actif">
+            <input class=" form-check-input" type="checkbox" name="actif" id="actif" value="on" {{ old_data.actif ? 'checked' : '' }}>
+            <span class="custom-control-description">Actif</span>
+        </label>
+    </div>
+    <input type="hidden" name="token" value="{{ token | raw }}">
+
+    <a class="btn btn-info" href="/admin/division">Retour à la liste</a>
+    <button type="submit" class="btn btn-success">Modifier</button>
+
+</form>
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
