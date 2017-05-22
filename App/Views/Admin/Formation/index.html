@@ -1,0 +1,57 @@
+{% extends "layout.html" %}
+
+{% block title %}Formations{% endblock %}
+
+{% block body %}
+<h1>Formations {% if auth.isAdmin() %}<a href="/admin/formation/create" class="btn btn-success" >Ajouter</a>{% endif %}</h1>
+
+<table id="formTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Nom</th>
+        <th>Accronyme</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>#</th>
+        <th>Nom</th>
+        <th>Accronyme</th>
+        <th></th>
+    </tr>
+    </tfoot>
+    <tbody>
+    {% for form in formations %}
+    <tr>
+        <td><span class="badge badge-info">{{ form.id }}</span></td>
+        <td>{{ form.nom }}</td>
+        <td>{{ form.accronyme }}</td>
+        </td>
+
+        <td>
+            {% if auth.isAdmin() %}
+            <div class="btn-group btn-group-sm" role="group" aria-label="Option">
+                <a class="btn btn-secondary btn-warning" href="/admin/formation/edit/{{ div.id }}">Modifier</a>
+            </div>
+            {% endif %}
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function() {
+        $('#formTable').DataTable({
+            "aoColumnDefs": [
+                { "bSortable": false,
+                    "aTargets": [ 3 ]
+                }
+            ] });
+    } );
+</script>
+{% endblock %}

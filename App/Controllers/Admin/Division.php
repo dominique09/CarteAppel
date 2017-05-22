@@ -83,9 +83,6 @@ class Division extends Controller
         if($_POST && Token::check($_POST['token']))
             $args = $this->editDivision($_POST, $div);
 
-        if($_POST && Token::check( $_POST['token']))
-            $args = $this->createDivision($_POST);
-
         $args['token'] = Token::generate();
         View::renderTemplate('Admin/Division/edit.html', $args);
     }

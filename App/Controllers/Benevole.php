@@ -83,7 +83,7 @@ class Benevole extends Controller
         if($_POST && Token::check( $_POST['token']))
             $args = $this->createBenevole($_POST);
 
-        $args['formations'] = Formation::where('actif', true)->get();
+        $args['formations'] = Formation::all();
         $args['divisions'] = Division::where('actif', true)->get();
         $args['token'] = Token::generate();
         View::renderTemplate('Benevole/create.html', $args);

@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+
+{% block title %}Formation{% endblock %}
+
+{% block body %}
+<h1>Modifier une formation - <small>{{ old_data.nom }}</small></h1>
+
+<form action="/admin/formation/edit/{{old_data.id}}" method="post" autocomplete="off">
+    <div class="form-goup {{ errors.nom ? 'has-danger' : '' }}">
+        <label for="nom">Nom : </label>
+        <input class="form-control {{ errors.nom ? 'form-control-danger' : '' }}" type="text" name="nom" id="nom" value="{{ old_data.nom }}"/>
+        <div class="form-control-feedback">{{ errors.nom | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.accronyme ? 'has-danger' : '' }}">
+        <label for="accronyme">Accronyme : </label>
+        <input class="form-control {{ errors.accronyme ? 'form-control-danger' : '' }}" type="text" name="accronyme" id="accronyme" value="{{ old_data.accronyme }}"/>
+        <div class="form-control-feedback">{{ errors.accronyme | first }}</div>
+    </div>
+
+    <input type="hidden" name="token" value="{{ token | raw }}">
+
+    <a class="btn btn-info" href="/admin/formation">Retour à la liste</a>
+    <button type="submit" class="btn btn-warning">Modifier</button>
+
+</form>
+{% endblock %}
+
+{% block javascript %}
+
+{% endblock %}
