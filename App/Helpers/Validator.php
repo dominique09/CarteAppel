@@ -5,13 +5,14 @@ namespace App\Helpers;
 use App\Helpers\ErrorHandler;
 use Core\Database;
 use Illuminate\Database\Capsule\Manager as Capsule;
+use DateTime;
 
 class Validator
 {
     protected $errorHandler;
     protected $items;
 
-    protected $rules = ['required', 'maxlength', 'minlength', 'email', 'alnum', 'matches', 'notMatches', 'unique', 'matchesCurrentPassword', 'ddSelected'];
+    protected $rules = ['required', 'maxlength', 'minlength', 'email', 'alnum', 'matches', 'notMatches', 'unique', 'matchesCurrentPassword', 'ddSelected', 'olderOrEqualDate'];
 
     public $messages = [
         'required' => 'Ce champs est requis.',
@@ -23,7 +24,8 @@ class Validator
         'unique' => 'La valeur de ce champs est déjà prise.',
         'notMatches' => 'Ce champs ne doit pas correspondre.',
         'matchesCurrentPassword' => 'Votre mot de passe actuel ne correspond pas.',
-        'ddSelected' => 'Une valeur doit être sélectionnée.'
+        'ddSelected' => 'Une valeur doit être sélectionnée.',
+        'olderOrEqualDate' => 'La valeur doit être égale ou plus récente.',
     ];
 
     public function __construct(ErrorHandler $errorHandler)
@@ -122,5 +124,12 @@ class Validator
 
     protected function ddSelected($field, $value, $satisifer){
         return ($value > 0);
+    }
+
+    protected function olderOrEqualDate($field, $value, $satisifer){
+        $valDate = DateTime::createFromFormat("d/m/Y", $value);
+        $satisiferDate = DateTime::createFromFormat("d/m/Y", $this->items[$satisifer]);
+
+        return ($valDate >= $satisiferDate);
     }
 }

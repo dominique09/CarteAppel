@@ -19,14 +19,16 @@
 
         <ul class="navbar-nav">
             {% if auth %}
-                {% if auth.isAdmin() %}
+                {% if auth.isAdmin() or auth.hasPermission('gerer_evenement') or auth.hasPermission('consulter_evenement') %}
                 <li class="nav-item dropdown {{ route_params.namespace == 'Admin' ? 'active' : '' }}">
                     <a class="nav-link dropdown-toggle" href="#" id="adminDropDownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Administration
                     </a>
                     <div class="dropdown-menu" aria-labelledby="adminDropDownLink">
                         <a class="dropdown-item" href="/admin/users/index">Utilisateurs</a>
+                        {% if auth.hasPermission('gerer_evenement') or auth.hasPermission('consulter_evenement') %}
                         <a class="dropdown-item" href="/admin/evenement/index">Événements</a>
+                        {% endif %}
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="/admin/division/index">Divisions</a>
                         <a class="dropdown-item" href="/admin/formation/index">Formations</a>

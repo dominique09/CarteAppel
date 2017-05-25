@@ -2,6 +2,8 @@
 session_cache_limiter(false);
 session_start();
 
+date_default_timezone_set('America/Montreal');
+
 require_once dirname(__DIR__) . '/vendor/autoload.php';
 
 error_reporting(E_ALL);

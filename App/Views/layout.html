@@ -6,7 +6,12 @@
     <title>{% block title %}{% endblock %}</title>
 
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="/assets/font-awesome-4.7.0/css/font-awesome.min.css">
+
     <link rel="stylesheet" href="/assets/dataTables/dataTables.bootstrap4.min.css">
+
+    <link rel="stylesheet" href="/assets/dateTimePicker/css/bootstrap-datepicker.min.css">
+    <link rel="stylesheet" href="/assets/dateTimePicker/css/bootstrap-datepicker3.min.css">
 </head>
 <body>
     {% include 'partials/navigation.html' %}
@@ -25,6 +30,14 @@
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/dataTables/jquery.dataTables.min.js"></script>
     <script src="/assets/dataTables/dataTables.bootstrap4.min.js"></script>
+
+    <script src="/assets/dateTimePicker/js/bootstrap-datepicker.min.js"></script>
+    <script src="/assets/dateTimePicker/locales/bootstrap-datepicker.fr.min.js"></script>
+
+    <script>
+        $.fn.datepicker.defaults.format = "dd/mm/yyyy";
+        $.fn.datepicker.defaults.language = "fr-CA";
+    </script>
     {% block javascript %}
     {% endblock %}
 </body>

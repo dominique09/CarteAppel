@@ -24,6 +24,10 @@ class User extends \Illuminate\Database\Eloquent\Model
         return $this->hasOne('App\Models\UserPermission', 'user_id');
     }
 
+    public function evenement(){
+        return $this->belongsTo('App\Models\Evenement');
+    }
+
     public function listPermissions(){
         $perms = [];
 

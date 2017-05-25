@@ -25,13 +25,23 @@ class UserNullableFieldMigration extends Migration
      * Remember to call "create()" or "update()" and NOT "save()" when working
      * with the Table class.
      */
-    public function change()
-    {
+
+    public function up(){
         $this->table('users')
             ->changeColumn('active_hash', 'string', ['null' => true])
             ->changeColumn('recover_hash', 'string', ['null' => true])
             ->changeColumn('remember_identifier','string', ['null' => true])
             ->changeColumn('remember_token','string', ['null' => true])
-            ->save();
+            ->update();
+    }
+
+    public function down()
+    {
+        $this->table('users')
+            ->changeColumn('active_hash', 'string', ['null' => false])
+            ->changeColumn('recover_hash', 'string', ['null' => false])
+            ->changeColumn('remember_identifier','string', ['null' => false])
+            ->changeColumn('remember_token','string', ['null' => false])
+            ->update();
     }
 }

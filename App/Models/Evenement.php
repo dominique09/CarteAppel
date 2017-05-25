@@ -14,6 +14,14 @@ use Illuminate\Database\Eloquent\Model;
 class Evenement extends Model
 {
     protected $fillable = [
-
+        'nom',
+        'emplacement',
+        'dateDebut',
+        'dateFin',
+        'actif'
     ];
+
+    public function users(){
+        $this->hasMany('App\Models\User');
+    }
 }

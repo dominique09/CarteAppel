@@ -18,7 +18,7 @@ class Formation extends Model
         'accronyme'
     ];
 
-    public function users(){
+    public function benevoles(){
         return $this->hasMany('App\Model\Benevole');
     }
 }
