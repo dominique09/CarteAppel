@@ -3,7 +3,14 @@
 {% block title %}Événements{% endblock %}
 
 {% block body %}
-<h1>Détails d'un événement</h1>
+<h1>Détails d'un événement
+    <small>- {{ old_data.nom }}</small>
+    {% if old_data.actif %}
+    <span class="badge badge-success">Actif</span>
+    {% else %}
+    <span class="badge badge-danger">Inactif</span>
+    {% endif %}
+</h1>
 <div class="container">
     <div class="row">
         <div class="card col-6">
