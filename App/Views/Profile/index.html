@@ -1,0 +1,14 @@
+{% extends "layout.html" %}
+
+{% block title %}Détails profil{% endblock %}
+
+{% block body %}
+<h1>
+    Détails de votre profil
+</h1>
+
+<pre class="">
+    {{ auth | raw }}
+</pre>
+
+{% endblock %}

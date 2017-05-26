@@ -61,7 +61,7 @@ class Division extends Controller
 
             $d->save();
 
-            self::addFlashMessage('success', 'Succèes', 'La division a bien été créée.');
+            self::addFlashMessage('success', 'Succès', 'La division a bien été créée.');
             self::redirect('/admin/division');
         }
 
@@ -114,7 +114,7 @@ class Division extends Controller
 
             $div->save();
 
-            self::addFlashMessage('success', 'Succèes', 'La division a bien été modifié.');
+            self::addFlashMessage('success', 'Succès', 'La division a bien été modifié.');
             self::redirect('/admin/division');
         }
 

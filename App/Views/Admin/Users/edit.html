@@ -45,6 +45,21 @@
             </div>
             <div class="card col-5 offset-1">
                 <div class="card-block">
+                    <h3 class="card-title">Assignation</h3>
+                    <div class="form-goup {{ errors.evenement ? 'has-danger' : '' }}">
+                        <label for="evenement">Evenement: </label>
+                        <select class="form-control custom-select {{ errors.evenement ? 'form-control-danger' : '' }}" id="evenement" name="evenement">
+                            <option value="null" {{ (old_data.evenement) ? '' : 'selected' }}>Choisir</option>
+                            {% for e in evenements %}
+                            <option value="{{ e.id }}" {{ (old_data.evenement.id == e.id) ? 'selected' : '' }} >
+                            {{ e.nom }} - <b>{{ e.emplacement }}</b>
+                            </option>
+                            {% endfor %}
+                        </select>
+                        <div class="form-control-feedback">{{ errors.evenement | first }}</div>
+                    </div>
+                </div>
+                <div class="card-block">
                     <h3 class="card-title">Permissions</h3>
                     {% for perm in permission_type %}
                     <div class="form-check">

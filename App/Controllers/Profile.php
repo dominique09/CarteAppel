@@ -29,7 +29,7 @@ class Profile extends Controller
     }
 
     public function indexAction(){
-
+        View::renderTemplate('Profile/index.html');
     }
 
     public function editAction(){

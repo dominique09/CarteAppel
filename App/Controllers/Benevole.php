@@ -116,7 +116,7 @@ class Benevole extends Controller
 
             $ben->save();
 
-            self::addFlashMessage('success', 'Succèes', 'Le bénévole a bien été modifié.');
+            self::addFlashMessage('success', 'Succès', 'Le bénévole a bien été modifié.');
             self::redirect("/benevole/details/{$ben->id}");
         }
 
@@ -151,7 +151,7 @@ class Benevole extends Controller
 
             $ben->save();
 
-            self::addFlashMessage('success', 'Succèes', 'Le bénévole a bien été créé.');
+            self::addFlashMessage('success', 'Succès', 'Le bénévole a bien été créé.');
             self::redirect('/benevole/index');
         }
 

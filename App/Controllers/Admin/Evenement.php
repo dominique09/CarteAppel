@@ -29,6 +29,18 @@ class Evenement extends Controller
         View::renderTemplate('/Admin/Evenement/index.html', $args);
     }
 
+    public function details(){
+        $e = E::find($this->route_params['id']);
+
+        if(!$e){
+            self::addFlashMessage('error', 'Oooppss', 'Une erreur est survenue !');
+            self::redirect('admin/evenement');
+        }
+
+        $args['old_data'] = $e;
+        View::renderTemplate('admin/evenement/details.html', $args);
+    }
+
     public function createAction(){
         if(!Authentication::Auth()->hasPermission('gerer_evenement'))
             self::redirect('home');

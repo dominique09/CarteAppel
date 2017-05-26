@@ -16,6 +16,7 @@ use App\Models\UserPermission;
 use Core\Controller;
 use Core\View;
 use App\Models\User;
+use App\Models\Evenement as Event;
 use App\Helpers\Token;
 
 class Users extends Controller
@@ -53,6 +54,7 @@ class Users extends Controller
         if($_POST && Token::check($_POST['token']))
             $args = $this->editUser($_POST, $u);
 
+        $args['evenements'] = Event::where('actif', true)->get();
         $args['permission_type'] = UserPermission::getPermissions();
         $args['token'] = Token::generate();
         View::renderTemplate('Admin/Users/edit.html', $args);
@@ -71,7 +73,7 @@ class Users extends Controller
         View::renderTemplate('Admin/Users/details.html', $args);
     }
 
-    private function editUser($request, $u){
+    private function editUser($request, User $u){
         $v = new Validator($this->errHandler);
         $check['firstname'] = ['required' => true,'alnum' => true];
         $check['lastname'] = ['required' => true,'alnum' => true];
@@ -84,11 +86,17 @@ class Users extends Controller
 
         $val = $v->check($request, $check);
 
+        $u->firstname = $request['firstname'];
+        $u->lastname = $request['lastname'];
+        $u->username = $request['username'];
+        $u->email = $request['email'];
+
+        if(!is_null($request['evenement']))
+            $u->evenement()->associate(Event::find($request['evenement']));
+        else
+            $u->evenement()->dissociate();
+
         if($val->passes()){
-            $u->firstname = $request['firstname'];
-            $u->lastname = $request['lastname'];
-            $u->username = $request['username'];
-            $u->email = $request['email'];
 
             foreach (UserPermission::getPermissions() as $perm){
                 if(isset($request['usr_permissions']) && in_array($perm, $request['usr_permissions']))

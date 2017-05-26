@@ -12,7 +12,7 @@
         <th>Prénom</th>
         <th>Nom</th>
         <th>Username</th>
-        <th>Permissions</th>
+        <th>Assignation</th>
         <th></th>
     </tr>
     </thead>
@@ -22,7 +22,7 @@
         <th>Prénom</th>
         <th>Nom</th>
         <th>Username</th>
-        <th>Permissions</th>
+        <th>Assignation</th>
         <th></th>
     </tr>
     </tfoot>
@@ -33,7 +33,7 @@
         <td>{{ user.firstname }}</td>
         <td>{{ user.lastname }}</td>
         <td>{{ user.username }}</td>
-        <td>{{ user.listPermissions() | join(' | ') }}
+        <td>{{ user.evenement.nom }}
         </td>
 
         <td>

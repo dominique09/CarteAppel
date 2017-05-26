@@ -22,6 +22,6 @@ class Evenement extends Model
     ];
 
     public function users(){
-        $this->hasMany('App\Models\User');
+        return $this->hasMany('App\Models\User');
     }
 }
