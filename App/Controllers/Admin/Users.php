@@ -182,8 +182,6 @@ class Users extends Controller
             $u->password = Hash::password($user['password']);
             $u->active_hash = Hash::hash($ident);
 
-            $u->permissions()->create(UserPermission::$defaults);
-
             $mailer = new Mailer();
             $mailer->send('Auth/newUser.html', ['user' => $user, 'identifier' => $ident], function($message) use ($user){
                 $message->to($user['email']);
@@ -191,6 +189,7 @@ class Users extends Controller
             });
 
             $u->save();
+            $u->permissions()->create(UserPermission::$defaults)->save();
 
             self::addFlashMessage('success', 'Utilisateur ajouté', "L'utilisateur ". $user['username'] ." a bien été ajouté.");
             self::redirect('/admin/users/index');
