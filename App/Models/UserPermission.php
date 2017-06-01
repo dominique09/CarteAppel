@@ -20,6 +20,7 @@ class UserPermission extends \Illuminate\Database\Eloquent\Model
         'reactiver_benevole',
         'consulter_evenement',
         'gerer_evenement',
+        'gerer_service',
     ];
 
     public static $defaults = [
@@ -29,6 +30,7 @@ class UserPermission extends \Illuminate\Database\Eloquent\Model
         'reactiver_benevole' => false,
         'consulter_evenement' => false,
         'gerer_evenement' => false,
+        'gerer_service' => false,
     ];
 
     public static function getPermissions(){

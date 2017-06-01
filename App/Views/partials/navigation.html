@@ -9,8 +9,9 @@
                 {% if auth.hasPermission('consulter_benevole') or auth.hasPermission('gerer_benevole') %}
                 <li class="nav-item {{ route_params.controller == 'benevole' ? 'active' : '' }}"><a class="nav-link" href="/benevole/index">Bénévoles</a></li>
                 {% endif %}
-
+                {% if auth.evenement_id != null %}
                 <li class="nav-item {{ route_params.controller == 'service' ? 'active' : '' }}"><a class="nav-link" href="/service/index">Services</a></li>
+                {% endif %}
                 <li class="nav-item {{ route_params.controller == 'equipe' ? 'active' : '' }}"><a class="nav-link" href="/equipe/index">Équipes</a></li>
                 <li class="nav-item {{ route_params.controller == 'carte' ? 'active' : '' }}"><a class="nav-link" href="/carte/index">Cartes</a></li>
                 <li class="nav-item {{ route_params.controller == 'statistique' ? 'active' : '' }}"><a class="nav-link" href="/statistique/index">Statistiques</a></li>

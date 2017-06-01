@@ -36,7 +36,13 @@
         </div>
         <div class="form-control-feedback">{{ errors.date_fin | first }}</div>
     </div>
-
+    <div class="form-check">
+        <label class="form-check-label" for="actif">
+            <input class=" form-check-input" type="checkbox" name="actif" id="actif" value="on"  {{ (old_data.actif) ? 'checked' : '' }}>
+            Actif
+        </label>
+        <div class="form-control-feedback">{{ errors.actif | first }}</div>
+    </div>
     <input type="hidden" name="token" value="{{ token | raw }}">
 
     <a class="btn btn-info" href="/admin/evenement">Retour à la liste</a>

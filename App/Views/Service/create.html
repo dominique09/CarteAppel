@@ -1,0 +1,92 @@
+{% extends "layout.html" %}
+
+{% block title %}Services{% endblock %}
+
+{% block body %}
+<h1>Ajouter un service</h1>
+
+<form action="/service/create" method="post" autocomplete="off">
+    <div class="container">
+            <div class="form-goup {{ errors.nom ? 'has-danger' : '' }}">
+                <label for="nom">Nom : </label>
+                <input class="form-control {{ errors.nom ? 'form-control-danger' : '' }}" type="text" name="nom" id="nom" value="{{ old_data.nom }}"/>
+                <div class="form-control-feedback">{{ errors.nom | first }}</div>
+            </div>
+            <div class="form-goup {{ errors.details ? 'has-danger' : '' }}">
+                <label for="details">Détails : </label>
+                <input class="form-control {{ errors.details ? 'form-control-danger' : '' }}" type="text" name="details" id="details" value="{{ old_data.details }}"/>
+                <div class="form-control-feedback">{{ errors.details | first }}</div>
+            </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group {{ errors.date_debut ? 'has-danger' : '' }}">
+                    <label for="date_debut">Date Début : </label>
+                    <div class="input-group date" id="datepicker_datedebut" data-provide="datepicker" data-date="{{ old_data.date_debut }}">
+                        <input type="text" id="date_debut" name="date_debut" class="form-control date_input"  value="{{ old_data.date_debut }}"/>
+                        <span class="input-group-addon">
+                            <span class="fa fa-calendar"></span>
+                        </span>
+                    </div>
+                    <div class="form-control-feedback">{{ errors.date_debut | first }}</div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-goup {{ errors.heure_debut ? 'has-danger' : '' }}">
+                    <label for="heure_debut">Heure Début : </label>
+                    <div class="input-group">
+                        <input class="form-control time {{ errors.heure_debut ? 'form-control-danger' : '' }}" type="text" name="heure_debut" id="heure_debut" value="{{ old_data.heure_debut }}"/>
+                        <span class="input-group-addon">
+                            <span class="fa fa-clock-o"></span>
+                        </span>
+                </div>
+                <div class="form-control-feedback">{{ errors.heure_debut | first }}</div>
+            </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group {{ errors.date_fin ? 'has-danger' : '' }}">
+                    <label for="date_fin">Date Fin : </label>
+                    <div class="input-group date" id="datepicker_datefin" data-provide="datepicker" data-date="{{ old_data.date_fin}}">
+                        <input type="text" id="date_fin" name="date_fin" class="form-control date_input" value="{{ old_data.date_fin}}" />
+                        <span class="input-group-addon">
+                            <span class="fa fa-calendar"></span>
+                        </span>
+                    </div>
+                    <div class="form-control-feedback">{{ errors.date_fin | first }}</div>
+                </div>
+            </div>
+            <div class="col-6">
+                <div class="form-goup {{ errors.heure_fin ? 'has-danger' : '' }}">
+                    <label for="heure_fin">Heure Fin : </label>
+                    <div class="input-group">
+                        <input class="form-control time {{ errors.heure_fin ? 'form-control-danger' : '' }}" type="text" name="heure_fin" id="heure_fin" value="{{ old_data.heure_fin }}"/>
+                        <span class="input-group-addon">
+                                    <span class="fa fa-clock-o"></span>
+                                </span>
+                    </div>
+                    <div class="form-control-feedback">{{ errors.heure_fin | first }}</div>
+                </div>
+            </div>
+        </div>
+
+        <input type="hidden" name="token" value="{{ token | raw }}">
+
+        <a class="btn btn-info" href="/service">Retour à la liste</a>
+        <button type="submit" class="btn btn-success">Ajouter</button>
+    </div>
+</form>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function(){
+        $('.time').mask('00:00', {
+            placeholder: "__:__"
+        });
+        $('.date_input').mask('00/00/0000', {
+            placeholder: "__/__/____"
+        });
+    });
+</script>
+{% endblock %}

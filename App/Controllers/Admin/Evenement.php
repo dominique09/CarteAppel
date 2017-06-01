@@ -29,12 +29,13 @@ class Evenement extends Controller
         View::renderTemplate('/Admin/Evenement/index.html', $args);
     }
 
-    public function details(){
+
+    public function detailsAction(){
         $e = E::find($this->route_params['id']);
 
         if(!$e){
             self::addFlashMessage('error', 'Oooppss', 'Une erreur est survenue !');
-            self::redirect('admin/evenement');
+            self::redirect('/admin/evenement');
         }
 
         $args['old_data'] = $e;
@@ -43,7 +44,7 @@ class Evenement extends Controller
 
     public function createAction(){
         if(!Authentication::Auth()->hasPermission('gerer_evenement'))
-            self::redirect('home');
+            self::redirect('/home');
 
         if($_POST && Token::check($_POST['token']))
             $args = $this->createEvenement($_POST);
@@ -59,7 +60,7 @@ class Evenement extends Controller
         $e = E::find($this->route_params['id']);
         if(!$e){
             self::addFlashMessage('error', 'Oooppss', 'Une erreur est survenue !');
-            self::redirect('admin/evenement');
+            self::redirect('/admin/evenement');
         }
 
         $args['old_data'] = $e;
@@ -85,11 +86,25 @@ class Evenement extends Controller
         $e->date_debut = DateTime::createFromFormat('d/m/Y', $request['date_debut']);
         $e->date_fin = DateTime::createFromFormat('d/m/Y', $request['date_fin']);
 
-        ///TODO: Gérer acrif / inactif événement avec validation au niveau des service (si service en cours ne pas pouvoir désactiver)
-        //$e->actif = 1;
+        if(!isset($request['actif']) && $e->actif === 1 && (count($e->services->where('actif', true)) > 0)){
+            self::addFlashMessage('warning', 'OOoooppssss', 'Impossible de désactiver l\'événement. Un service est toujours en cours.');
+            return [
+                'old_data' => $e,
+                'errors' => $v->errors()->all(),
+            ];
+        }
+
+        $e->actif = isset($request['actif']);
 
         if($v->passes()){
             $e->save();
+
+            if(!$e->actif){
+                foreach ($e->users as $u){
+                    $u->evenement()->dissociate();
+                    $u->save();
+                }
+            }
 
             self::addFlashMessage('success', "Succès", "L'événement {$request['nom']} a bien été sauvegardé.");
             self::redirect('/admin/evenement');

@@ -12,7 +12,7 @@ class Validator
     protected $errorHandler;
     protected $items;
 
-    protected $rules = ['required', 'maxlength', 'minlength', 'email', 'alnum', 'matches', 'notMatches', 'unique', 'matchesCurrentPassword', 'ddSelected', 'olderOrEqualDate'];
+    protected $rules = ['required', 'maxlength', 'minlength', 'email', 'alnum', 'matches', 'notMatches', 'unique', 'matchesCurrentPassword', 'ddSelected', 'olderOrEqualDate', 'timeFormat'];
 
     public $messages = [
         'required' => 'Ce champs est requis.',
@@ -26,6 +26,7 @@ class Validator
         'matchesCurrentPassword' => 'Votre mot de passe actuel ne correspond pas.',
         'ddSelected' => 'Une valeur doit être sélectionnée.',
         'olderOrEqualDate' => 'La valeur doit être égale ou plus récente.',
+        'timeFormat' => 'Ce champs doit être au format d\'heure. (00:00)',
     ];
 
     public function __construct(ErrorHandler $errorHandler)
@@ -131,5 +132,10 @@ class Validator
         $satisiferDate = DateTime::createFromFormat("d/m/Y", $this->items[$satisifer]);
 
         return ($valDate >= $satisiferDate);
+    }
+
+    protected function timeFormat($field, $value, $satisifer){
+        $regex = "#^(0[0-9]|1[0-9]|2[0-3]):[0-5][0-9]$#";
+        return preg_match($regex, $value);
     }
 }
