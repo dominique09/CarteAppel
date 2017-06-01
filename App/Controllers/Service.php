@@ -34,7 +34,7 @@ class Service extends Controller
 
     public function indexAction(){
         $args['services'] = Authentication::Auth()->evenement->services;
-        View::renderTemplate('service/index.html', $args);
+        View::renderTemplate('Service/index.html', $args);
     }
 
     public function createAction(){
