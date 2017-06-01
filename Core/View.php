@@ -62,6 +62,12 @@ class View
 
         $args['baseUrl'] = Config::BASE_URL;
 
+        if(file_exists("../public/assets/images/logo/". Authentication::Auth()->evenement->id .".png")){
+            $args['pathLogo'] = "/assets/images/logo/". Authentication::Auth()->evenement->id .".png";
+        } else {
+            $args['pathLogo'] = "/assets/images/logo/logo.png";
+        }
+
         echo $twig->render($template, $args);
 
     }
