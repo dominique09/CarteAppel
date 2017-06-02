@@ -20,7 +20,6 @@ $commands = array(
     'composer update',
     'composer dump-autoload',
     'cp -rf /home/carteappel/Config.php App/Config.php',
-    'cp -rf /home/carteappel/config-phinx.php config-phinx.php',
     'php ./vendor/bin/phinx migrate -c config-phinx.php',
 );
 
