@@ -28,4 +28,8 @@ class Evenement extends Model
     public function services(){
         return $this->hasMany('App\Models\Service');
     }
+
+    public function serviceActif(){
+        return $this->services->where('actif', '=', 1);
+    }
 }

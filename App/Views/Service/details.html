@@ -1,0 +1,49 @@
+{% extends "layout.html" %}
+
+{% block title %}Services{% endblock %}
+
+{% block body %}
+<h1>Détails d'un service
+    <small>- {{ old_data.nom }}</small>
+    {% if old_data.actif %}
+    <span class="badge badge-success">Actif</span>
+    {% else %}
+    <span class="badge badge-danger">Inactif</span>
+    {% endif %}
+</h1>
+<div class="container">
+    <div class="row">
+        <div class="card col-6">
+            <div class="card-block">
+                <h3 class="card-title">Informations</h3>
+                <ul>
+                    <li>Nom : <b>{{ old_data.nom }}</b></li>
+                    <li>Détails : <b>{{ old_data.details }}</b></li>
+                    <li>Début : <b>{{ old_data.debut | date('d/m/Y H:i') }}</b></li>
+                    <li>Fin : <b>{{ old_data.fin | date('d/m/Y H:i') }}</b></li>
+                </ul>
+            </div>
+        </div>
+        <div class="card col-5 offset-1">
+            <div class="card-block">
+                <h3 class="card-title">Équipes</h3>
+                <ul>
+                    {% for e in old_data.equipes %}
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    <br/>
+    <div class="row">
+
+        <a class="btn btn-info" href="/service">Retour à la liste</a>
+        {% if auth.hasPermission('gerer_evenement') %}
+        <a class="btn btn-warning" href="/service/edit/{{ old_data.id }}">Modifier</a>
+        {% endif %}
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+{% endblock %}

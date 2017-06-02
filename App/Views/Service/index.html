@@ -34,8 +34,8 @@
         <td><span class="badge {{ (s.actif) ? 'badge-success' : 'badge-danger' }}">{{ s.id }}</span></td>
         <td>{{ s.nom }}</td>
         <td>{{ s.details }}</td>
-        <td>{{ s.debut | date("d/m/Y h:i") }}</td>
-        <td>{{ s.fin | date("d/m/Y h:i") }}</td>
+        <td>{{ s.debut | date("d/m/Y H:i") }}</td>
+        <td>{{ s.fin | date("d/m/Y H:i") }}</td>
         <td>
             <div class="btn-group btn-group-sm" role="group" aria-label="Option">
                 {% if auth.hasPermission('consulter_evenement') %}
