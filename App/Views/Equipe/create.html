@@ -1,0 +1,73 @@
+{% extends "layout.html" %}
+
+{% block title %}Former une équipe{% endblock %}
+
+{% block body %}
+<h1>Former une équipe</h1>
+
+<form action="/equipe/create" method="post" autocomplete="off">
+    <div class="form-goup {{ errors.numero ? 'has-danger' : '' }}">
+        <label for="numero">Numéro: </label>
+        <input class="form-control {{ errors.numero ? 'form-control-danger' : '' }}" type="text" name="numero" id="numero" value="{{ old_data.numero }}"/>
+        <div class="form-control-feedback">{{ errors.numero | first }}</div>
+    </div>
+    <div class="form-goup {{ errors.emplacement ? 'has-danger' : '' }}">
+        <label for="emplacement">Emplacement: </label>
+        <input class="form-control {{ errors.emplacement ? 'form-control-danger' : '' }}" type="text" name="emplacement" id="emplacement" value="{{ old_data.emplacement }}"/>
+        <div class="form-control-feedback">{{ errors.emplacement | first }}</div>
+    </div>
+    <div class="form-group {{ errors.benevoles ? 'has-danger' : '' }}">
+        <label for="benevoles">Bénévoles</label>
+        <div class="form-group {{ errors.benevoles ? 'has-danger' : '' }}">
+            <div class="input-group">
+                <select name="benevoles[]" id="benevoles" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner les bénévoles" multiple>
+                    {% for ben in lstBenevoles %}
+                    <option  value="{{ ben.id }}" data-subtext="{{ ben.formation.accronyme }} - {{ ben.division.numero }}" title="{{ ben.prenom }} {{ben.nom}} | {{ ben.formation.accronyme }} - {{ ben.division.numero }}" {{ (ben.isAssigned() ? 'disabled' : '') }}>{{ ben.prenom }} {{ben.nom}}</option>
+                    {% endfor %}
+                </select>
+                <span class="input-group-btn">
+            </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group {{ errors.site ? 'has-danger' : '' }}">
+        <label for="sites">Site</label>
+        <div class="form-group {{ errors.site ? 'has-danger' : '' }}">
+            <div class="input-group">
+                <select name="site" id="site" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner le site">
+                    {% for site in lstSites %}
+                    <option  value="{{ site.id }}" title="{{ site.nom }}">{{ site.nom}}</option>
+                    {% endfor %}
+                </select>
+                <span class="input-group-btn">
+            </span>
+            </div>
+        </div>
+    </div>
+    <div class="form-group {{ errors.type ? 'has-danger' : '' }}">
+        <label for="type">Type</label>
+        <div class="form-group {{ errors.assignations ? 'has-danger' : '' }}">
+            <div class="input-group">
+                <select name="type" id="type" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner le type d'équipe" >
+                    <option value="0" selected title="Équipe Terrain">Équipe Terrain</option>
+                    <option value="1" title="Équipe Volante">Équipe Volante</option>
+                    <option value="2" title="Soutien">Soutien</option>
+                </select>
+                <span class="input-group-btn">
+            </span>
+            </div>
+        </div>
+    </div>
+
+    <br/>
+    <button type="submit" class="btn btn-success"> Ajouter</button>
+
+    <input type="hidden" name="token" value="{{ token | raw }}">
+
+</form>
+{% endblock %}
+{% block javascript %}
+<script>
+
+</script>
+{% endblock %}

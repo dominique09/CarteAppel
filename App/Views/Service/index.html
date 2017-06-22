@@ -31,7 +31,7 @@
     <tbody>
     {% for s in services %}
     <tr>
-        <td><span class="badge {{ (s.actif) ? 'badge-success' : 'badge-danger' }}">{{ s.id }}</span></td>
+        <td><span class="label {{ (s.actif) ? 'label-success' : 'label-danger' }}">{{ s.id }}</span></td>
         <td>{{ s.nom }}</td>
         <td>{{ s.details }}</td>
         <td>{{ s.debut | date("d/m/Y H:i") }}</td>

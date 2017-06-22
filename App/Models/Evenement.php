@@ -25,6 +25,10 @@ class Evenement extends Model
         return $this->hasMany('App\Models\User');
     }
 
+    public function sites(){
+        return $this->hasMany('App\Models\Site');
+    }
+
     public function services(){
         return $this->hasMany('App\Models\Service');
     }

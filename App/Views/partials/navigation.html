@@ -1,59 +1,67 @@
-<nav class="navbar navbar-toggleable-md navbar-inverse fixed-top bg-inverse">
-    <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarDefault" aria-controls="navbarDefault" aria-expanded="false" aria-label="Toogle navigation">
-        <span class="navbar-toggler-icon"></span>
-    </button>
-    <a class="navbar-brand" href="/">
-        <img src="{{ pathLogo }}"  height="30" alt="{{ (auth.evenement) ? auth.evenement.nom : 'Gestion Carte Appel ASJ'}}">
-        {{ (auth.evenement) ? auth.evenement.nom : 'Gestion Carte Appel ASJ'}}</a>
-    <div class="collapse navbar-collapse" id="navbarDefault">
-        <ul class="navbar-nav mr-auto">
-            {% if auth %}
+<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarDefault" aria-expanded="false">
+                <span class="sr-only">Toogle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="/">
+                <img src="{{ pathLogo }}"  height="25" alt="{{ (auth.evenement) ? auth.evenement.nom : 'Gestion Carte Appel ASJ'}}" />
+            </a>
+        </div>
+        <div class="collapse navbar-collapse" id="navbarDefault">
+            <ul class="nav navbar-nav">
+                {% if auth %}
                 {% if auth.hasPermission('consulter_benevole') or auth.hasPermission('gerer_benevole') %}
-                <li class="nav-item {{ route_params.controller == 'benevole' ? 'active' : '' }}"><a class="nav-link" href="/benevole/index">Bénévoles</a></li>
+                <li class=" {{ route_params.controller == 'benevole' ? 'active' : '' }}"><a class="nav-link" href="/benevole/index">Bénévoles</a></li>
                 {% endif %}
                 {% if auth.evenement_id != null %}
-                <li class="nav-item {{ route_params.controller == 'service' ? 'active' : '' }}"><a class="nav-link" href="/service/index">Services</a></li>
+                <li class=" {{ route_params.controller == 'service' ? 'active' : '' }}"><a class="nav-link" href="/service/index">Services</a></li>
+                <li class=" {{ route_params.controller == 'site' ? 'active' : '' }}"><a class="nav-link" href="/site/index">Sites</a></li>
                 {% endif %}
-                <li class="nav-item {{ route_params.controller == 'equipe' ? 'active' : '' }}"><a class="nav-link" href="/equipe/index">Équipes</a></li>
-                <li class="nav-item {{ route_params.controller == 'carte' ? 'active' : '' }}"><a class="nav-link" href="/carte/index">Cartes</a></li>
-                <li class="nav-item {{ route_params.controller == 'statistique' ? 'active' : '' }}"><a class="nav-link" href="/statistique/index">Statistiques</a></li>
-            {% endif %}
-        </ul>
-
-        <ul class="navbar-nav">
-            {% if auth %}
+                <li class=" {{ route_params.controller == 'equipe' ? 'active' : '' }}"><a class="nav-link" href="/equipe/index">Équipes</a></li>
+                <li class=" {{ route_params.controller == 'carte' ? 'active' : '' }}"><a class="nav-link" href="/carte/index">Cartes</a></li>
+                <li class=" {{ route_params.controller == 'statistique' ? 'active' : '' }}"><a class="nav-link" href="/statistique/index">Statistiques</a></li>
+                {% endif %}
+            </ul>
+            <ul class="nav navbar-nav navbar-right">
+                {% if auth %}
                 {% if auth.isAdmin() or auth.hasPermission('gerer_evenement') or auth.hasPermission('consulter_evenement') %}
-                <li class="nav-item dropdown {{ route_params.namespace == 'Admin' ? 'active' : '' }}">
-                    <a class="nav-link dropdown-toggle" href="#" id="adminDropDownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                <li class="dropdown {{ route_params.namespace == 'Admin' ? 'active' : '' }}">
+                    <a class="dropdown-toggle" href="#" id="adminDropDownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                         Administration
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="adminDropDownLink">
-                        <a class="dropdown-item" href="/admin/users/index">Utilisateurs</a>
+                    <ul class="dropdown-menu" aria-labelledby="adminDropDownLink">
+                        <li><a class="dropdown-item" href="/admin/users/index">Utilisateurs</a></li>
                         {% if auth.hasPermission('gerer_evenement') or auth.hasPermission('consulter_evenement') %}
-                        <a class="dropdown-item" href="/admin/evenement/index">Événements</a>
+                        <li><a class="dropdown-item" href="/admin/evenement/index">Événements</a></li>
                         {% endif %}
-                        <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/admin/division/index">Divisions</a>
-                        <a class="dropdown-item" href="/admin/formation/index">Formations</a>
-                    </div>
+                        <li><div class="dropdown-divider"></div></li>
+                        <li><a class="dropdown-item" href="/admin/division/index">Divisions</a></li>
+                        <li><a class="dropdown-item" href="/admin/formation/index">Formations</a></li>
+                    </ul>
                 </li>
                 {% endif %}
-                <li class="nav-item dropdown {{ route_params.controller == 'profile' ? 'active' : '' }}">
-                    <a class="nav-link dropdown-toggle" href="#" id="authDropDownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <img class="" src="{{ auth.getAvatarUrl() }}&s=30" width="30" height="30" alt=""/>
+                <li class=" dropdown {{ route_params.controller == 'profile' ? 'active' : '' }}">
+                    <a class="dropdown-toggle" href="#" id="authDropDownLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <img class="" src="{{ auth.getAvatarUrl() }}&s=30" width="20" height="20" alt=""/>
                         {{ auth.firstname }} {{ auth.lastname }}
                     </a>
-                    <div class="dropdown-menu" aria-labelledby="authDropDownLink">
-                        <a class="dropdown-item" href="/profile/index">Afficher mon profil</a>
-                        <a class="dropdown-item" href="/profile/edit">Modification de mon profil</a>
-                        <a class="dropdown-item" href="/profile/change-password">Changer mon mot de passe</a>
+                    <ul class="dropdown-menu" aria-labelledby="authDropDownLink">
+                        <li><a class="dropdown-item" href="/profile/index">Afficher mon profil</a></li>
+                        <li><a class="dropdown-item" href="/profile/edit">Modification de mon profil</a></li>
+                        <li><a class="dropdown-item" href="/profile/change-password">Changer mon mot de passe</a></li>
                         <div class="dropdown-divider"></div>
-                        <a class="dropdown-item" href="/auth/logout">Déconnexion</a>
+                        <li><a class="dropdown-item" href="/auth/logout">Déconnexion</a></li>
                     </div>
                 </li>
-            {% else %}
+                {% else %}
                 <li class="nav-item"><a class="nav-link" href="/auth/login">Connexion</a></li>
-            {% endif %}
-        </ul>
+                {% endif %}
+            </ul>
+        </div>
+
     </div>
 </nav>

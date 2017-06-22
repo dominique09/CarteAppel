@@ -1,0 +1,28 @@
+{% extends "layout.html" %}
+
+{% block title %}Sites{% endblock %}
+
+{% block body %}
+<h1>Ajouter un site</h1>
+
+<form action="/site/create" method="post" autocomplete="off">
+    <div class="container">
+        <div class="form-goup {{ errors.nom ? 'has-danger' : '' }}">
+            <label for="nom">Nom : </label>
+            <input class="form-control {{ errors.nom ? 'form-control-danger' : '' }}" type="text" name="nom" id="nom" value="{{ old_data.nom }}"/>
+            <div class="form-control-feedback">{{ errors.nom | first }}</div>
+        </div>
+
+        <input type="hidden" name="token" value="{{ token | raw }}">
+
+        <a class="btn btn-info" href="/service">Retour à la liste</a>
+        <button type="submit" class="btn btn-success">Ajouter</button>
+    </div>
+</form>
+{% endblock %}
+
+{% block javascript %}
+<script>
+
+</script>
+{% endblock %}

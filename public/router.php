@@ -15,4 +15,10 @@ $router->add('{controller}/{action}/{id:\d+}');
 $router->add('auth/activate/{email:\S+}/{ident:\S+}', ['controller' => 'auth', 'action' => 'activate']);
 $router->add('auth/password-recover-change/{email:\S+}/{ident:\S+}', ['controller' => 'auth', 'action' => 'passwordRecoverChange']);
 
+$router->add('api/equipe/{action}', ['namespace' => 'Api', 'controller' => 'EquipeApi']);
+$router->add('api/equipe/{action}/{id:\d+}', ['namespace' => 'Api', 'controller' => 'EquipeApi']);
+
+$router->add('api/assignation/{action}', ['namespace' => 'Api', 'controller' => 'AssignationApi']);
+$router->add('api/assignation/{action}/{equipeid:\d+}', ['namespace' => 'Api', 'controller' => 'AssignationApi']);
+
 $router->dispatch($_SERVER['QUERY_STRING']);

@@ -1,5 +1,5 @@
 {% if flash.global %}
-<div class="card card-inverse card-primary">
+<div class="alert alert-success">
     <div class="card-block">
         <h3 class="card-title">
             {{ flash.global.title }}
@@ -11,38 +11,32 @@
 </div>
 {% endif %}
 {% if flash.error %}
-<div class="card card-inverse card-danger">
-    <div class="card-block">
+<div class="alert alert-danger">
         <h3 class="card-title">
             {{ flash.error.title }}
         </h3>
         <p class="card-text">
             {{ flash.error.message }}
         </p>
-    </div>
 </div>
 {% endif %}
 {% if flash.warning %}
-<div class="card card-inverse card-warning">
-    <div class="card-block">
+<div class="alert alert-warning">
         <h3 class="card-title">
             {{ flash.warning.title }}
         </h3>
         <p class="card-text">
             {{ flash.warning.message }}
         </p>
-    </div>
 </div>
 {% endif %}
 {% if flash.success %}
-<div class="card card-inverse card-success">
-    <div class="card-block">
+<div class="alert alert-success">
         <h3 class="card-title">
             {{ flash.success.title }}
         </h3>
         <p class="card-text">
             {{ flash.success.message }}
         </p>
-    </div>
 </div>
 {% endif %}

@@ -95,7 +95,7 @@ class Service extends Controller
         $s = S::find($this->route_params['id']);
         if(!$s){
             self::addFlashMessage('error', 'Oooppss', 'Une erreur est survenue !');
-            self::redirect('/admin/evenement');
+            self::redirect('/admin/service');
         }
 
         $args['old_data'] = $s;

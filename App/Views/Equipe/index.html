@@ -1,0 +1,64 @@
+{% extends "layout.html" %}
+
+{% block title %}Equipes{% endblock %}
+
+{% block body %}
+<h1>{{ auth.evenement.nom }} <small>- {{ auth.evenement.serviceActif().first().nom }}</small> - Equipes
+    {% if auth.hasPermission('gerer_equipe') %}
+    <a href="/equipe/create" class="btn btn-success" >Former une équipe</a>
+    {% endif %}</h1>
+
+<table id="teamTable" class="table table-striped table-bordered" cellspacing="0" width="100%">
+    <thead>
+    <tr>
+        <th>#</th>
+        <th>Numéro</th>
+        <th>Emplacement</th>
+        <th>Statut</th>
+        <th></th>
+    </tr>
+    </thead>
+    <tfoot>
+    <tr>
+        <th>#</th>
+        <th>Numéro</th>
+        <th>Emplacement</th>
+        <th>Statut</th>
+        <th></th>
+    </tr>
+    </tfoot>
+    <tbody>
+    {% for e in equipes %}
+    <tr>
+        <td><span class="label {{ (e.actif) ? 'label-success' : 'label-danger' }}">{{ e.id }}</span></td>
+        <td>{{ e.numero }}</td>
+        <td>{{ e.emplacement }}</td>
+        <td>{{ e.statut() }}</td>
+        <td>
+            <div class="btn-group btn-group-sm" role="group" aria-label="Option">
+                <a class="btn btn-secondary btn-info" href="/equipe/details/{{ e.id }}">Consulter</a>
+                {% if auth.hasPermission('gerer_service') %}
+                <a class="btn btn-secondary btn-warning" href="/equipe/edit/{{ e.id }}">Modifier</a>
+                <a class="btn btn-secondary btn-danger" href="/equipe/dissoudre/{{ e.id }}">Dissoudre</a>
+                {% endif %}
+            </div>
+        </td>
+    </tr>
+    {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function() {
+        $('#teamTable').DataTable({
+            "aoColumnDefs": [
+                { "bSortable": false,
+                    "aTargets": [ 4 ]
+                }
+            ] });
+    } );
+</script>
+{% endblock %}

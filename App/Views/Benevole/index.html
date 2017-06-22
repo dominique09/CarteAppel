@@ -29,7 +29,7 @@
     <tbody>
     {% for benevole in benevoles %}
     <tr>
-        <td><span class="badge {{ (benevole.actif) ? 'badge-success' : 'badge-danger' }}">{{ benevole.id }}</span></td>
+        <td><span class="label {{ (benevole.actif) ? ((benevole.isAssigned())?'label-info':'label-success') : 'label-danger' }}">{{ benevole.id }}</span></td>
         <td>{{ benevole.prenom }}</td>
         <td>{{ benevole.nom }}</td>
         <td><b>{{ benevole.division.numero }}</b> - {{ benevole.division.nom }}</td>

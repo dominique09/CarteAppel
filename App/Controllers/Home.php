@@ -30,4 +30,8 @@ class Home extends Controller
         var_dump(UserPermission::getPermissions());
     }
 
+    public function testAction(){
+        var_dump( \App\Models\Benevole::disponibles()->get());
+    }
+
 }

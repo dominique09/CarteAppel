@@ -22,4 +22,8 @@ class Service extends Model
     public function evenement(){
         return $this->belongsTo('App\Models\Evenement');
     }
+
+    public function equipes(){
+        return $this->hasMany('App\Models\Equipe');
+    }
 }

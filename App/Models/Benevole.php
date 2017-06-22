@@ -23,4 +23,21 @@ class Benevole extends Model
         return $this->belongsTo('App\Models\Division');
     }
 
+    public function equipes(){
+        return $this->belongsToMany('App\Models\Equipe');
+    }
+
+    public function isAssigned(){
+       return $this->equipes()->where('actif', true)->whereHas('service', function($s){
+            $s->where('actif', true);
+        })->count() > 0;
+    }
+
+    public static function disponibles(){
+        return self::where('actif', true)->whereDoesntHave('equipes', function($e){
+            $e->where('actif', true)->whereHas('service', function($s){
+                $s->where('actif', true);
+            });
+        });
+    }
 }
