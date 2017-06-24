@@ -28,7 +28,7 @@ class AddEnDirectionMigration extends Migration
     public function change()
     {
         $this->table('carte_equipe')
-            ->addColumn('en_direction', 'timestamp', ['default' => null])
+            ->addColumn('en_direction', 'timestamp', ['null' => true, 'default' => null])
             ->update();
     }
 }
