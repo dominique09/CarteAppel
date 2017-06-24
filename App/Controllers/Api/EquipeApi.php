@@ -1,70 +1,93 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: domin
- * Date: 2017-06-04
- * Time: 14:21
- */
 
 namespace App\Controllers\Api;
 
-use App\Controllers\Equipe;
 use App\Helpers\Authentication;
-use App\Helpers\Token;
-use App\Models\Assignation;
-use App\Models\Benevole;
-use Core\Controller;
-use App\Models\Equipe As E;
-use Core\View;
+use App\Models\Carte;
+use App\Models\Equipe;
+use App\Models\Site;
 
-class EquipeApi extends Controller
+class EquipeApi extends \Core\ApiController
 {
-    public function before(){
-        if(!Authentication::Auth()){
-            self::redirect('home');
+    protected $_event;
+    protected $_service;
+
+    public function before()
+    {
+        parent::before();
+
+        $this->_event = Authentication::Auth()->evenement;
+        $this->_service = $this->_event->serviceActif()->first();
+
+        if(is_null($this->_event) || is_null($this->_service)){
+            self::addFlashMessage('error', 'Ooooppsss', 'Une erreur est survenue !');
+            self::redirect('/home');
         }
     }
 
-    public function listBenevolesDisponiblesAction(){
-        $ben = Benevole::disponibles();
-        $data = null;
-        foreach ($ben as $b){
-            $data[] = [
-                'id' => $b->id,
-                'prenom' => $b->prenom,
-                'nom' => $b->nom,
-                'formation' => $b->formation->accronyme,
-                'division' => $b->division->numero,
-                ];
+
+
+    public function disponiblesAction(){
+        $sites = [];
+
+        if(array_key_exists('id', $this->route_params)) {
+            if($this->route_params['id'] > 0)
+                $sites[] = Site::find($this->route_params['id']);
+            else
+                $sites = $this->_event->sites;
         }
 
-        echo json_encode(['data' => $data]);
-    }
+        $equipes = [];
+        foreach ($sites as $site) {
 
-    public function listBenevolesEquipe(){
-        $e = E::find($this->route_params['id']);
+            $equipes[] = ['site_nom' => $site->nom];
+            foreach ($site->equipesOpened()->orderBy('site_id')->orderBy('statut')->orderBy('type_equipe')->orderBy('numero')->get() as $e) {
+                $equipe = [];
 
-        echo json_encode(['data' => null]);
-    }
+                $equipe['id'] = $e->id;
+                $equipe['numero'] = $e->numero;
+                $equipe['secteur'] = $e->emplacement;
 
-    public function assignerBenevoleAction(){
-        if(Authentication::Auth()->hasPermission('gerer_equipe'))
-            self::redirect('home');
+                switch ($e->type_equipe) {
+                    case 0:
+                        $equipe['type'] = "Terrain";
+                        $equipe['type_color'] = "success";
+                        break;
+                    case 1:
+                        $equipe['type'] = "Volante";
+                        $equipe['type_color'] = "warning";
+                        break;
+                    case 2:
+                        $equipe['type'] = "Soutien";
+                        $equipe['type_color'] = "info";
+                        break;
+                }
 
-        if(!$_POST)
-            self::redirect('home');
+                switch ($e->statut) {
+                    case 0: //Disponible
+                        $equipe['status'] = 'bg-success';
+                        break;
+                    case 1: //Réparti
+                        $equipe['status'] = 'bg-warning';
+                        break;
+                    case 2: //En Route
+                        $equipe['status'] = 'bg-info';
+                        break;
+                    case 3: //Sur les lieux
+                        $equipe['status'] = 'bg-danger';
+                        break;
+                    case 4: //En transport
+                        $equipe['status'] = 'bg-warning';
+                        break;
+                    case 5: //Tente
+                        $equipe['status'] = 'bg-danger';
+                        break;
+                }
 
-        $b = Benevole::find($_POST['benevole_id']);
-        $e = E::find($_POST['equipe_id']);
+                $equipes[] = $equipe;
+            }
+        }
 
-        if(!$e OR !$b)
-            self::redirect('/equipe');
-
-        $a = new Assignation();
-        $a->benevole = $b;
-        $a->equipe = $e;
-        $a->save();
-
-        echo json_encode(['data' => $a]);
+            echo (json_encode($equipes,  JSON_UNESCAPED_UNICODE));
     }
 }
