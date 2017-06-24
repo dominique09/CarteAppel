@@ -1,4 +1,4 @@
-<nav class="navbar navbar-fixed-top navbar-inverse" role="navigation">
+<nav class="navbar navbar-fixed-top" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
             <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbarDefault" aria-expanded="false">
@@ -14,19 +14,16 @@
         <div class="collapse navbar-collapse" id="navbarDefault">
             <ul class="nav navbar-nav">
                 {% if auth %}
-                {% if auth.hasPermission('consulter_benevole') or auth.hasPermission('gerer_benevole') %}
-                <li class=" {{ route_params.controller == 'benevole' ? 'active' : '' }}"><a class="nav-link" href="/benevole/index">Bénévoles</a></li>
-                {% endif %}
                 {% if auth.evenement_id != null %}
                 <li class=" {{ route_params.controller == 'service' ? 'active' : '' }}"><a class="nav-link" href="/service/index">Services</a></li>
                 <li class=" {{ route_params.controller == 'site' ? 'active' : '' }}"><a class="nav-link" href="/site/index">Sites</a></li>
                 {% endif %}
                 <li class=" {{ route_params.controller == 'equipe' ? 'active' : '' }}"><a class="nav-link" href="/equipe/index">Équipes</a></li>
-                <li class=" {{ route_params.controller == 'carte' ? 'active' : '' }}"><a class="nav-link" href="/carte/index">Cartes</a></li>
-                <li class=" {{ route_params.controller == 'statistique' ? 'active' : '' }}"><a class="nav-link" href="/statistique/index">Statistiques</a></li>
+                <li class=" {{ route_params.controller == 'operation' ? 'active' : '' }}"><a class="nav-link" href="/operation">Opérations</a></li>
                 {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
+                <li><a id="heure_live"></a></li>
                 {% if auth %}
                 {% if auth.isAdmin() or auth.hasPermission('gerer_evenement') or auth.hasPermission('consulter_evenement') %}
                 <li class="dropdown {{ route_params.namespace == 'Admin' ? 'active' : '' }}">
@@ -38,9 +35,11 @@
                         {% if auth.hasPermission('gerer_evenement') or auth.hasPermission('consulter_evenement') %}
                         <li><a class="dropdown-item" href="/admin/evenement/index">Événements</a></li>
                         {% endif %}
+                        <!--
                         <li><div class="dropdown-divider"></div></li>
                         <li><a class="dropdown-item" href="/admin/division/index">Divisions</a></li>
                         <li><a class="dropdown-item" href="/admin/formation/index">Formations</a></li>
+                        -->
                     </ul>
                 </li>
                 {% endif %}
