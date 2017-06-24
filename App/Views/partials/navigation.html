@@ -17,9 +17,9 @@
                 {% if auth.evenement_id != null %}
                 <li class=" {{ route_params.controller == 'service' ? 'active' : '' }}"><a class="nav-link" href="/service/index">Services</a></li>
                 <li class=" {{ route_params.controller == 'site' ? 'active' : '' }}"><a class="nav-link" href="/site/index">Sites</a></li>
-                {% endif %}
                 <li class=" {{ route_params.controller == 'equipe' ? 'active' : '' }}"><a class="nav-link" href="/equipe/index">Équipes</a></li>
                 <li class=" {{ route_params.controller == 'operation' ? 'active' : '' }}"><a class="nav-link" href="/operation">Opérations</a></li>
+                {% endif %}
                 {% endif %}
             </ul>
             <ul class="nav navbar-nav navbar-right">
