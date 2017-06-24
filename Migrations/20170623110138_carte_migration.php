@@ -49,12 +49,12 @@ class CarteMigration extends Migration
         ->addColumn('equipe_id', 'integer')
             ->addForeignKey('equipe_id', 'equipes', 'id', ['update' => 'CASCADE', 'delete' => 'CASCADE'])
         ->addColumn('en_attente', 'timestamp', ['default' => 'CURRENT_TIMESTAMP'])
-        ->addColumn('reparti', 'timestamp', ['default' => null])
-        ->addColumn('sur_les_lieux', 'timestamp', ['default' => null])
-        ->addColumn('en_transport', 'timestamp', ['default' => null])
-        ->addColumn('arrivee_tante', 'timestamp', ['default' => null])
-        ->addColumn('terminee', 'timestamp', ['default' => null])
-        ->addColumn('annulee', 'timestamp', ['default' => null])
+        ->addColumn('reparti', 'timestamp')
+        ->addColumn('sur_les_lieux', 'timestamp')
+        ->addColumn('en_transport', 'timestamp')
+        ->addColumn('arrivee_tante', 'timestamp')
+        ->addColumn('terminee', 'timestamp')
+        ->addColumn('annulee', 'timestamp')
         ->create();
     }
 }
