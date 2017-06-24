@@ -1,0 +1,78 @@
+{% extends "layout.html" %}
+
+{% block title %}Ouvrir une carte{% endblock %}
+
+{% block body %}
+<h1>Ouvrir une carte</h1>
+
+<form action="/carte/create" method="post" autocomplete="off">
+    <div class="col-md-6">
+        <div class="form-goup {{ errors.emplacement ? 'has-error' : '' }}">
+            <label for="emplacement" class="control-label">Emplacement: </label>
+            <input class="form-control {{ errors.emplacement ? 'form-control-danger' : '' }}" type="text" name="emplacement" id="emplacement" value="{{ old_data.emplacement }}"/>
+            <div class="help-block">{{ errors.emplacement | first }}</div>
+        </div>
+        <div class="form-group {{ errors.description ? 'has-error' : '' }}">
+            <label for="description" class="control-label">Description</label>
+            <div class="input-group">
+                <textarea class="form-control" rows="8" cols="75" name="description" id="description">{{ old_data.description }}</textarea>
+            </div>
+            <div class="help-block">{{ errors.description | first }}</div>
+        </div>
+    </div>
+    <div class="col-md-4">
+            <div class="form-group {{ errors.appelant ? 'has-error' : '' }}">
+                <label for="appelant" class="control-label">Appelant: </label>
+                <div class="input-group">
+                    <select name="appelant" id="appelant" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner l'appelant">
+                        <option  {{ (old_data.appelant == 1)?'selected':'' }} value="1" >Sécurité</option>
+                        <option {{ (old_data.appelant == 2)?'selected':'' }} value="2" >Bénévoles</option>
+                        <option {{ (old_data.appelant == 3)?'selected':'' }} value="3" >ASJ</option>
+                        <option {{ (old_data.appelant == 4)?'selected':'' }} value="4" >Public</option>
+                        <option {{ (old_data.appelant == 5)?'selected':'' }} value="5" >911</option>
+                        <option {{ (old_data.appelant == 6)?'selected':'' }} value="6" >Autre</option>
+                    </select>
+                </div>
+                <div class="help-block">{{ errors.appelant | first }}</div>
+            </div>
+            <div class="form-group {{ errors.priorite ? 'has-error' : '' }}">
+                <label for="priorite" class="control-label">Priorité: </label>
+                <div class="input-group">
+                    <select name="priorite" id="priorite" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner la priorité">
+                        <option {{ (old_data.priorite == 1)?'selected':'' }} value="1" >0</option>
+                        <option {{ (old_data.priorite == 2)?'selected':'' }}  value="2" >1</option>
+                        <option {{ (old_data.priorite == 3)?'selected':'' }}  value="3" >2</option>
+                        <option {{ (old_data.priorite == 4 or old_data.priorite == null)?'selected':'' }} value="4" >3</option>
+                        <option  {{ (old_data.priorite == 5)?'selected':'' }} value="5" >4</option>
+                        <option  {{ (old_data.priorite == 6)?'selected':'' }} value="6" >5</option>
+                        <option {{ (old_data.priorite == 7)?'selected':'' }}  value="7" >6</option>
+                        <option {{ (old_data.priorite == 8)?'selected':'' }}  value="8" >7</option>
+                    </select>
+                </div>
+                <div class="help-block">{{ errors.priorite | first }}</div>
+            </div>
+            <div class="form-group {{ errors.site ? 'has-error' : '' }}">
+                <label for="site" class="control-label">Site</label>
+                <div class="input-group">
+                    <select name="site" id="site" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner le site">
+                        {% for site in lstSites %}
+                        <option {{ (old_data.site == site.id)?'selected':'' }}  value="{{ site.id }}" title="{{ site.nom }}">{{ site.nom}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="help-block">{{ errors.site | first }}</div>
+            </div>
+
+            <button type="submit" class="btn btn-success"> Ajouter</button>
+    </div>
+    <br/>
+
+    <input type="hidden" name="token" value="{{ token | raw }}">
+
+</form>
+{% endblock %}
+{% block javascript %}
+<script>
+
+</script>
+{% endblock %}

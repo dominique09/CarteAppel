@@ -17,26 +17,30 @@ class Equipe extends Model
         'emplacement',
         'actif',
         'type_equipe',
+        'benevoles',
+        'opend_at',
+        'closed_at',
+        'statut',
     ];
 
     public function service(){
         return $this->belongsTo('App\Models\Service');
     }
 
-    public function benevoles(){
-        return $this->belongsToMany('App\Models\Benevole');
-    }
-
     public function site(){
         return $this->belongsTo('App\Models\Site');
     }
 
+    public function opened(){
+        return self::where('opened_at', '!=', null)->where('closed_at', null);
+    }
+
     public function isEditable(){
-        return true;
+        return false;
     }
 
     public function isDissociable(){
-        return true;
+        return $this->isDisponible();
     }
 
     public function isDisponible(){
@@ -57,7 +61,7 @@ class Equipe extends Model
         }
     }
 
-    public function statut(){
-        return "A Determiner";
+    public function cartes(){
+        return $this->belongsToMany('App\Models\Carte');
     }
 }

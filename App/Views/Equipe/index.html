@@ -36,10 +36,13 @@
         <td>{{ e.statut() }}</td>
         <td>
             <div class="btn-group btn-group-sm" role="group" aria-label="Option">
-                <a class="btn btn-secondary btn-info" href="/equipe/details/{{ e.id }}">Consulter</a>
                 {% if auth.hasPermission('gerer_service') %}
+                {% if e.isEditable() %}
                 <a class="btn btn-secondary btn-warning" href="/equipe/edit/{{ e.id }}">Modifier</a>
+                {% endif %}
+                {% if e.isDissociable() %}
                 <a class="btn btn-secondary btn-danger" href="/equipe/dissoudre/{{ e.id }}">Dissoudre</a>
+                {% endif %}
                 {% endif %}
             </div>
         </td>

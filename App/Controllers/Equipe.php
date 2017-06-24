@@ -37,79 +37,28 @@ class Equipe extends Controller
     }
 
     public function indexAction(){
-        $args['equipes'] = $this->_service->equipes->all();
+        $args['equipes'] = $this->_service->equipes->where('closed_at', null);
 
         View::renderTemplate('Equipe/index.html', $args);
     }
 
-    public function editAction(){
+    public function dissoudreAction(){
         if(!Authentication::Auth()->hasPermission('gerer_equipe') && !is_null(Authentication::Auth()->evenement())){
             self::redirect('/home');
         }
 
         $e = E::find($this->route_params['id']);
-        if(!$e){
-            self::addFlashMessage('error', 'Oooppss', 'Une erreur est survenue !');
+
+        if(!$e || !$e->isDissociable()){
+            self::addFlashMessage('danger', 'Ooopss', 'Impossible de dissoudre cette équipe.');
             self::redirect('/equipe');
         }
 
-        if(!$e->isEditable()){
-            self::addFlashMessage('error', 'Oooppss', 'Impossible de modifier l\'équipe si elle a déjà eu des appels. !');
-            self::redirect('/equipe');
-        }
+        $e->closed_at = date("Y-m-d H:i:s");
+        $e->save();
 
-        $args['old_data'] = $e;
-
-        if($_POST && Token::check($_POST['token']))
-            $args = $this->editService($_POST, $e);
-
-        $args['lstBenevoles'] = Ben::where('actif', true)->get();
-
-        $args['token'] = Token::generate();
-        View::renderTemplate('Equipe/edit.html', $args);
-    }
-
-    private function editService($request, E $e){
-        $v = new Validator($this->errHandler);
-        $v->check($request, [
-            'numero' => ['required' => true,],
-            'emplacement' => ['required' => true,]
-        ]);
-
-        if($e->numero !== $request['numero'] && $this->_service->equipes->where('numero', $e->numero)->count() > 0)
-            $this->errHandler->addError('Ce numéro d\'équipe existe déjà sur ce service.', 'numero');
-
-        $e->numero = $request['numero'];
-        $e->emplacement = $request['emplacement'];
-
-        if($v->passes()){
-
-            $e->save();
-
-            self::addFlashMessage('success', 'Equipe modifiée !', 'L\'équipe a bien été modifiée.');
-            self::redirect("/equipe/edit/{$e->id}");
-        }
-
-        return [
-            'old_data' => $e,
-            'errors' => $v->errors()->all()
-        ];
-    }
-
-    public function benevoles($assignations){
-        $benevoles = null;
-        foreach ($assignations as $benevole_id){
-            $b = Ben::find($benevole_id);
-            if(!$b || !$b->actif)
-                $this->errHandler("Le bénévole est invalide.", 'assignations');
-
-            if($b->isAssigned())
-                $this->errHandler("Le bénévole est déjà assigné.");
-
-            $benevoles[] = $b;
-        }
-
-        return $benevoles;
+        self::addFlashMessage('success', 'Succès', "L'équipe a bien été dissoute.");
+        self::redirect('/equipe');
     }
 
     public function createAction(){
@@ -120,7 +69,6 @@ class Equipe extends Controller
         if($_POST && Token::check($_POST['token']))
             $args = $this->createEquipe($_POST);
 
-        $args['lstBenevoles'] = \App\Models\Benevole::where('actif', true)->get();
         $args['lstSites'] = $this->_event->sites->where('actif', true);
         $args['token'] = Token::generate();
         View::renderTemplate('Equipe/create.html', $args);
@@ -130,7 +78,8 @@ class Equipe extends Controller
         $v = new Validator($this->errHandler);
         $v->check($request, [
             'numero' => ['required' => true,],
-            'emplacement' => ['required' => true,]
+            'emplacement' => ['required' => true,],
+            'benevoles' => ['required' => true],
         ]);
 
         $e = new E();
@@ -139,6 +88,9 @@ class Equipe extends Controller
         $e->actif = true;
         $e->service()->associate($this->_service->id);
         $e->site()->associate(\App\Models\Site::find($request['site']));
+        $e->opened_at = date("Y-m-d H:i:s");
+        $e->closed_at = null;
+        $e->benevoles = $request['benevoles'];
         $e->type_equipe = $request['type'];
 
         if($this->_service->equipes->where('numero', $e->numero)->count() > 0)
@@ -148,7 +100,6 @@ class Equipe extends Controller
 
         if($v->passes()){
             $e->save();
-            $e->benevoles()->attach($request['benevoles']);
 
             self::addFlashMessage('success', 'Equipe Ajourée !', "L'équipe a bien été ajoutée !");
             self::redirect("/equipe");

@@ -23,7 +23,19 @@ class Site extends Model
         return $this->belongsTo('App\Models\Evenement');
     }
 
+    public function equipesOpened(){
+        return $this->equipes()->where('opened_at', '!=', null)->where('closed_at', null);
+    }
+
+    public function cartesOuvertes(){
+        return $this->cartes()->where('code_fermeture', null)->where('heure_fermeture', null)->where('heure_appel', '!=', null);
+    }
+
     public function equipesDisponible(){
         return $this->equipes()->has('isDisponible', true);
+    }
+
+    public function cartes(){
+        return $this->hasMany('App\Models\Carte');
     }
 }

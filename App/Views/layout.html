@@ -25,7 +25,7 @@
     <title>{% block title %}{% endblock %}</title>
 
     <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap.min.css">
-    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-theme.min.css">
+    <link rel="stylesheet" href="/assets/bootstrap/css/bootstrap-superhero.min.css">
 
     <link rel="stylesheet" href="/assets/font-awesome-4.7.0/css/font-awesome.min.css">
 
@@ -36,6 +36,7 @@
 
     <link rel="stylesheet" href="/assets/bootstrap-select/css/bootstrap-select.min.css">
 
+    <link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
 </head>
 <body>
@@ -76,7 +77,23 @@
     <script>
         $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         $.fn.datepicker.defaults.language = "fr-CA";
+
+        setInterval(function() {
+            var date = new Date();
+            $('#heure_live').html(
+                date.getHours() + ":" + addZero(date.getMinutes()) + ":" + addZero(date.getSeconds())
+            );
+        }, 500);
+
+        function addZero(x) {
+            if (x < 10) {
+                return x = '0' + x;
+            } else {
+                return x;
+            }
+        }
     </script>
+
     {% block javascript %}
     {% endblock %}
 </body>

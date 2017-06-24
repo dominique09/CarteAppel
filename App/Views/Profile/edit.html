@@ -8,28 +8,34 @@
 </h1>
 
 <form action="/profile/edit" method="post" autocomplete="off">
-    <div class="form-goup {{ errors.firstname ? 'has-danger' : '' }}">
+    <div class="form-goup {{ errors.firstname ? 'has-error' : '' }}">
         <label for="firstname">Prénom: </label>
         <input disabled class="form-control disabled {{ errors.firstname ? 'form-control-danger' : '' }}" type="text" name="firstname" id="firstname" value="{{ old_data.firstname }}"/>
-        <div class="form-control-feedback">{{ errors.firstname | first }}</div>
+        <div class="help-block">{{ errors.firstname | first }}</div>
     </div>
-    <div class="form-goup {{ errors.lastname ? 'has-danger' : '' }}">
+    <div class="form-goup {{ errors.lastname ? 'has-error' : '' }}">
         <label for="lastname">Nom: </label>
         <input disabled class="form-control disabled {{ errors.lastname ? 'form-control-danger' : '' }}" type="text" name="lastname" id="lastname" value="{{ old_data.lastname }}"/>
-        <div class="form-control-feedback">{{ errors.lastname | first }}</div>
+        <div class="help-block">{{ errors.lastname | first }}</div>
     </div>
-    <div class="form-goup {{ errors.email ? 'has-danger' : '' }}">
+    <div class="form-goup {{ errors.email ? 'has-error' : '' }}">
         <label for="email">Email: </label>
         <input class="form-control {{ errors.email ? 'form-control-danger' : '' }}" type="email" name="email" id="email" value="{{ old_data.email }}"/>
-        <div class="form-control-feedback">{{ errors.email | first }}</div>
+        <div class="help-block">{{ errors.email | first }}</div>
     </div>
-    <div class="form-goup {{ errors.username ? 'has-danger' : '' }}">
+    <div class="form-goup {{ errors.username ? 'has-error' : '' }}">
         <label for="username">Username: </label>
         <input disabled class="form-control disabled {{ errors.username ? 'form-control-danger' : '' }}" type="text" name="username" id="username" value="{{ old_data.username }}"/>
-        <div class="form-control-feedback">{{ errors.username | first }}</div>
+        <div class="help-block">{{ errors.username | first }}</div>
     </div>
 
     <input type="hidden" name="token" value="{{ token | raw }}">
+
+    <div class="form-group">
+        <label>Image de profil :</label>
+        <img class="" src="{{ auth.getAvatarUrl() }}&s=50" width="50" height="50" alt=""/>
+        <a href="https://en.gravatar.com/emails/">Modifier l'image</a>
+    </div>
 
     <button type="submit" class="btn btn-success"> Modifier</button>
 

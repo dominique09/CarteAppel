@@ -1,0 +1,265 @@
+{% extends "layout.html" %}
+
+{% block title %}Carte # {{ old_data.id }}{% endblock %}
+
+{% block body %}
+<div class="col-md-8">
+    <div class="row">
+    <h2>Carte # {{ old_data.id }} - <span id="carte-status"></span></h2>
+    </div>
+    <div class="row">
+        <form action="/carte/open/{{ old_data.id }}" method="post" autocomplete="off">
+        <div class="col-md-8">
+            <div class="form-goup {{ errors.emplacement ? 'has-error' : '' }}">
+                <label for="emplacement" class="control-label">Emplacement: </label>
+                <input class="form-control {{ errors.emplacement ? 'form-control-danger' : '' }}" type="text" name="emplacement" id="emplacement" value="{{ old_data.emplacement }}"/>
+                <div class="help-block">{{ errors.emplacement | first }}</div>
+            </div>
+            <div class="form-group {{ errors.description ? 'has-error' : '' }}">
+                <label for="description" class="control-label">Description</label>
+                <div class="input-group">
+                    <textarea class="form-control" rows="8" cols="75" name="description" id="description">{{ old_data.description }}</textarea>
+                </div>
+                <div class="help-block">{{ errors.description | first }}</div>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="form-group {{ errors.appelant_id ? 'has-error' : '' }}">
+                <label for="appelant_id" class="control-label">Appelant: </label>
+                <div class="input-group">
+                    <select name="appelant_id" id="appelant_id" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner l'appelant">
+                        <option  {{ (old_data.appelant_id == 1)?'selected':'' }} value="1" >Sécurité</option>
+                        <option {{ (old_data.appelant_id == 2)?'selected':'' }} value="2" >Bénévoles</option>
+                        <option {{ (old_data.appelant_id == 3)?'selected':'' }} value="3" >ASJ</option>
+                        <option {{ (old_data.appelant_id == 4)?'selected':'' }} value="4" >Public</option>
+                        <option {{ (old_data.appelant_id == 5)?'selected':'' }} value="5" >911</option>
+                        <option {{ (old_data.appelant_id == 6)?'selected':'' }} value="6" >Autre</option>
+                    </select>
+                </div>
+                <div class="help-block">{{ errors.appelant_id | first }}</div>
+            </div>
+            <div class="form-group {{ errors.priorite ? 'has-error' : '' }}">
+                <label for="priorite" class="control-label">Priorité: </label>
+                <div class="input-group">
+                    <select name="priorite" id="priorite" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner la priorité">
+                        <option {{ (old_data.priorite == 1)?'selected':'' }} value="1" >0</option>
+                        <option {{ (old_data.priorite == 2)?'selected':'' }}  value="2" >1</option>
+                        <option {{ (old_data.priorite == 3)?'selected':'' }}  value="3" >2</option>
+                        <option {{ (old_data.priorite == 4 or old_data.priorite == null)?'selected':'' }} value="4" >3</option>
+                        <option  {{ (old_data.priorite == 5)?'selected':'' }} value="5" >4</option>
+                        <option  {{ (old_data.priorite == 6)?'selected':'' }} value="6" >5</option>
+                        <option {{ (old_data.priorite == 7)?'selected':'' }}  value="7" >6</option>
+                        <option {{ (old_data.priorite == 8)?'selected':'' }}  value="8" >7</option>
+                    </select>
+                </div>
+                <div class="help-block">{{ errors.priorite | first }}</div>
+            </div>
+            <div class="form-group {{ errors.site ? 'has-error' : '' }}">
+                <label for="site" class="control-label">Site</label>
+                <div class="input-group">
+                    <select name="site" id="site" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner le site">
+                        {% for site in lstSites %}
+                        <option {{ (old_data.site.id == site.id)?'selected':'' }}  value="{{ site.id }}" title="{{ site.nom }}">{{ site.nom}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+                <div class="help-block">{{ errors.site | first }}</div>
+            </div>
+
+            <button type="submit" class="btn btn-success"> Modifier</button>
+        </div>
+        <br/>
+
+        <input type="hidden" name="token" value="{{ token | raw }}">
+
+        </form>
+    </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="panel panel-default">
+                <div class="panel-heading">Assignations</div>
+                <table class="table table-hover table-bordered table-inverse" id="assignation_table">
+                    <thead>
+                    <tr>
+                        <th># </th>
+                        <th>Assignée</th>
+                        <th>Répartie</th>
+                        <th>10-16 P</th>
+                        <th>10-17 P</th>
+                        <th>10-16 T</th>
+                        <th>10-17 T</th>
+                        <th>Libérée</th>
+                        <th>Annulée</th>
+                    </tr>
+                    </thead>
+                    <tbody id="table_assignation_tbody">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="col-md-4">
+    <div class="panel panel-default">
+        <div class="panel-heading">Équipes</div>
+        <table class="table table-hover table-bordered table-inverse" id="team_table">
+            <thead>
+            <tr>
+                <th>Numéro</th>
+                <th>Emplacement</th>
+                <th>Type</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody id="table_equipe_tbody">
+
+            </tbody>
+        </table>
+    </div>
+</div>
+{% endblock %}
+{% block javascript %}
+<script>
+    $(document).ready(function () {
+        updateEquipe();
+        updateCarteStatus();
+        updateAssignations();
+
+        $("#table_equipe_tbody").on("click", ".lien-assigner", function(){
+            $.get("/api/carte/assigner/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+
+        $("#table_assignation_tbody").on("click", ".arepartir", function(){
+            $.get("/api/carte/repartir/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+
+        $("#table_assignation_tbody").on("click", ".adirection", function(){
+            $.get("/api/carte/direction/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+
+        $("#table_assignation_tbody").on("click", ".apatient", function(){
+            $.get("/api/carte/patient/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+
+        $("#table_assignation_tbody").on("click", ".atransport", function(){
+            $.get("/api/carte/transport/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+
+        $("#table_assignation_tbody").on("click", ".atante", function(){
+            $.get("/api/carte/tante/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+
+        $("#table_assignation_tbody").on("click", ".aterminee", function(){
+            $.get("/api/carte/terminee/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+
+        $("#table_assignation_tbody").on("click", ".aannulee", function(){
+            $.get("/api/carte/annulee/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+
+
+    });
+
+    function updateAssignations() {
+        $.getJSON('/api/carte/assignations/{{ old_data.id }}', function (data) {
+            $("#table_assignation_tbody").empty();
+
+            $.each(data, function (i, assignation) {
+                if(assignation.enabled) {
+                    $("#table_assignation_tbody").append("<tr class='" + assignation.status_color + "'>" +
+                        "<td>" + assignation.no_equipe + "</td>" +
+                        "<td>" + assignation.assignee + "</td>" +
+                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='arepartir btn-xs btn-warning'>" + ((assignation.reparti == '0000-00-00 00:00:00') ? 'Répartir' : assignation.reparti) + "</button></td>" +
+                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='adirection btn-xs btn-info'>" + ((assignation.en_direction == '0000-00-00 00:00:00') ? '10-16' : assignation.en_direction) + "</button></td>" +
+                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='apatient btn-xs btn-danger'>" + ((assignation.sur_les_lieux == '0000-00-00 00:00:00') ? '10-17' : assignation.sur_les_lieux) + "</button></td>" +
+                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='atransport btn-xs btn-info'>" + ((assignation.en_transport == '0000-00-00 00:00:00') ? '10-16' : assignation.en_transport) + "</button></td>" +
+                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='atante btn-xs btn-danger'>" + ((assignation.arrivee_tante == '0000-00-00 00:00:00') ? '10-17' : assignation.arrivee_tante) + "</button></td>" +
+                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='aterminee btn-xs btn-success'>" + ((assignation.terminee == '0000-00-00 00:00:00') ? '10-05' : assignation.terminee) + "</button></td>" +
+                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='aannulee btn-xs btn-success'>" + ((assignation.annulee == '0000-00-00 00:00:00') ? '10-03' : assignation.annulee) + "</button></td>" +
+                        "</tr>");
+                }
+                else {
+                    $("#table_assignation_tbody").append("<tr class='bg-faded'>" +
+                        "<td>" + assignation.no_equipe + "</td>" +
+                        "<td>" + assignation.assignee + "</td>" +
+                        "<td>" + ((assignation.reparti == '0000-00-00 00:00:00') ? 'N/A' : assignation.reparti) + "</td>" +
+                        "<td>" + ((assignation.en_direction == '0000-00-00 00:00:00') ? 'N/A' : assignation.en_direction) + "</td>" +
+                        "<td>" + ((assignation.sur_les_lieux == '0000-00-00 00:00:00') ? 'N/A' : assignation.sur_les_lieux) + "</td>" +
+                        "<td>" + ((assignation.en_transport == '0000-00-00 00:00:00') ? 'N/A' : assignation.en_transport) + "</td>" +
+                        "<td>" + ((assignation.arrivee_tante == '0000-00-00 00:00:00') ? 'N/A' : assignation.arrivee_tante) + "</td>" +
+                        "<td>" + ((assignation.terminee == '0000-00-00 00:00:00') ? 'N/A' : assignation.terminee) + "</td>" +
+                        "<td>" + ((assignation.annulee == '0000-00-00 00:00:00') ? 'N/A' : assignation.annulee) + "</td>" +
+                        "</tr>");
+                }
+            });
+
+        });
+    }
+
+    function updateEquipe(){
+        $.getJSON('/api/equipe/disponibles/0', function(data){
+            $("#table_equipe_tbody").empty();
+
+            $.each(data, function(i, equipe){
+                if(equipe.id != undefined) {
+                    $("#table_equipe_tbody").append("<tr class='" + equipe.status + "'>" +
+                        "<td>" + equipe.numero + "</td>" +
+                        "<td>" + equipe.secteur + "</td>" +
+                        "<td><span class='label label-" + equipe.type_color + "'>" + equipe.type + "</span></td>" +
+                        "<td><a class='lien-assigner btn-xs btn-primary' href='#' equipe='" + equipe.id + "'>Assigner</a></td>" +
+                        "</tr>");
+                } else {
+                    $("#table_equipe_tbody").append("<tr><td colspan='4'>"+ equipe.site_nom +"</td></tr>");
+                }
+            });
+        });
+    }
+
+    function updateCarteStatus(){
+        $.getJSON('/api/carte/carte-status/{{ old_data.id }}', function(data){
+            $("#carte-status").html("<span class='label label-"+data.status_color+"'>"+ data.status_text +"</span>");
+        });
+    }
+</script>
+{% endblock %}

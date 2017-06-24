@@ -43,3 +43,9 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
 .bootstrap-select.btn-group .dropdown-menu.inner {
     display: block;
 }
+
+#heure_live{
+    color:red;
+    font-size:300%;
+    font-family: 'Iceland', cursive;
+}

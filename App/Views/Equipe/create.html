@@ -16,22 +16,13 @@
         <input class="form-control {{ errors.emplacement ? 'form-control-danger' : '' }}" type="text" name="emplacement" id="emplacement" value="{{ old_data.emplacement }}"/>
         <div class="form-control-feedback">{{ errors.emplacement | first }}</div>
     </div>
-    <div class="form-group {{ errors.benevoles ? 'has-danger' : '' }}">
-        <label for="benevoles">Bénévoles</label>
-        <div class="form-group {{ errors.benevoles ? 'has-danger' : '' }}">
-            <div class="input-group">
-                <select name="benevoles[]" id="benevoles" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner les bénévoles" multiple>
-                    {% for ben in lstBenevoles %}
-                    <option  value="{{ ben.id }}" data-subtext="{{ ben.formation.accronyme }} - {{ ben.division.numero }}" title="{{ ben.prenom }} {{ben.nom}} | {{ ben.formation.accronyme }} - {{ ben.division.numero }}" {{ (ben.isAssigned() ? 'disabled' : '') }}>{{ ben.prenom }} {{ben.nom}}</option>
-                    {% endfor %}
-                </select>
-                <span class="input-group-btn">
-            </span>
-            </div>
-        </div>
+    <div class="form-goup {{ errors.benevoles ? 'has-danger' : '' }}">
+        <label for="emplacement">Bénévoles: </label>
+        <input class="form-control {{ errors.benevoles ? 'form-control-danger' : '' }}" type="text" name="benevoles" id="benevoles" value="{{ old_data.emplacement }}"/>
+        <div class="form-control-feedback">{{ errors.benevoles | first }}</div>
     </div>
     <div class="form-group {{ errors.site ? 'has-danger' : '' }}">
-        <label for="sites">Site</label>
+        <label for="site">Site</label>
         <div class="form-group {{ errors.site ? 'has-danger' : '' }}">
             <div class="input-group">
                 <select name="site" id="site" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner le site">

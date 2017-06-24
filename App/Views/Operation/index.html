@@ -1,0 +1,113 @@
+{% extends "layout.html" %}
+
+{% block title %}Opérations{% endblock %}
+
+{% block body %}
+<ul class="nav nav-pills">
+    <li role="presentation"><h4>Sites : </h4></li>
+    {% for site in lstSites %}
+    <li role="presentation" class="{{ (site.id == activeSite.id)?'active' : '' }}"><a href="/operation/{{ site.id }}">{{ site.nom }}</a></li>
+    {% endfor %}
+    <li role="presentation" class="{{ (activeSite.id == 0)?'active' : '' }}"><a href="/operation">Tous</a></li>
+</ul>
+<br>
+<div class="row">
+    <div class="col-md-6">
+        <div class="panel panel-default">
+        <div class="panel-heading">Cartes <a class=" pull-right btn-xs btn-success" href="/carte/create">Ouvrir une carte</a></div>
+        <table class="table table-hover table-bordered table-inverse" id="carte_table">
+            <thead>
+            <tr>
+                <th>#</th>
+                <th>Appelant</th>
+                <th>Emplacement</th>
+                <th>Priorité</th>
+                <th>Équipe</th>
+            </tr>
+            </thead>
+            <tbody id="table_carte_tbody">
+
+            </tbody>
+        </table>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <div class="panel panel-default">
+            <div class="panel-heading">Équipes</div>
+            <table class="table table-hover table-bordered table-inverse" id="team_table">
+                <thead>
+                    <tr>
+                        <th>Numéro</th>
+                        <th>Secteur</th>
+                        <th>Type</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="table_equipe_tbody">
+
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block javascript %}
+<script>
+    $(document).ready(function () {
+        updateEquipe();
+        updateCarte();
+    });
+
+    function updateEquipe(){
+        $.getJSON('/api/equipe/disponibles/{{activeSite.id}}', function(data){
+            $("#table_equipe_tbody").empty();
+
+            $.each(data, function(i, equipe){
+                if(equipe.id != undefined) {
+                $("#table_equipe_tbody").append("<tr class='"+equipe.status+"'>" +
+                    "<td>"+equipe.numero+"</td>" +
+                    "<td>"+ equipe.secteur +"</td>" +
+                    "<td><span class='label label-"+ equipe.type_color +"'>"+ equipe.type +"</span></td>" +
+                    "<td></td>" +
+                    "</tr>");
+                } else {
+                    $("#table_equipe_tbody").append("<tr><td colspan='4'>"+ equipe.site_nom +"</td></tr>");
+                }
+            });
+        });
+
+        setTimeout(updateEquipe, 2000);
+    }
+
+    function updateCarte(){
+        $.getJSON('/api/carte/ouverte/{{activeSite.id}}', function(data){
+            $("#table_carte_tbody").empty();
+
+            $.each(data, function(i, carte){
+                var row = "";
+                if(carte.id != undefined) {
+                    row = "<tr class='"+carte.status+"'>" +
+                    "<td><a href='/carte/open/"+ carte.id +"' class='btn-sm btn-info'>"+carte.id+"</a></td>" +
+                    "<td>"+carte.appelant+"</td>" +
+                    "<td><a href='#' data-toggle='tooltip' title='"+ carte.description +"'>"+ carte.emplacement +"</a></td>" +
+                    "<td>"+carte.priorite+"</td>" +
+                    "<td>";
+                    $.each(carte.equipes, function (i, equipe) {
+                        row += "<span class='label label-"+ carte.equipes_color[i] +"'>"+ equipe +"</span>";
+                    });
+                    row += "</td></tr>";
+                } else {
+                    row = "<tr><td colspan='4'>"+ carte.site_nom +"</td></tr>";
+                }
+
+
+                $("#table_carte_tbody").append(row);
+            });
+        });
+
+        setTimeout(updateEquipe, 2000);
+    }
+</script>
+{% endblock %}
