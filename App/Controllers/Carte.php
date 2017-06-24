@@ -40,8 +40,8 @@ class Carte extends Controller
             self::redirect('/operation');
 
         $assignations = ($carte->equipes()
-                ->wherePivot('terminee', '=', '0000-00-00 00:00:00')
-                ->WherePivot('annulee', '=', '0000-00-00 00:00:00')->count() > 0);
+                ->wherePivot('terminee', '=', null)
+                ->WherePivot('annulee', '=', null)->count() > 0);
         if ($assignations)
         {
             self::addFlashMessage('warning', 'Oooppss', 'Des équipes sont toujours assignés sur la carte, veuiilez les libérer avant de fermer la carte');
@@ -63,8 +63,8 @@ class Carte extends Controller
             self::redirect('/operation');
 
         $assignations = ($carte->equipes()
-                ->wherePivot('terminee', '=', '0000-00-00 00:00:00')
-                ->WherePivot('annulee', '=', '0000-00-00 00:00:00')->count() > 0);
+                ->wherePivot('terminee', '=', null)
+                ->WherePivot('annulee', '=', null)->count() > 0);
         if ($assignations)
         {
             self::addFlashMessage('warning', 'Oooppss', 'Des équipes sont toujours assignés sur la carte, veuiilez les libérer avant de fermer la carte');
@@ -86,8 +86,8 @@ class Carte extends Controller
             self::redirect('/operation');
 
         $assignations = ($carte->equipes()
-                ->wherePivot('terminee', '=', '0000-00-00 00:00:00')
-                ->WherePivot('annulee', '=', '0000-00-00 00:00:00')->count() > 0);
+                ->wherePivot('terminee', '=', null)
+                ->WherePivot('annulee', '=', null)->count() > 0);
         if ($assignations)
         {
             self::addFlashMessage('warning', 'Oooppss', 'Des équipes sont toujours assignés sur la carte, veuiilez les libérer avant de fermer la carte');
@@ -109,8 +109,8 @@ class Carte extends Controller
             self::redirect('/operation');
 
         $assignations = ($carte->equipes()
-                ->wherePivot('terminee', '=', '0000-00-00 00:00:00')
-                ->WherePivot('annulee', '=', '0000-00-00 00:00:00')->count() > 0);
+                ->wherePivot('terminee', '=', null)
+                ->WherePivot('annulee', '=', null)->count() > 0);
         if ($assignations)
         {
             self::addFlashMessage('warning', 'Oooppss', 'Des équipes sont toujours assignés sur la carte, veuiilez les libérer avant de fermer la carte');

@@ -35,6 +35,6 @@ class Carte extends Model
     }
 
     public function equipesAssignees(){
-        return $this->equipes()->wherePivot('terminee','=','0000-00-00 00:00:00')->orWherePivot('annulee','=','0000-00-00 00:00:00');
+        return $this->equipes()->wherePivot('terminee','=',null)->orWherePivot('annulee','=',null);
     }
 }

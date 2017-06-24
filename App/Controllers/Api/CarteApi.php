@@ -55,8 +55,8 @@ class CarteApi extends \Core\ApiController
             $carte = Carte::find($this->route_params['carte']);
             $equipe = $carte->equipes()
                 ->where('equipe_id', $this->route_params['equipe'])
-                ->wherePivot('terminee','=','0000-00-00 00:00:00')
-                ->WherePivot('annulee','=','0000-00-00 00:00:00')->first();
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->first();
 
             $equipe->pivot->reparti = date("Y-m-d H:i:s");
             $equipe->pivot->save();
@@ -81,8 +81,8 @@ class CarteApi extends \Core\ApiController
             $carte = Carte::find($this->route_params['carte']);
             $equipe = $carte->equipes()
                 ->where('equipe_id', $this->route_params['equipe'])
-                ->wherePivot('terminee','=','0000-00-00 00:00:00')
-                ->WherePivot('annulee','=','0000-00-00 00:00:00')->first();
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->first();
 
             $equipe->pivot->en_direction = date("Y-m-d H:i:s");
             $equipe->pivot->save();
@@ -107,8 +107,8 @@ class CarteApi extends \Core\ApiController
             $carte = Carte::find($this->route_params['carte']);
             $equipe = $carte->equipes()
                 ->where('equipe_id', $this->route_params['equipe'])
-                ->wherePivot('terminee','=','0000-00-00 00:00:00')
-                ->WherePivot('annulee','=','0000-00-00 00:00:00')->first();
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->first();
 
             $equipe->pivot->sur_les_lieux = date("Y-m-d H:i:s");
             $equipe->pivot->save();
@@ -133,8 +133,8 @@ class CarteApi extends \Core\ApiController
             $carte = Carte::find($this->route_params['carte']);
             $equipe = $carte->equipes()
                 ->where('equipe_id', $this->route_params['equipe'])
-                ->wherePivot('terminee','=','0000-00-00 00:00:00')
-                ->WherePivot('annulee','=','0000-00-00 00:00:00')->first();
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->first();
 
             $equipe->pivot->en_transport = date("Y-m-d H:i:s");
             $equipe->pivot->save();
@@ -158,8 +158,8 @@ class CarteApi extends \Core\ApiController
             $carte = Carte::find($this->route_params['carte']);
             $equipe = $carte->equipes()
                 ->where('equipe_id', $this->route_params['equipe'])
-                ->wherePivot('terminee','=','0000-00-00 00:00:00')
-                ->WherePivot('annulee','=','0000-00-00 00:00:00')->first();
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->first();
 
             $equipe->pivot->arrivee_tante = date("Y-m-d H:i:s");
             $equipe->pivot->save();
@@ -183,16 +183,15 @@ class CarteApi extends \Core\ApiController
             $carte = Carte::find($this->route_params['carte']);
             $equipe = $carte->equipes()
                 ->where('equipe_id', $this->route_params['equipe'])
-                ->wherePivot('terminee','=','0000-00-00 00:00:00')
-                ->WherePivot('annulee','=','0000-00-00 00:00:00')->first();
-
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->first();
             $equipe->pivot->terminee = date("Y-m-d H:i:s");
             $equipe->pivot->save();
 
             $autre_equipe = ($carte->equipes()
                 ->where('equipe_id', '!=', $this->route_params['equipe'])
-                ->wherePivot('terminee','=','0000-00-00 00:00:00')
-                ->WherePivot('annulee','=','0000-00-00 00:00:00')->count() > 0);
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->count() > 0);
 
             if(!$autre_equipe){
                 $carte->status = 0;
@@ -215,16 +214,16 @@ class CarteApi extends \Core\ApiController
             $carte = Carte::find($this->route_params['carte']);
             $equipe = $carte->equipes()
                 ->where('equipe_id', $this->route_params['equipe'])
-                ->wherePivot('terminee','=','0000-00-00 00:00:00')
-                ->WherePivot('annulee','=','0000-00-00 00:00:00')->first();
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->first();
 
             $equipe->pivot->annulee = date("Y-m-d H:i:s");
             $equipe->pivot->save();
 
             $autre_equipe = ($carte->equipes()
                     ->where('equipe_id', '!=', $this->route_params['equipe'])
-                    ->wherePivot('terminee','=','0000-00-00 00:00:00')
-                    ->WherePivot('annulee','=','0000-00-00 00:00:00')->count() > 0);
+                    ->wherePivot('terminee','=',null)
+                    ->WherePivot('annulee','=',null)->count() > 0);
 
             if(!$autre_equipe){
                 $carte->status = 0;
@@ -249,7 +248,7 @@ class CarteApi extends \Core\ApiController
 
            $r_lsta = [];
            foreach ($assignations->get() as $a) {
-               $r_a['enabled'] = ($a->pivot->annulee == '0000-00-00 00:00:00' && $a->pivot->terminee == '0000-00-00 00:00:00');
+               $r_a['enabled'] = ($a->pivot->annulee == null && $a->pivot->terminee == null);
                $r_a['equipe_id'] = $a->id;
                $r_a['no_equipe'] = $a->numero;
                $r_a['assignee'] = $a->pivot->en_attente;
