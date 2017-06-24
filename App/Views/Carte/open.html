@@ -4,8 +4,13 @@
 
 {% block body %}
 <div class="col-md-8">
-    <div class="row">
-    <h2>Carte # {{ old_data.id }} - <span id="carte-status"></span></h2>
+    <h3>Carte # {{ old_data.id }} - <span id="carte-status"></span> - <small>Ouverture : {{old_data.heure_appel}}</small></h3>
+    Fermeture :
+    <div class="btn-group-sm">
+        <a href="/carte/fermeture/{{ old_data.id }}" class="btn-sm btn-success">Fermeture Normale</a>
+        <a href="/carte/nofonder/{{ old_data.id }}" class="btn-sm btn-warning">Non Fondé</a>
+        <a href="/carte/noloc/{{ old_data.id }}" class="btn-sm btn-primary">Non Localisé</a>
+        <a href="/carte/annulation/{{ old_data.id }}" class="btn-sm btn-danger">Annulation</a>
     </div>
     <div class="row">
         <form action="/carte/open/{{ old_data.id }}" method="post" autocomplete="off">

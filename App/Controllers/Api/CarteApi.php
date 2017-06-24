@@ -221,6 +221,15 @@ class CarteApi extends \Core\ApiController
             $equipe->pivot->annulee = date("Y-m-d H:i:s");
             $equipe->pivot->save();
 
+            $autre_equipe = ($carte->equipes()
+                    ->where('equipe_id', '!=', $this->route_params['equipe'])
+                    ->wherePivot('terminee','=','0000-00-00 00:00:00')
+                    ->WherePivot('annulee','=','0000-00-00 00:00:00')->count() > 0);
+
+            if(!$autre_equipe){
+                $carte->status = 0;
+            }
+
             $equipe->statut = 0;
 
             $carte->save();
