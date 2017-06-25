@@ -127,9 +127,9 @@
 {% block javascript %}
 <script>
     $(document).ready(function () {
-        updateEquipe();
-        updateCarteStatus();
-        updateAssignations();
+
+
+        refresh();
 
         $("#table_equipe_tbody").on("click", ".lien-assigner", function(){
             $.get("/api/carte/assigner/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
@@ -205,6 +205,14 @@
 
 
     });
+
+    function refresh(){
+        updateEquipe();
+        updateCarteStatus();
+        updateAssignations();
+
+        setTimeout(refresh, 2000);
+    }
 
     function updateAssignations() {
         $.getJSON('/api/carte/assignations/{{ old_data.id }}', function (data) {
