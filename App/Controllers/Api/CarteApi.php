@@ -277,7 +277,7 @@ class CarteApi extends \Core\ApiController
                        $r_a['status_color'] = 'bg-danger';
                        break;
                    case 4: //En transport
-                       $r_a['status_color'] = 'bg-warning';
+                       $r_a['status_color'] = 'bg-info';
                        break;
                    case 5: //Tente
                        $r_a['status_color'] = 'bg-danger';
