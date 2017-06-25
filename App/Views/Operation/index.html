@@ -59,8 +59,6 @@
         refresh();
 
         $("#table_equipe_tbody").on("click", ".dispotoggle", function(){
-            alert("/api/equipe/toogle-dispo/"+$(this).attr('equipe'));
-
             $.get("/api/equipe/toogle-dispo/"+$(this).attr('equipe'), function () {
                 updateEquipe();
                 updateCarte();
