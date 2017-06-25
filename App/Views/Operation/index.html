@@ -92,8 +92,10 @@
                     row += "<td><button type='button' class='dispotoggle btn-xm btn-success' equipe='"+ equipe.id +"'>Disponible</button></td>";
 
                 }
-                if(equipe.status_id == 0){
+                else if(equipe.status_id == 0){
                     row += "<td><button type='button' class='dispotoggle btn-xm btn-danger' equipe='"+ equipe.id +"'>Non-Disponible</button></td>";
+                } else {
+                    row+= "<td></td>";
                 }
 
 
