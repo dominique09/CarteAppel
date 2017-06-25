@@ -6,24 +6,24 @@
 <h1>Former une équipe</h1>
 
 <form action="/equipe/create" method="post" autocomplete="off">
-    <div class="form-goup {{ errors.numero ? 'has-danger' : '' }}">
+    <div class="form-goup {{ errors.numero ? 'has-error' : '' }}">
         <label for="numero">Numéro: </label>
         <input class="form-control {{ errors.numero ? 'form-control-danger' : '' }}" type="text" name="numero" id="numero" value="{{ old_data.numero }}"/>
-        <div class="form-control-feedback">{{ errors.numero | first }}</div>
+        <div class="help-block">{{ errors.numero | first }}</div>
     </div>
-    <div class="form-goup {{ errors.emplacement ? 'has-danger' : '' }}">
+    <div class="form-goup {{ errors.emplacement ? 'has-error' : '' }}">
         <label for="emplacement">Emplacement: </label>
         <input class="form-control {{ errors.emplacement ? 'form-control-danger' : '' }}" type="text" name="emplacement" id="emplacement" value="{{ old_data.emplacement }}"/>
-        <div class="form-control-feedback">{{ errors.emplacement | first }}</div>
+        <div class="help-block-feedback">{{ errors.emplacement | first }}</div>
     </div>
-    <div class="form-goup {{ errors.benevoles ? 'has-danger' : '' }}">
+    <div class="form-goup {{ errors.benevoles ? 'has-error' : '' }}">
         <label for="emplacement">Bénévoles: </label>
         <input class="form-control {{ errors.benevoles ? 'form-control-danger' : '' }}" type="text" name="benevoles" id="benevoles" value="{{ old_data.emplacement }}"/>
-        <div class="form-control-feedback">{{ errors.benevoles | first }}</div>
+        <div class="help-block">{{ errors.benevoles | first }}</div>
     </div>
-    <div class="form-group {{ errors.site ? 'has-danger' : '' }}">
+    <div class="form-group {{ errors.site ? 'has-error' : '' }}">
         <label for="site">Site</label>
-        <div class="form-group {{ errors.site ? 'has-danger' : '' }}">
+        <div class="form-group {{ errors.site ? 'has-error' : '' }}">
             <div class="input-group">
                 <select name="site" id="site" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner le site">
                     {% for site in lstSites %}
@@ -33,11 +33,12 @@
                 <span class="input-group-btn">
             </span>
             </div>
+            <div class="help-block">{{ errors.site | first }}</div>
         </div>
     </div>
-    <div class="form-group {{ errors.type ? 'has-danger' : '' }}">
+    <div class="form-group {{ errors.type ? 'has-error' : '' }}">
         <label for="type">Type</label>
-        <div class="form-group {{ errors.assignations ? 'has-danger' : '' }}">
+        <div class="form-group {{ errors.assignations ? 'has-error' : '' }}">
             <div class="input-group">
                 <select name="type" id="type" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner le type d'équipe" >
                     <option value="0" selected title="Équipe Terrain">Équipe Terrain</option>
@@ -47,6 +48,7 @@
                 <span class="input-group-btn">
             </span>
             </div>
+            <div class="help-block">{{ errors.type | first }}</div>
         </div>
     </div>
 
