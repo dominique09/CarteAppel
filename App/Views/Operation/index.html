@@ -40,6 +40,7 @@
                     <tr>
                         <th>Numéro</th>
                         <th>Secteur</th>
+                        <th>Bénévoles</th>
                         <th>Type</th>
                         <th>Actions</th>
                     </tr>
@@ -84,6 +85,7 @@
                     var row = "<tr class='"+equipe.status+"'>" +
                     "<td>"+equipe.numero+"</td>" +
                     "<td>"+ equipe.secteur +"</td>" +
+                    "<td>"+ equipe.benevoles +"</td>" +
                     "<td><span class='label label-" + equipe.type_color + "'>" + equipe.type + "</span></td>";
 
                 if(equipe.status_id == 10) {

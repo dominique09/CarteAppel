@@ -62,6 +62,7 @@ class EquipeApi extends \Core\ApiController
                 $equipe['id'] = $e->id;
                 $equipe['numero'] = $e->numero;
                 $equipe['secteur'] = $e->emplacement;
+                $equipe['benevoles'] = $e->benevoles;
 
                 switch ($e->type_equipe) {
                     case 0:
