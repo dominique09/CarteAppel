@@ -130,17 +130,8 @@
 <script>
     $(document).ready(function () {
 
-
         refresh();
 
-        $("#table_equipe_tbody").on("click", ".lien-assigner", function(){
-            $.get("/api/carte/assigner/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
-                updateEquipe();
-                updateCarteStatus();
-                updateAssignations();
-            });
-            return false;
-        });
 
         $("#table_assignation_tbody").on("click", ".arepartir", function(){
             $.get("/api/carte/repartir/{{ old_data.id }}/"+$(this).attr('equipe'), function () {

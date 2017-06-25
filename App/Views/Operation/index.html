@@ -42,7 +42,8 @@
                         <th>Secteur</th>
                         <th>Bénévoles</th>
                         <th>Type</th>
-                        <th>Actions</th>
+                        <th>Dispo</th>
+                        <th>Empl.</th>
                     </tr>
                 </thead>
                 <tbody id="table_equipe_tbody">
@@ -66,6 +67,22 @@
             });
             return false;
         });
+
+        $("#table_equipe_tbody").on("click", ".modifemplacement", function(){
+            var current = $(this).attr('curempl');
+
+            var emplacement = prompt("Nouvel Emplacement", current);
+
+            if(emplacement == "")
+                return false;
+
+            $.post("/api/equipe/change-emplacement/"+$(this).attr('equipe'), {'emplacement' : emplacement}, function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
     });
 
     function refresh(){
@@ -85,24 +102,23 @@
                     "<td>"+equipe.numero+"</td>" +
                     "<td>"+ equipe.secteur +"</td>" +
                     "<td>"+ equipe.benevoles +"</td>" +
-                    "<td><span class='label label-" + equipe.type_color + "'>" + equipe.type + "</span></td>";
+                    "<td><span class='label label-" + equipe.type_color + "'>" + equipe.type + "</span></td><td>";
 
                 if(equipe.status_id == 10) {
-                    row += "<td><button type='button' class='dispotoggle btn-xm btn-success' equipe='"+ equipe.id +"'>Disponible</button></td>";
+                    row += "<button type='button' class='dispotoggle btn-xm btn-success' equipe='"+ equipe.id +"'>Disponible</button>";
 
                 }
-                else if(equipe.status_id == 0){
-                    row += "<td><button type='button' class='dispotoggle btn-xm btn-danger' equipe='"+ equipe.id +"'>Non-Disponible</button></td>";
-                } else {
-                    row+= "<td></td>";
+                if(equipe.status_id == 0){
+                    row += "<button type='button' class='dispotoggle btn-xm btn-danger' equipe='"+ equipe.id +"'>Non-Disponible</button>";
                 }
+                    row += "</td><td>" +
+                        "<button type='button' class='modifemplacement btn-xs btn-info' curempl='"+ equipe.secteur +"' equipe='"+ equipe.id +"'>Emplacement</button>";
 
-
-                    row+= "</tr>";
+                    row+= "</td></tr>";
 
                     $("#table_equipe_tbody").append(row);
                 } else {
-                    $("#table_equipe_tbody").append("<tr><td colspan='4'>"+ equipe.site_nom +"</td></tr>");
+                    $("#table_equipe_tbody").append("<tr><td colspan='6'>"+ equipe.site_nom +"</td></tr>");
                 }
             });
         });
@@ -126,7 +142,7 @@
                     });
                     row += "</td></tr>";
                 } else {
-                    row = "<tr><td colspan='4'>"+ carte.site_nom +"</td></tr>";
+                    row = "<tr><td colspan='5'>"+ carte.site_nom +"</td></tr>";
                 }
 
 

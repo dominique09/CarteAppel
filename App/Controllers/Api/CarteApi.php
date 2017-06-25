@@ -306,7 +306,7 @@ class CarteApi extends \Core\ApiController
         $cartes = [];
         foreach ($sites as $site) {
             $cartes[] = ['site_nom' => $site->nom];
-            foreach ($site->cartesOuvertes()->get() as $c) {
+            foreach ($site->cartesOuvertes()->orderBy('priorite')->get() as $c) {
                 $carte = [];
 
                 $carte['id'] = $c->id;

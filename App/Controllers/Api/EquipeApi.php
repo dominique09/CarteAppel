@@ -42,6 +42,16 @@ class EquipeApi extends \Core\ApiController
         }
     }
 
+    public function changeEmplacementAction(){
+        $equipe = Equipe::find($this->route_params['id']);
+        $emplacement = $_POST['emplacement'];
+
+        if($equipe && !is_null($emplacement)){
+            $equipe->emplacement = $emplacement;
+            $equipe->save();
+        }
+    }
+
     public function disponiblesAction(){
         $sites = [];
 
