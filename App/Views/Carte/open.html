@@ -132,6 +132,14 @@
 
         refresh();
 
+        $("#table_equipe_tbody").on("click", ".lien-assigner", function(){
+            $.get("/api/carte/assigner/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
 
         $("#table_assignation_tbody").on("click", ".arepartir", function(){
             $.get("/api/carte/repartir/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
@@ -196,7 +204,6 @@
             return false;
         });
 
-
     });
 
     function refresh(){
@@ -253,7 +260,7 @@
                         "<td>" + equipe.numero + "</td>" +
                         "<td>" + equipe.secteur + "</td>" +
                         "<td><span class='label label-" + equipe.type_color + "'>" + equipe.type + "</span></td>" +
-                        "<td><a class='lien-assigner btn-xs btn-primary' href='#' equipe='" + equipe.id + "'>Assigner</a></td>" +
+                        "<td><button class='lien-assigner btn-xs btn-primary' equipe='" + equipe.id + "'>Assigner</button></td>" +
                         "</tr>");
                 } else {
                     $("#table_equipe_tbody").append("<tr><td colspan='4'>"+ equipe.site_nom +"</td></tr>");
