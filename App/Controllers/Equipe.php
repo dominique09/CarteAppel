@@ -61,6 +61,26 @@ class Equipe extends Controller
         self::redirect('/equipe');
     }
 
+    public function editAction(){
+        $equipe = E::find($this->route_params['id']);
+
+        if(!$equipe or !$equipe->isEditable())
+            self::redirect('/equipe');
+
+        $args['old_data'] = $equipe;
+
+        if($_POST && Token::check($_POST['token']))
+            $args = $this->editEquipe($equipe, $_POST);
+
+        $args['lstSites'] = $this->_event->sites->where('actif', true);
+        $args['token'] = Token::generate();
+        View::renderTemplate('Equipe/edit.html', $args);
+    }
+
+    public function editEquipe(E $e, $request){
+
+    }
+
     public function createAction(){
         if(!Authentication::Auth()->hasPermission('gerer_equipe') && !is_null(Authentication::Auth()->evenement())){
             self::redirect('/home');

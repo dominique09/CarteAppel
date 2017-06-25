@@ -3,7 +3,9 @@
 {% block title %}Carte # {{ old_data.id }}{% endblock %}
 
 {% block body %}
+
 <div class="col-md-8">
+    <a href="/operation" class="btn btn-primary">< OPÉRATIONS</a>
     <h3>Carte # {{ old_data.id }} - <span id="carte-status"></span> - <small>Ouverture : {{old_data.heure_appel}}</small></h3>
     Fermeture :
     <div class="btn-group-sm">
