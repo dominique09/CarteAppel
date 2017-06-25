@@ -56,9 +56,26 @@
 {% block javascript %}
 <script>
     $(document).ready(function () {
+        refresh();
+
+        $("#table_equipe_tbody").on("click", ".dispotoggle", function(){
+            alert("/api/equipe/toogle-dispo/"+$(this).attr('equipe'));
+
+            $.get("/api/equipe/toogle-dispo/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarte();
+            });
+            return false;
+        });
+    });
+
+    function refresh(){
         updateEquipe();
         updateCarte();
-    });
+
+        setTimeout(updateEquipe, 2000);
+        setTimeout(updateCarte, 2000);
+    }
 
     function updateEquipe(){
         $.getJSON('/api/equipe/disponibles/{{activeSite.id}}', function(data){
@@ -66,19 +83,28 @@
 
             $.each(data, function(i, equipe){
                 if(equipe.id != undefined) {
-                $("#table_equipe_tbody").append("<tr class='"+equipe.status+"'>" +
+                    var row = "<tr class='"+equipe.status+"'>" +
                     "<td>"+equipe.numero+"</td>" +
                     "<td>"+ equipe.secteur +"</td>" +
-                    "<td><span class='label label-"+ equipe.type_color +"'>"+ equipe.type +"</span></td>" +
-                    "<td><button equipe='"+ equipe.id +"'></button></td>" +
-                    "</tr>");
+                    "<td><span class='label label-" + equipe.type_color + "'>" + equipe.type + "</span></td>";
+
+                if(equipe.status_id == 10) {
+                    row += "<td><button type='button' class='dispotoggle btn-xm btn-success' equipe='"+ equipe.id +"'>Disponible</button></td>";
+
+                }
+                if(equipe.status_id == 0){
+                    row += "<td><button type='button' class='dispotoggle btn-xm btn-danger' equipe='"+ equipe.id +"'>Non-Disponible</button></td>";
+                }
+
+
+                    row+= "</tr>";
+
+                    $("#table_equipe_tbody").append(row);
                 } else {
                     $("#table_equipe_tbody").append("<tr><td colspan='4'>"+ equipe.site_nom +"</td></tr>");
                 }
             });
         });
-
-        setTimeout(updateEquipe, 2000);
     }
 
     function updateCarte(){
@@ -106,8 +132,6 @@
                 $("#table_carte_tbody").append(row);
             });
         });
-
-        setTimeout(updateEquipe, 2000);
     }
 </script>
 {% endblock %}

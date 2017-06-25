@@ -25,7 +25,22 @@ class EquipeApi extends \Core\ApiController
         }
     }
 
+    public function toogleDispoAction(){
+        $equipe = Equipe::find($this->route_params['id']);
+        if($equipe){
+            $prevStatut = $equipe->statut;
 
+            if($prevStatut == 0)
+                $equipe->statut = 10;
+
+            if($prevStatut == 10)
+                $equipe->statut = 0;
+
+            $equipe->save();
+
+            return $equipe->statut;
+        }
+    }
 
     public function disponiblesAction(){
         $sites = [];
@@ -63,6 +78,8 @@ class EquipeApi extends \Core\ApiController
                         break;
                 }
 
+                $equipe['status_id'] = $e->statut;
+
                 switch ($e->statut) {
                     case 0: //Disponible
                         $equipe['status'] = 'bg-success';
@@ -80,6 +97,9 @@ class EquipeApi extends \Core\ApiController
                         $equipe['status'] = 'bg-warning';
                         break;
                     case 5: //Tente
+                        $equipe['status'] = 'bg-danger';
+                        break;
+                    case 10: //Non-Dispo
                         $equipe['status'] = 'bg-danger';
                         break;
                 }
