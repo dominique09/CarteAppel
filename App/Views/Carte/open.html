@@ -215,7 +215,7 @@
                     $("#table_assignation_tbody").append("<tr class='" + assignation.status_color + "'>" +
                         "<td>" + assignation.no_equipe + "</td>" +
                         "<td>" + assignation.assignee + "</td>" +
-                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='arepartir btn-xs btn-warning'>" + ((assignation.reparti == null ? 'Répartir' : assignation.reparti) + "</button></td>" +
+                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='arepartir btn-xs btn-warning'>" + ((assignation.reparti == null) ? 'Répartir' : assignation.reparti) + "</button></td>" +
                         "<td><button type='button' equipe='" + assignation.equipe_id + "' class='adirection btn-xs btn-info'>" + ((assignation.en_direction == null) ? '10-16' : assignation.en_direction) + "</button></td>" +
                         "<td><button type='button' equipe='" + assignation.equipe_id + "' class='apatient btn-xs btn-danger'>" + ((assignation.sur_les_lieux == null) ? '10-17' : assignation.sur_les_lieux) + "</button></td>" +
                         "<td><button type='button' equipe='" + assignation.equipe_id + "' class='atransport btn-xs btn-info'>" + ((assignation.en_transport == null) ? '10-16' : assignation.en_transport) + "</button></td>" +
