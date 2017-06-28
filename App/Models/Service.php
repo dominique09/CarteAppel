@@ -26,4 +26,8 @@ class Service extends Model
     public function equipes(){
         return $this->hasMany('App\Models\Equipe');
     }
+
+    public function cartes(){
+        return $this->hasMany('App\Models\Carte');
+    }
 }

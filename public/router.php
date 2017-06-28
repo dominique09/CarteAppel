@@ -22,6 +22,7 @@ $router->add('api/equipe/{action}', ['namespace' => 'Api', 'controller' => 'Equi
 $router->add('api/equipe/{action}/{id:\d+}', ['namespace' => 'Api', 'controller' => 'EquipeApi']);
 
 $router->add('api/carte/{action}/{id:\d+}', ['namespace' => 'Api', 'controller' => 'CarteApi']);
+$router->add('api/carte/{action}', ['namespace' => 'Api', 'controller' => 'CarteApi']);
 $router->add('api/carte/{action}/{carte:\d+}/{equipe:\d+}', ['namespace' => 'Api', 'controller' => 'CarteApi']);
 
 

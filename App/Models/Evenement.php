@@ -36,4 +36,8 @@ class Evenement extends Model
     public function serviceActif(){
         return $this->services->where('actif', '=', 1);
     }
+
+    public function cartes(){
+        return $this->hasManyThrough('App\Models\Carte', 'App\Models\Service');
+    }
 }

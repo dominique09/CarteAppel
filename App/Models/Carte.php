@@ -37,4 +37,8 @@ class Carte extends Model
     public function equipesAssignees(){
         return $this->equipes()->wherePivot('terminee','=',null)->WherePivot('annulee','=',null);
     }
+
+    public function evenement(){
+        return $this->service()->evenement();
+    }
 }

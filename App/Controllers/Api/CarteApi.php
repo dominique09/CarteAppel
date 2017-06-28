@@ -26,6 +26,18 @@ class CarteApi extends \Core\ApiController
         }
     }
 
+    public function emplacementsAction(){
+
+        $cartes = $this->_event->cartes()->select('emplacement')->distinct()->orderBy('emplacement')->get();
+
+        $empl = [];
+        foreach ($cartes as $c){
+            $empl[] = ['id'=> $c->emplacement, 'name' => $c->emplacement];
+        }
+
+        return json_encode($empl, JSON_UNESCAPED_UNICODE);
+    }
+
     public function assignerAction(){
         if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
             $carte = Carte::find($this->route_params['carte']);

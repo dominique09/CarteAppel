@@ -274,5 +274,9 @@
             $("#carte-status").html("<span class='label label-"+data.status_color+"'>"+ data.status_text +"</span>");
         });
     }
+
+    $("#emplacement").typeahead({
+        ajax: '/api/carte/emplacements'
+    });
 </script>
 {% endblock %}
