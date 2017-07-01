@@ -33,6 +33,77 @@ class Carte extends Controller
         }
     }
 
+    public function detailsAction(){
+        $carte = C::find($this->route_params['id']);
+        if(!$carte)
+            self::redirect('/operation');
+
+        if($carte->code_fermeture == NULL)
+            self::redirect("/carte/open/$carte->id");
+
+        $args['old_data'] = $carte;
+
+        $args['lstSites'] = $this->_event->sites->where('actif', true);
+        $args['token'] = Token::generate();
+        View::renderTemplate('Carte/details.html', $args);
+    }
+
+    public function allAction(){
+        $cartes = $this->_service->cartes;
+
+        $cs = [];
+        foreach ($cartes as $c){
+            $carte = [];
+
+            $carte['id'] = $c->id;
+            $carte['status'] = $c->status;
+            $carte['code_fermeture'] = $c->code_fermeture;
+
+            switch ($c->appelant_id) {
+                case 1:
+                    $carte['appelant'] = 'Sécurité';
+                    break;case 2:
+                $carte['appelant'] = 'Bénévoles';
+                break;case 3:
+                $carte['appelant'] = 'ASJ';
+                break;case 4:
+                $carte['appelant'] = 'Public';
+                break;case 5:
+                $carte['appelant'] = '911';
+                break;case 6:
+                $carte['appelant'] = 'Autre';
+                break;
+            }
+            $carte['emplacement'] = $c->emplacement;
+            $carte['description'] = $c->description;
+            $carte['priorite'] = $c->priorite - 1;
+            $carte['heure_appel'] = $c->heure_appel;
+            $carte['heure_fermeture'] = $c->heure_fermeture;
+
+            switch ($c->code_fermeture){
+                case 1:
+                    $carte['raison_fermeture'] = "<span class='label label-success'>Fermeture normale</span>";
+                break;
+                case 2:
+                    $carte['raison_fermeture'] = "<span class='label label-danger'>Annulation</span>";
+                break;
+                case 3:
+                    $carte['raison_fermeture'] = "<span class='label label-warning'>Non Fondé</span>";
+                break;
+                case 4:
+                    $carte['raison_fermeture'] = "<span class='label label-primary'>Non Localisé</span>";
+                break;
+
+            }
+
+            $cs[] = $carte;
+        }
+
+        $args['cartes'] = $cs;
+
+        return View::renderTemplate('Carte/all.html', $args);
+    }
+
     public function fermetureAction()
     {
         $carte = C::find($this->route_params['id']);
@@ -55,6 +126,39 @@ class Carte extends Controller
 
         self::addFlashMessage('success', '', 'Carte fermée');
         self::redirect("/operation");
+    }
+
+    public function reouvertureAction()
+    {
+        $carte = C::find($this->route_params['id']);
+        if (!$carte)
+            self::redirect('/carte/all');
+
+        $raison = "";
+        switch ($carte->code_fermeture){
+            case 1:
+                $raison = "Fermeture Normale";
+                break;
+            case 2:
+                $raison = "Annulation";
+                break;
+            case 4:
+                $raison = "Non Localisé";
+                break;
+            case 3:
+                $raison = "Non Fondé";
+                break;
+        }
+
+        $carte->description .= "\r\n\r\n-+-+-+-+-\r\n Info Réouverture : $raison à $carte->heure_fermeture\r\n-+-+-+-+-";
+
+        $carte->code_fermeture = NULL;
+        $carte->heure_fermeture = NULL;
+
+        $carte->save();
+
+        self::addFlashMessage('success', '', 'Carte fermée');
+        self::redirect("/carte/open/$carte->id");
     }
 
     public function annulationAction(){
@@ -132,7 +236,7 @@ class Carte extends Controller
             self::redirect('/operation');
 
         if($carte->code_fermeture >= 1)
-            self::redirect('/operation');
+            self::redirect("/carte/details/$carte->id");
 
         $args['old_data'] = $carte;
 

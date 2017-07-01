@@ -293,7 +293,7 @@ class CarteApi extends \Core\ApiController
                        $r_a['status_color'] = 'bg-info';
                        break;
                    case 5: //Tente
-                       $r_a['status_color'] = 'bg-danger';
+                       $r_a['status_color'] = 'bg-warning';
                        break;
                }
 
@@ -353,7 +353,7 @@ class CarteApi extends \Core\ApiController
                         break;case 4: //En transport
                         $carte['status'] = 'warning';
                         break;case 5: //Arrivée
-                        $carte['status'] = 'danger';
+                        $carte['status'] = 'wargning';
                         break;
                 }
 
@@ -408,9 +408,43 @@ class CarteApi extends \Core\ApiController
                 $carte['status_text'] = 'En Transport';
                 break;
                 case 5: //Arrivée
-                $carte['status_color'] = 'danger';
+                $carte['status_color'] = 'warning';
                 $carte['status_text'] = 'Arrivée';
                 break;
+            }
+
+            return json_encode($carte, JSON_UNESCAPED_UNICODE);
+        }
+    }
+
+    public function carteStatusFermetureAction(){
+        $c = Carte::find($this->route_params['id']);
+        if($c){
+            switch ($c->code_fermeture){
+                case 0: //En attente
+                    $carte['status_color'] = 'success';
+                    $carte['status_text'] = 'En Attente';
+                    break;
+                case 1: //Réparti
+                    $carte['status_color'] = 'warning';
+                    $carte['status_text'] = 'Réparti';
+                    break;
+                case 2: //EnRoute
+                    $carte['status_color'] = 'info';
+                    $carte['status_text'] = 'En Route';
+                    break;
+                case 3: //Sur les lieux
+                    $carte['status_color'] = 'danger';
+                    $carte['status_text'] = 'Sur les lieux';
+                    break;
+                case 4: //En transport
+                    $carte['status_color'] = 'warning';
+                    $carte['status_text'] = 'En Transport';
+                    break;
+                case 5: //Arrivée
+                    $carte['status_color'] = 'warning';
+                    $carte['status_text'] = 'Arrivée';
+                    break;
             }
 
             return json_encode($carte, JSON_UNESCAPED_UNICODE);

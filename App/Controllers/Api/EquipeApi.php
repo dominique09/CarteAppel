@@ -108,7 +108,7 @@ class EquipeApi extends \Core\ApiController
                         $equipe['status'] = 'bg-warning';
                         break;
                     case 5: //Tente
-                        $equipe['status'] = 'bg-danger';
+                        $equipe['status'] = 'bg-warning';
                         break;
                     case 10: //Non-Dispo
                         $equipe['status'] = 'bg-danger';

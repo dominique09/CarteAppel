@@ -25,5 +25,6 @@ $router->add('api/carte/{action}/{id:\d+}', ['namespace' => 'Api', 'controller' 
 $router->add('api/carte/{action}', ['namespace' => 'Api', 'controller' => 'CarteApi']);
 $router->add('api/carte/{action}/{carte:\d+}/{equipe:\d+}', ['namespace' => 'Api', 'controller' => 'CarteApi']);
 
+$router->add('api/stats/{action}/{id:\d+}', ['namespace' => 'Api', 'controller' => 'StatsApi']);
 
 $router->dispatch($_SERVER['QUERY_STRING']);
