@@ -420,30 +420,22 @@ class CarteApi extends \Core\ApiController
     public function carteStatusFermetureAction(){
         $c = Carte::find($this->route_params['id']);
         if($c){
-            switch ($c->code_fermeture){
-                case 0: //En attente
-                    $carte['status_color'] = 'success';
-                    $carte['status_text'] = 'En Attente';
-                    break;
+            switch ($c->code_fermeture) {
                 case 1: //Réparti
-                    $carte['status_color'] = 'warning';
-                    $carte['status_text'] = 'Réparti';
+                    $carte['status_color'] = 'success';
+                    $carte['status_text'] = 'Fermeture Normale';
                     break;
                 case 2: //EnRoute
-                    $carte['status_color'] = 'info';
-                    $carte['status_text'] = 'En Route';
-                    break;
-                case 3: //Sur les lieux
                     $carte['status_color'] = 'danger';
-                    $carte['status_text'] = 'Sur les lieux';
+                    $carte['status_text'] = 'Annulation';
                     break;
-                case 4: //En transport
+                case 3: //Non-Fondé
                     $carte['status_color'] = 'warning';
-                    $carte['status_text'] = 'En Transport';
+                    $carte['status_text'] = 'Non Fondé';
                     break;
-                case 5: //Arrivée
-                    $carte['status_color'] = 'warning';
-                    $carte['status_text'] = 'Arrivée';
+                case 4: //Non-Localisé
+                    $carte['status_color'] = 'primary';
+                    $carte['status_text'] = 'Non Localisé';
                     break;
             }
 
