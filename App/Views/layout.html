@@ -63,6 +63,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"></script>
     <script src="/assets/bootstrap/js/bootstrap.min.js"></script>
     <script src="/assets/jQuery/typeahead.js"></script>
+    <script src="/assets/jQuery/notify.js"></script>
 
     <script src="/assets/dataTables/jquery.dataTables.min.js"></script>
     <script src="/assets/dataTables/dataTables.bootstrap.min.js"></script>
@@ -79,11 +80,15 @@
         $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         $.fn.datepicker.defaults.language = "fr-CA";
 
+        var lastConsult = $.now();
+
         setInterval(function() {
             var date = new Date();
             $('#heure_live').html(
                 date.getHours() + ":" + addZero(date.getMinutes()) + ":" + addZero(date.getSeconds())
             );
+
+            checkNewCard();
         }, 500);
 
         function addZero(x) {
@@ -92,6 +97,17 @@
             } else {
                 return x;
             }
+        }
+
+        function checkNewCard() {
+
+            $.getJSON('/api/carte/check-new/'+lastConsult, function(data){
+                if(!data.nouveau)
+                    return false;
+
+                $.notify('Nouvelle Carte - ' + data.carte_id, 'success');
+                lastConsult = $.now();
+            });
         }
     </script>
 

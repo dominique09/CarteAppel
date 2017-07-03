@@ -383,6 +383,22 @@ class CarteApi extends \Core\ApiController
         echo json_encode($cartes,  JSON_UNESCAPED_UNICODE);
     }
 
+    public function checkNewAction(){
+        $times = $this->route_params['id'];
+        $cartes = $this->_service->cartes()->where('status', 0)->get();
+
+        $data['nouveau'] = false;
+
+        foreach ($cartes as $carte){
+            if(strtotime($carte->heure_appel)*1000 >= $times){
+                $data['nouveau'] = true;
+                $data['carte_id'] = $carte->id;
+            }
+        }
+
+        return json_encode($data, JSON_UNESCAPED_UNICODE);
+    }
+
     public function carteStatusAction(){
         $c = Carte::find($this->route_params['id']);
         if($c){
@@ -412,6 +428,8 @@ class CarteApi extends \Core\ApiController
                 $carte['status_text'] = 'Arrivée';
                 break;
             }
+
+            $carte['carte_fermee'] = ($c->heure_fermeture != NULL && $c->code_fermeture != NULL);
 
             return json_encode($carte, JSON_UNESCAPED_UNICODE);
         }

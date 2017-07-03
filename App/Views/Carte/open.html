@@ -279,6 +279,9 @@
 
     function updateCarteStatus(){
         $.getJSON('/api/carte/carte-status/{{ old_data.id }}', function(data){
+            if(data.carte_fermee)
+                window.location.replace('/carte/details/{{ old_data.id }}');
+
             $("#carte-status").html("<span class='label label-"+data.status_color+"'>"+ data.status_text +"</span>");
         });
     }
