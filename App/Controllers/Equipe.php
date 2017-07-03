@@ -64,7 +64,7 @@ class Equipe extends Controller
     public function editAction(){
         $equipe = E::find($this->route_params['id']);
 
-        if(!$equipe or !$equipe->isEditable())
+        if(!$equipe)
             self::redirect('/equipe');
 
         $args['old_data'] = $equipe;
@@ -78,7 +78,29 @@ class Equipe extends Controller
     }
 
     public function editEquipe(E $e, $request){
+        $v = new Validator($this->errHandler);
+        $v->check($request, [
+            'numero' => ['required' => true,],
+            'emplacement' => ['required' => true,],
+            'benevoles' => ['required' => true],
+        ]);
 
+        $e->emplacement = $request['emplacement'];
+        $e->site()->associate(\App\Models\Site::find($request['site']));
+        $e->benevoles = $request['benevoles'];
+        $e->type_equipe = $request['type'];
+
+        if($v->passes()){
+            $e->save();
+
+            self::addFlashMessage('success', 'Equipe Modifiée !', "L'équipe a bien été ajoutée !");
+            self::redirect("/equipe");
+        }
+
+        return [
+            'old_data' => $e,
+            'errors' => $v->errors()->all()
+        ];
     }
 
     public function createAction(){

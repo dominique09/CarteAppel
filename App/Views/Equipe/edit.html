@@ -1,20 +1,20 @@
 {% extends "layout.html" %}
 
-{% block title %}Former une équipe{% endblock %}
+{% block title %}Modifier une équipe{% endblock %}
 
 {% block body %}
-<h1>Former une équipe</h1>
+<h1>Modifier une équipe</h1>
 
-<form action="/equipe/create" method="post" autocomplete="off">
+<form action="/equipe/edit/{{ old_data.id }}" method="post" autocomplete="off">
     <div class="form-goup {{ errors.numero ? 'has-error' : '' }}">
         <label for="numero">Numéro: </label>
-        <input class="disabled form-control {{ errors.numero ? 'form-control-danger' : '' }}" type="text" name="numero" id="numero" value="{{ old_data.numero }}"/>
+        <input disabled class="form-control {{ errors.numero ? 'form-control-danger' : '' }}" type="text" name="numero" id="numero" value="{{ old_data.numero }}"/>
         <div class="help-block">{{ errors.numero | first }}</div>
     </div>
     <div class="form-goup {{ errors.emplacement ? 'has-error' : '' }}">
         <label for="emplacement">Emplacement: </label>
         <input class="form-control {{ errors.emplacement ? 'form-control-danger' : '' }}" type="text" name="emplacement" id="emplacement" value="{{ old_data.emplacement }}"/>
-        <div class="help-block-feedback">{{ errors.emplacement | first }}</div>
+        <div class="help-block">{{ errors.emplacement | first }}</div>
     </div>
     <div class="form-goup {{ errors.benevoles ? 'has-error' : '' }}">
         <label for="emplacement">Bénévoles: </label>
@@ -27,7 +27,7 @@
             <div class="input-group">
                 <select name="site" id="site" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner le site">
                     {% for site in lstSites %}
-                    <option  value="{{ site.id }}" title="{{ site.nom }}">{{ site.nom}}</option>
+                    <option {{ (old_data.site_id == site.id)?'selected':'' }}  value="{{ site.id }}" title="{{ site.nom }}">{{ site.nom}}</option>
                     {% endfor %}
                 </select>
                 <span class="input-group-btn">
@@ -41,9 +41,9 @@
         <div class="form-group {{ errors.assignations ? 'has-error' : '' }}">
             <div class="input-group">
                 <select name="type" id="type" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner le type d'équipe" >
-                    <option value="0" selected title="Équipe Terrain">Équipe Terrain</option>
-                    <option value="1" title="Équipe Volante">Équipe Volante</option>
-                    <option value="2" title="Soutien">Soutien</option>
+                    <option {{ (old_data.type_equipe == 0)?'selected':'' }} value="0" default title="Équipe Terrain">Équipe Terrain</option>
+                    <option {{ (old_data.type_equipe == 1)?'selected':'' }} value="1" title="Équipe Volante">Équipe Volante</option>
+                    <option {{ (old_data.type_equipe == 2)?'selected':'' }} value="2" title="Soutien">Soutien</option>
                 </select>
                 <span class="input-group-btn">
             </span>
@@ -53,7 +53,7 @@
     </div>
 
     <br/>
-    <button type="submit" class="btn btn-success"> Ajouter</button>
+    <button type="submit" class="btn btn-warning"> Modifier</button>
 
     <input type="hidden" name="token" value="{{ token | raw }}">
 
