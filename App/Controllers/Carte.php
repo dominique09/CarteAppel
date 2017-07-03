@@ -119,6 +119,8 @@ class Carte extends Controller
             self::redirect("/carte/open/$carte->id");
         }
 
+        $carte->addDescription('Fermeture : Fin normale');
+
         $carte->code_fermeture = 1;
         $carte->heure_fermeture = date("Y-m-d H:i:s");
 
@@ -150,7 +152,7 @@ class Carte extends Controller
                 break;
         }
 
-        $carte->description .= "\r\n\r\n-+-+-+-+-\r\n Info Réouverture : $raison à $carte->heure_fermeture\r\n-+-+-+-+-";
+        $carte->addDescription("Réouverture de la carte");
 
         $carte->code_fermeture = NULL;
         $carte->heure_fermeture = NULL;
@@ -175,6 +177,8 @@ class Carte extends Controller
             self::redirect("/carte/open/$carte->id");
         }
 
+        $carte->addDescription('Fermeture : Appel annulé');
+
         $carte->code_fermeture = 2;
         $carte->heure_fermeture = date("Y-m-d H:i:s");
 
@@ -198,6 +202,8 @@ class Carte extends Controller
             self::redirect("/carte/open/$carte->id");
         }
 
+        $carte->addDescription('Fermeture : Appel non localisé');
+
         $carte->code_fermeture = 4;
         $carte->heure_fermeture = date("Y-m-d H:i:s");
 
@@ -220,6 +226,8 @@ class Carte extends Controller
             self::addFlashMessage('warning', 'Oooppss', 'Des équipes sont toujours assignés sur la carte, veuiilez les libérer avant de fermer la carte');
             self::redirect("/carte/open/$carte->id");
         }
+
+        $carte->addDescription('Fermeture : Appel non fondé');
 
         $carte->code_fermeture = 3;
         $carte->heure_fermeture = date("Y-m-d H:i:s");
@@ -255,9 +263,6 @@ class Carte extends Controller
             'emplacement'=>[
                 'required' => true,
             ],
-            'description'=>[
-                'required' => true,
-            ],
             'appelant_id'=>[
                 'required' => true,
             ],
@@ -267,11 +272,17 @@ class Carte extends Controller
             'site' => ['required' => true]
         ]);
 
+        $desc = "";
+        if($c->emplacement != $request['emplacement'])
+            $desc .= "Nouvel Emplacement : ".$request['emplacement'] . "\r\n";
+
         $c->emplacement = $request['emplacement'];
-        $c->description = $request['description'];
+        $desc .= $request['description'];
         $c->appelant_id = $request['appelant_id'];
         $c->priorite = $request['priorite'];
         $c->site()->associate(\App\Models\Site::find($request['site']));
+
+        $c->addDescription($desc);
 
         if($v->passes()){
             $c->save();
@@ -327,10 +338,16 @@ class Carte extends Controller
             $ouverture = date("Y-m-d H:i:s");
             $c->heure_appel = $ouverture;
             $c->status = 0;
+
+            $desc = "Ouverture de la carte \r\n";
+            $desc .= "Emplacement : ". $request['emplacement'] . "\r\n";
+
+            $c->addDescription($desc);
+
             $c->save();
 
-            self::addFlashMessage('success', 'Succès', "La carte est maintenant ouverte ({$ouverture})!");
-            self::redirect("/operation/{$request['site']}");
+            //self::addFlashMessage('success', 'Succès', "La carte est maintenant ouverte ({$ouverture})!");
+            self::redirect("/carte/open/{$c->id}");
         }
         return [
             'old_data' => $request,

@@ -7,6 +7,7 @@
  */
 
 namespace App\Models;
+use App\Helpers\Authentication;
 use Illuminate\Database\Eloquent\Model;
 
 class Carte extends Model
@@ -40,5 +41,9 @@ class Carte extends Model
 
     public function evenement(){
         return $this->service()->evenement();
+    }
+
+    public function addDescription($desc){
+        $this->description .= "\r\n---". date("H:i:s") . " : ". Authentication::Auth()->username ." --- \r\n $desc";
     }
 }

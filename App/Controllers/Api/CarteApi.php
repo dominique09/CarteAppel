@@ -417,6 +417,12 @@ class CarteApi extends \Core\ApiController
         }
     }
 
+    public function descriptionAction(){
+        $c = Carte::find($this->route_params['id']);
+
+        return json_encode(['description' => $c->description], JSON_UNESCAPED_UNICODE);
+    }
+
     public function carteStatusFermetureAction(){
         $c = Carte::find($this->route_params['id']);
         if($c){

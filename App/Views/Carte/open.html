@@ -25,7 +25,8 @@
             <div class="form-group {{ errors.description ? 'has-error' : '' }}">
                 <label for="description" class="control-label">Description</label>
                 <div class="input-group">
-                    <textarea class="form-control" rows="8" cols="75" name="description" id="description">{{ old_data.description }}</textarea>
+                    <textarea class="form-control" rows="3" cols="35" name="description" id="description"></textarea>
+                    <textarea disabled class="form-control" rows="10" cols="35" name="showdescription" id="showdescription"></textarea>
                 </div>
                 <div class="help-block">{{ errors.description | first }}</div>
             </div>
@@ -210,6 +211,7 @@
         updateEquipe();
         updateCarteStatus();
         updateAssignations();
+        updateDescription();
 
         setTimeout(refresh, 2000);
     }
@@ -267,6 +269,12 @@
                 }
             });
         });
+    }
+
+    function updateDescription(){
+        $.getJSON('/api/carte/description/{{ old_data.id }}', function(data){
+            $("textarea#showdescription").val(data.description);
+        })
     }
 
     function updateCarteStatus(){
