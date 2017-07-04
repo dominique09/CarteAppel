@@ -89,7 +89,7 @@
             );
 
             checkNewCard();
-        }, 500);
+        }, 950);
 
         function addZero(x) {
             if (x < 10) {
@@ -106,7 +106,7 @@
                     return false;
 
                 $.notify('Nouvelle Carte - ' + data.carte_id, 'success');
-                lastConsult = $.now();
+                lastConsult = $.now() + 1000;
             });
         }
     </script>
