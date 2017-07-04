@@ -393,6 +393,9 @@ class CarteApi extends \Core\ApiController
             if(strtotime($carte->heure_appel)*1000 >= $times){
                 $data['nouveau'] = true;
                 $data['carte_id'] = $carte->id;
+                $data['carte_emplacement'] = $carte->emplacement;
+                $data['carte_site'] = $carte->site->nom;
+                $data['carte_priorite'] = $carte->priorite -1;
             }
         }
 

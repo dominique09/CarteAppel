@@ -38,6 +38,16 @@
 
     <link href="https://fonts.googleapis.com/css?family=Iceland" rel="stylesheet">
     <link rel="stylesheet" href="/assets/site.css">
+
+    <style>
+        .notifyjs-newcard-base {
+            opacity: 0.85;
+        }
+
+        .notifyjs-newcard-base .buttons{
+            padding-top: 5px;
+        }
+    </style>
 </head>
 <body>
     {% include 'partials/navigation.html' %}
@@ -80,6 +90,35 @@
         $.fn.datepicker.defaults.format = "dd/mm/yyyy";
         $.fn.datepicker.defaults.language = "fr-CA";
 
+        $.ready(function () {
+
+        });
+
+        $.notify.addStyle('newcard', {
+            html:
+            "<div class='container'>" +
+                "<div class='panel panel-primary '>" +
+                    "<div class='panel-heading'>"+
+                        "<div class='panel-title' data-notify-html='title'/>" +
+                    "<div class='panel-body'>"+
+                        "<div class='' data-notify-html='site'/>" +
+                        "<div class='' data-notify-html='emplacement'/>" +
+                        "<div class='' data-notify-html='priority'/>" +
+                        "<div class='buttons'>" +
+                            "<button class='yes btn-block btn btn-sm btn-default' data-notify-text='button'></button>" +
+                        "</div>" +
+                    "</div>"+
+                "</div>" +
+            "</div>"
+        });
+
+        $(document).on('click', '.notifyjs-newcard-base .yes', function() {
+            //show button text
+            window.location.replace('/carte/open/'+$(this).text());
+            //hide notification
+            $(this).trigger('notify-hide');
+        });
+
         var lastConsult = $.now();
 
         setInterval(function() {
@@ -100,12 +139,21 @@
         }
 
         function checkNewCard() {
-
             $.getJSON('/api/carte/check-new/'+lastConsult, function(data){
                 if(!data.nouveau)
                     return false;
 
-                $.notify('Nouvelle Carte - ' + data.carte_id, 'success');
+                $.notify({
+                    title: 'Nouvelle Carte <strong>#'+data.carte_id+'</strong>',
+                    site: 'Site: <strong>'+data.carte_site+'</strong>',
+                    emplacement: 'Emplacement: <strong>'+data.carte_emplacement+'</strong>',
+                    priority: 'Priorité: <strong>'+data.carte_priorite+'</strong>',
+                    button: data.carte_id},
+                {
+                    style: 'newcard',
+                    autoHide: false,
+                });
+
                 lastConsult = $.now() + 1000;
             });
         }
