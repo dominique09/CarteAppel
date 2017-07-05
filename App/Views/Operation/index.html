@@ -73,7 +73,7 @@
 
             var emplacement = prompt("Nouvel Emplacement", current);
 
-            if(emplacement == "" || emplacment == null)
+            if(emplacement == "" || emplacement == null)
                 return false;
 
             $.post("/api/equipe/change-emplacement/"+$(this).attr('equipe'), {'emplacement' : emplacement}, function () {
