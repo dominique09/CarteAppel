@@ -32,7 +32,7 @@
         <td>{{ s.nom }}</td>
         <td>
             <div class="btn-group btn-group-sm" role="group" aria-label="Option">
-                {% if auth.hasPermission('consulter_evenement') %}
+                {% if auth.hasPermission('consulter_service') %}
                 <a class="btn btn-secondary btn-info" href="/site/details/{{ s.id }}">Consulter</a>
                 {% endif %}
                 {% if auth.hasPermission('gerer_service') %}
