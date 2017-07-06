@@ -62,6 +62,10 @@ class Equipe extends Controller
     }
 
     public function editAction(){
+        if(!Authentication::Auth()->hasPermission('gerer_equipe') && !is_null(Authentication::Auth()->evenement())){
+            self::redirect('/home');
+        }
+
         $equipe = E::find($this->route_params['id']);
 
         if(!$equipe)
@@ -89,6 +93,7 @@ class Equipe extends Controller
         $e->site()->associate(\App\Models\Site::find($request['site']));
         $e->benevoles = $request['benevoles'];
         $e->type_equipe = $request['type'];
+        $e->closed_at = NULL;
 
         if($v->passes()){
             $e->save();

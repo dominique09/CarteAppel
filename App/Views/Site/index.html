@@ -12,16 +12,14 @@
     <tr>
         <th>#</th>
         <th>Nom</th>
-        <th>Nb. Équipes Disponible</th>
-        <th></th>
+        <th>Equipes</th>
     </tr>
     </thead>
     <tfoot>
     <tr>
         <th>#</th>
         <th>Nom</th>
-        <th>Nb. Équipes Disponible</th>
-        <th></th>
+        <th>Equipes</th>
     </tr>
     </tfoot>
     <tbody>
@@ -29,16 +27,22 @@
     <tr>
         <td><span class="label {{ (s.actif) ? 'label-success' : 'label-danger' }}">{{ s.id }}</span></td>
         <td>{{ s.nom }}</td>
-        <td>{{ s.nom }}</td>
-        <td>
-            <div class="btn-group btn-group-sm" role="group" aria-label="Option">
-                {% if auth.hasPermission('consulter_service') %}
-                <a class="btn btn-secondary btn-info" href="/site/details/{{ s.id }}">Consulter</a>
+        <td>{% for equipe in s.equipes|sort %}
+                {% if (equipe.type_equipe == 0) %}
+                    <a href="/equipe/edit/{{equipe.id}}" class="btn btn-block btn-sm btn-success">
+                {% elseif (equipe.type_equipe == 1) %}
+                    <a class="btn  btn-block btn-sm btn-warning">
+                {% else %}
+                    <a class="btn  btn-block btn-sm btn-info">
                 {% endif %}
-                {% if auth.hasPermission('gerer_service') %}
-                <a class="btn btn-secondary btn-warning" href="/site/edit/{{ s.id }}">Modifier</a>
-                {% endif %}
-            </div>
+                        {{ equipe.numero }} - {{ equipe.emplacement }} -
+                        {% if(equipe.closed_at == NULL) %}
+                        <span class="badge badge-success">Active</span>
+                        {% else %}
+                        <span class="badge badge-danger">Dissoute</span>
+                        {% endif %}
+                    </a><br>
+            {% endfor %}
         </td>
     </tr>
     {% endfor %}
@@ -52,7 +56,7 @@
         $('#formTable').DataTable({
             "aoColumnDefs": [
                 { "bSortable": false,
-                    "aTargets": [ 3 ]
+                    "aTargets": [ 2 ]
                 }
             ] });
     } );
