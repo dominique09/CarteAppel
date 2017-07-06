@@ -127,6 +127,7 @@ class Equipe extends Controller
         $e = new E();
         $e->numero = $request['numero'];
         $e->emplacement = $request['emplacement'];
+        $e->statut = 10;
         $e->actif = true;
         $e->service()->associate($this->_service->id);
         $e->site()->associate(\App\Models\Site::find($request['site']));
