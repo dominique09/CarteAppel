@@ -44,7 +44,7 @@ class CarteApi extends \Core\ApiController
             $equipe = Equipe::find($this->route_params['equipe']);
 
 
-            if(!($carte->equipes()->contains($equipe))) {
+            if(!($carte->equipes->contains($equipe))) {
                 $carte->equipes()->attach($equipe);
                 $carte->save();
 
