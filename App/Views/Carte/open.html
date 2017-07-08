@@ -151,8 +151,26 @@
             return false;
         });
 
+        $("#table_assignation_tbody").on("click", ".back-arepartir", function(){
+            $.get("/api/carte/repartir-back/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+
         $("#table_assignation_tbody").on("click", ".adirection", function(){
             $.get("/api/carte/direction/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+
+        $("#table_assignation_tbody").on("click", ".back-adirection", function(){
+            $.get("/api/carte/direction-back/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
                 updateEquipe();
                 updateCarteStatus();
                 updateAssignations();
@@ -169,6 +187,15 @@
             return false;
         });
 
+        $("#table_assignation_tbody").on("click", ".back-apatient", function(){
+            $.get("/api/carte/patient-back/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+
         $("#table_assignation_tbody").on("click", ".atransport", function(){
             $.get("/api/carte/transport/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
                 updateEquipe();
@@ -177,9 +204,26 @@
             });
             return false;
         });
+        $("#table_assignation_tbody").on("click", ".back-atransport", function(){
+            $.get("/api/carte/transport-back/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
 
-        $("#table_assignation_tbody").on("click", ".atante", function(){
-            $.get("/api/carte/tante/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+        $("#table_assignation_tbody").on("click", ".atente", function(){
+            $.get("/api/carte/tente/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+
+        $("#table_assignation_tbody").on("click", ".back-atente", function(){
+            $.get("/api/carte/tente-back/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
                 updateEquipe();
                 updateCarteStatus();
                 updateAssignations();
@@ -195,9 +239,25 @@
             });
             return false;
         });
+        $("#table_assignation_tbody").on("click", ".back-terminee", function(){
+            $.get("/api/carte/terminee-back/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
 
         $("#table_assignation_tbody").on("click", ".aannulee", function(){
             $.get("/api/carte/annulee/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
+                updateEquipe();
+                updateCarteStatus();
+                updateAssignations();
+            });
+            return false;
+        });
+        $("#table_assignation_tbody").on("click", ".back-annulee", function(){
+            $.get("/api/carte/annulee-back/{{ old_data.id }}/"+$(this).attr('equipe'), function () {
                 updateEquipe();
                 updateCarteStatus();
                 updateAssignations();
@@ -225,13 +285,13 @@
                     $("#table_assignation_tbody").append("<tr class='" + assignation.status_color + "'>" +
                         "<td>" + assignation.no_equipe + "</td>" +
                         "<td>" + assignation.assignee + "</td>" +
-                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='arepartir btn-xs btn-warning'>" + ((assignation.reparti == null) ? 'Répartir' : assignation.reparti) + "</button></td>" +
-                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='adirection btn-xs btn-info'>" + ((assignation.en_direction == null) ? '10-16' : assignation.en_direction) + "</button></td>" +
-                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='apatient btn-xs btn-danger'>" + ((assignation.sur_les_lieux == null) ? '10-17' : assignation.sur_les_lieux) + "</button></td>" +
-                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='atransport btn-xs btn-info'>" + ((assignation.en_transport == null) ? '10-16' : assignation.en_transport) + "</button></td>" +
-                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='atante btn-xs btn-danger'>" + ((assignation.arrivee_tante == null) ? '10-17' : assignation.arrivee_tante) + "</button></td>" +
-                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='aterminee btn-xs btn-success'>" + ((assignation.terminee == null) ? '10-05' : assignation.terminee) + "</button></td>" +
-                        "<td><button type='button' equipe='" + assignation.equipe_id + "' class='aannulee btn-xs btn-success'>" + ((assignation.annulee == null) ? '10-03' : assignation.annulee) + "</button></td>" +
+                        "<td><div class='btn-group-xs btn-group-vertical' role='group'><button type='button' equipe='" + assignation.equipe_id + "' class='arepartir btn-xs btn-warning'>" + ((assignation.reparti == null) ? 'Répartir' : assignation.reparti) + "</button>"+ ((assignation.reparti != null && assignation.en_direction == null)? "<button type='button' equipe='" + assignation.equipe_id + "' class='back-arepartir btn btn-xs btn-warning'><i class='fa fa-arrow-circle-left'></i></button>":"") +"</div></td>" +
+                        "<td><div class='btn-group-xs btn-group-vertical' role='group'><button type='button' equipe='" + assignation.equipe_id + "' class='adirection btn-xs btn-info'>" + ((assignation.en_direction == null) ? '10-16' : assignation.en_direction) + "</button>"+ ((assignation.en_direction != null && assignation.sur_les_lieux == null)? "<button type='button' equipe='" + assignation.equipe_id + "' class='back-adirection btn btn-xs btn-info'><i class='fa fa-arrow-circle-left'></i></button>":"") +"</div></td>" +
+                        "<td><div class='btn-group-xs btn-group-vertical' role='group'><button type='button' equipe='" + assignation.equipe_id + "' class='apatient btn-xs btn-danger'>" + ((assignation.sur_les_lieux == null) ? '10-17' : assignation.sur_les_lieux) + "</button>"+ ((assignation.sur_les_lieux != null && assignation.en_transport == null)? "<button type='button' equipe='" + assignation.equipe_id + "' class='back-apatient btn btn-xs btn-danger'><i class='fa fa-arrow-circle-left'></i></button>":"") +"</div></td>" +
+                        "<td><div class='btn-group-xs btn-group-vertical' role='group'><button type='button' equipe='" + assignation.equipe_id + "' class='atransport btn-xs btn-warning'>" + ((assignation.en_transport == null) ? '10-16' : assignation.en_transport) + "</button>"+ ((assignation.en_transport != null && assignation.arrivee_tante == null)? "<button type='button' equipe='" + assignation.equipe_id + "' class='back-atransport btn btn-xs btn-warning'><i class='fa fa-arrow-circle-left'></i></button>":"") +"</div></td>" +
+                        "<td><div class='btn-group-xs btn-group-vertical' role='group'><button type='button' equipe='" + assignation.equipe_id + "' class='atente btn-xs btn-danger'>" + ((assignation.arrivee_tante == null) ? '10-17' : assignation.arrivee_tante) + "</button>"+ ((assignation.arrivee_tante != null)? "<button type='button' equipe='" + assignation.equipe_id + "' class='back-atente btn btn-xs btn-danger'><i class='fa fa-arrow-circle-left'></i></button>":"") +"</div></td>" +
+                        "<td><div class='btn-group-xs btn-group-vertical' role='group'><button type='button' equipe='" + assignation.equipe_id + "' class='aterminee btn-xs btn-success'>" + ((assignation.terminee == null) ? '10-05' : assignation.terminee) + "</button></div></td>" +
+                        "<td><div class='btn-group-xs btn-group-vertical' role='group'><button type='button' equipe='" + assignation.equipe_id + "' class='aannulee btn-xs btn-success'>" + ((assignation.annulee == null) ? '10-03' : assignation.annulee) + "</button></div></td>" +
                         "</tr>");
                 }
                 else {
@@ -243,8 +303,8 @@
                         "<td>" + ((assignation.sur_les_lieux == null) ? 'N/A' : assignation.sur_les_lieux) + "</td>" +
                         "<td>" + ((assignation.en_transport == null) ? 'N/A' : assignation.en_transport) + "</td>" +
                         "<td>" + ((assignation.arrivee_tante == null) ? 'N/A' : assignation.arrivee_tante) + "</td>" +
-                        "<td>" + ((assignation.terminee == null) ? 'N/A' : assignation.terminee) + "</td>" +
-                        "<td>" + ((assignation.annulee == null) ? 'N/A' : assignation.annulee) + "</td>" +
+                        "<td>" + ((assignation.terminee == null) ? 'N/A' : assignation.terminee) + " "+ ((assignation.terminee != null)? "<button type='button' equipe='" + assignation.equipe_id + "' aria-label='Back' class='back-terminee btn btn-xs btn-primary'><i class='fa fa-arrow-circle-left'></i></button>":"") +"</td>" +
+                        "<td>" + ((assignation.annulee == null) ? 'N/A' : assignation.annulee) + " "+ ((assignation.annulee != null)? "<button type='button' equipe='" + assignation.equipe_id + "' aria-label='Back' class='back-annulee btn btn-xs btn-primary'><i class='fa fa-arrow-circle-left'></i></button>":"") +"</td>" +
                         "</tr>");
                 }
             });

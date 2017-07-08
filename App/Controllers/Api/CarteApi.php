@@ -44,7 +44,7 @@ class CarteApi extends \Core\ApiController
             $equipe = Equipe::find($this->route_params['equipe']);
 
 
-            if(!($carte->equipesAssignees->contains($equipe))) {
+            if(!($carte->equipes()->contains($equipe))) {
                 $carte->equipes()->attach($equipe);
                 $carte->save();
 
@@ -89,6 +89,31 @@ class CarteApi extends \Core\ApiController
         return "non-reparti";
     }
 
+    public function repartirBackAction(){
+        if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
+            $carte = Carte::find($this->route_params['carte']);
+            $equipe = $carte->equipes()
+                ->where('equipe_id', $this->route_params['equipe'])
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->first();
+
+            $equipe->pivot->reparti = null;
+            $equipe->pivot->save();
+
+                $carte->status = 0;
+
+            $equipe->statut = 0;
+
+            $carte->save();
+            $equipe->save();
+
+            return "reparti back";
+
+        }
+
+        return "non-reparti back";
+    }
+
     public function directionAction(){
         if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
             $carte = Carte::find($this->route_params['carte']);
@@ -113,6 +138,31 @@ class CarteApi extends \Core\ApiController
         }
 
         return "non-direction";
+    }
+
+    public function directionBackAction(){
+        if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
+            $carte = Carte::find($this->route_params['carte']);
+            $equipe = $carte->equipes()
+                ->where('equipe_id', $this->route_params['equipe'])
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->first();
+
+            $equipe->pivot->en_direction = null;
+            $equipe->pivot->save();
+
+                $carte->status = 1;
+
+            $equipe->statut = 1;
+
+            $carte->save();
+            $equipe->save();
+
+            return "direction Back";
+
+        }
+
+        return "non-direction Back";
     }
 
     public function patientAction(){
@@ -141,6 +191,31 @@ class CarteApi extends \Core\ApiController
         return "non-patient";
     }
 
+    public function patientBackAction(){
+        if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
+            $carte = Carte::find($this->route_params['carte']);
+            $equipe = $carte->equipes()
+                ->where('equipe_id', $this->route_params['equipe'])
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->first();
+
+            $equipe->pivot->sur_les_lieux = null;
+            $equipe->pivot->save();
+
+                $carte->status = 2;
+
+            $equipe->statut = 2;
+
+            $carte->save();
+            $equipe->save();
+
+            return "patient BaCK";
+
+        }
+
+        return "non-patient Back";
+    }
+
     public function transportAction(){
         if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
             $carte = Carte::find($this->route_params['carte']);
@@ -166,7 +241,33 @@ class CarteApi extends \Core\ApiController
 
         return "non-transport";
     }
-    public function tanteAction(){
+
+    public function transportBackAction(){
+        if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
+            $carte = Carte::find($this->route_params['carte']);
+            $equipe = $carte->equipes()
+                ->where('equipe_id', $this->route_params['equipe'])
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->first();
+
+            $equipe->pivot->en_transport = null;
+            $equipe->pivot->save();
+
+                $carte->status = 3;
+
+            $equipe->statut = 3;
+
+            $carte->save();
+            $equipe->save();
+
+            return "transport Back";
+
+        }
+
+        return "non-transport Back";
+    }
+
+    public function tenteAction(){
         if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
             $carte = Carte::find($this->route_params['carte']);
             $equipe = $carte->equipes()
@@ -185,12 +286,38 @@ class CarteApi extends \Core\ApiController
             $carte->save();
             $equipe->save();
 
-            return "tante";
+            return "tente";
 
         }
 
-        return "non-tante";
+        return "non-tente";
     }
+
+    public function tenteBackAction(){
+        if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
+            $carte = Carte::find($this->route_params['carte']);
+            $equipe = $carte->equipes()
+                ->where('equipe_id', $this->route_params['equipe'])
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','=',null)->first();
+
+            $equipe->pivot->arrivee_tante = null;
+            $equipe->pivot->save();
+
+                $carte->status = 4;
+
+            $equipe->statut = 4;
+
+            $carte->save();
+            $equipe->save();
+
+            return "tente back";
+
+        }
+
+        return "non-tente back";
+    }
+
     public function termineeAction(){
         if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
             $carte = Carte::find($this->route_params['carte']);
@@ -222,6 +349,38 @@ class CarteApi extends \Core\ApiController
         return "non-terminee";
     }
 
+    public function termineeBackAction(){
+        if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
+            $carte = Carte::find($this->route_params['carte']);
+            $equipe = $carte->equipes()
+                ->where('equipe_id', $this->route_params['equipe'])
+                ->wherePivot('terminee','!=',null)
+                ->WherePivot('annulee','=',null)->first();
+            $equipe->pivot->terminee = null;
+            $equipe->pivot->save();
+
+            $autre_equipe = ($carte->equipes()
+                    ->where('equipe_id', '!=', $this->route_params['equipe'])
+                    ->wherePivot('terminee','=',null)
+                    ->WherePivot('annulee','=',null)->count() > 0);
+
+            if(!$autre_equipe) {
+                $carte->status = 1;
+            }
+
+            $equipe->statut = 10;
+
+            $carte->save();
+            $equipe->save();
+
+            return "terminee back";
+
+        }
+
+        return "non-terminee back";
+    }
+
+
     public function annuleeAction(){
         if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
             $carte = Carte::find($this->route_params['carte']);
@@ -252,6 +411,38 @@ class CarteApi extends \Core\ApiController
         }
 
         return "non-annulee";
+    }
+
+    public function annuleeBackAction(){
+        if(array_key_exists('equipe', $this->route_params) && array_key_exists('carte', $this->route_params)) {
+            $carte = Carte::find($this->route_params['carte']);
+            $equipe = $carte->equipes()
+                ->where('equipe_id', $this->route_params['equipe'])
+                ->wherePivot('terminee','=',null)
+                ->WherePivot('annulee','!=',null)->first();
+
+            $equipe->pivot->annulee = null;
+            $equipe->pivot->save();
+
+            $autre_equipe = ($carte->equipes()
+                    ->where('equipe_id', '!=', $this->route_params['equipe'])
+                    ->wherePivot('terminee','=',null)
+                    ->WherePivot('annulee','=',null)->count() > 0);
+
+            if(!$autre_equipe){
+                $carte->status = 1;
+            }
+
+            $equipe->statut = 10;
+
+            $carte->save();
+            $equipe->save();
+
+            return "annulee back";
+
+        }
+
+        return "non-annulee back";
     }
 
     public function assignationsAction(){
@@ -290,7 +481,7 @@ class CarteApi extends \Core\ApiController
                        $r_a['status_color'] = 'bg-danger';
                        break;
                    case 4: //En transport
-                       $r_a['status_color'] = 'bg-info';
+                       $r_a['status_color'] = 'bg-warning';
                        break;
                    case 5: //Tente
                        $r_a['status_color'] = 'bg-warning';
@@ -353,11 +544,16 @@ class CarteApi extends \Core\ApiController
                         break;case 4: //En transport
                         $carte['status'] = 'warning';
                         break;case 5: //Arrivée
-                        $carte['status'] = 'wargning';
+                        $carte['status'] = 'warning';
                         break;
                 }
 
                 $carte['priorite'] = $c->priorite - 1;
+
+                $now   = new \DateTime(date("Y-m-d H:i:s"));
+                $ouverture = new \DateTime($c->heure_appel);
+                $diff  = $now->diff($ouverture);
+                $carte['attente'] = $diff->format("%H:%I:%S");
 
                 $carte['equipes'] = [];
                 $carte['equipes_color'] = [];
