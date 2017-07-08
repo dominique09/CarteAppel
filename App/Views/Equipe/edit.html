@@ -18,7 +18,7 @@
     </div>
     <div class="form-goup {{ errors.benevoles ? 'has-error' : '' }}">
         <label for="emplacement">Bénévoles: </label>
-        <input class="form-control {{ errors.benevoles ? 'form-control-danger' : '' }}" type="text" name="benevoles" id="benevoles" value="{{ old_data.emplacement }}"/>
+        <input class="form-control {{ errors.benevoles ? 'form-control-danger' : '' }}" type="text" name="benevoles" id="benevoles" value="{{ old_data.benevoles }}"/>
         <div class="help-block">{{ errors.benevoles | first }}</div>
     </div>
     <div class="form-group {{ errors.site ? 'has-error' : '' }}">
