@@ -42,9 +42,9 @@ class Config
     const AUTH_COOKIE_SECURE = false;
 
     ///Mail
-    const MAIL_FROM = 'no-reply@carteappelasj';
-    const MAIL_DOMAIN = 'mail.dseptembre.com';
-    const MAIL_SECRET = 'key-b265620fa3edb4c83dc27e13c4dd5365';
+    const MAIL_FROM = '';
+    const MAIL_DOMAIN = '';
+    const MAIL_SECRET = '';
 
     ///Gravatar
     const GRAVATAR_BASE_USR = 'http://www.gravatar.com/avatar/';
