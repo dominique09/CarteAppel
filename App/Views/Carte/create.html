@@ -28,7 +28,7 @@
                     <select name="appelant" id="appelant" class="selectpicker form-control" data-live-search="true" show-sub-text="true" title="Sélectionner l'appelant">
                         <option  {{ (old_data.appelant == 1)?'selected':'' }} value="1" >Sécurité</option>
                         <option {{ (old_data.appelant == 2)?'selected':'' }} value="2" >Bénévoles</option>
-                        <option {{ (old_data.appelant == 3)?'selected':'' }} value="3" >ASJ</option>
+                        <option {{ (old_data.appelant == 3)?'selected':'' }} value="3" selected>ASJ</option>
                         <option {{ (old_data.appelant == 4)?'selected':'' }} value="4" >Public</option>
                         <option {{ (old_data.appelant == 5)?'selected':'' }} value="5" >911</option>
                         <option {{ (old_data.appelant == 6)?'selected':'' }} value="6" >Autre</option>
