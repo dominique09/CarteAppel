@@ -135,7 +135,7 @@
             $.each(data, function(i, carte){
                 var row = "";
                 var blink_me = "";
-                if(string(carte.emplacement).match('_V_')){
+                if(String(carte.emplacement).match('_V_')){
                     blink_me = "blink_me";
                 }
                 if(carte.id != undefined) {
