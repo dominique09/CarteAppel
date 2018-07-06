@@ -58,7 +58,7 @@ https://github.com/silviomoreto/bootstrap-select/issues/1135
   to {opacity: 0.4;}
 }
 .blink_me{
-	text-decoration: blink_me;
+	text-decoration: blink;
 	-webkit-animation-name: blinker;
 	-webkit-animation-duration: 0.4s;
 	-webkit-animation-iteration-count:infinite;
