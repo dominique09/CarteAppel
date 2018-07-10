@@ -50,6 +50,9 @@ class CarteApi extends \Core\ApiController
 
                 if($carte->status < 1)
                     $carte->status = 0;
+                if($equipe->type_equipe == 1){
+                    $equipe->emplacement = "-";
+                }
                 $equipe->statut = 1;
                 $carte->save();
                 $equipe->save();
